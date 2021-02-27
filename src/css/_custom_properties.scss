@@ -1,0 +1,14 @@
+:root {
+  --font-primary: 'WebFont', Arial, sans-serif;
+  --font-secondary: sans-serif;
+  --baseline: 1.5;
+  --margin: calc(var(--baseline) * 0.5rem); // 14.4
+  --marginx2: calc(var(--baseline) * 1rem); // 28.8
+  --marginx3: calc(var(--baseline) * 1.5rem); // 43.3;
+  --marginx4: calc(var(--baseline) * 2.5rem); // 57.
+  --marginx5: calc(var(--baseline) * 3rem); // 71.7.
+  --marginx6: calc(var(--baseline) * 3.5rem); // 86.1.
+  --marginx7: calc(var(--baseline) * 4rem); // 100.5.
+  --marginLarge: calc(var(--baseline) * 8rem);
+  --link-colour: white;
+}

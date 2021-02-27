@@ -1,0 +1,199 @@
+@import 'reset';
+@import 'custom_properties';
+@import 'variables';
+@import 'mixin';
+
+@font-face {
+  font-family: 'wevlimedium';
+  src: url('wevli_medium-webfont.woff2') format('woff2'),
+  url('wevli_medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'wevlimedium_italic';
+  src: url('wevli_medium_italic-webfont.woff2') format('woff2'),
+  url('wevli_medium_italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'wevlibold_italic';
+  src: url('wevli_bold_italic-webfont.woff2') format('woff2'),
+  url('wevli_bold_italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'wevlibold';
+  src: url('wevli_bold-webfont.woff2') format('woff2'),
+  url('wevli_bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: $baseFontFamily;
+  font-weight: 400;
+  line-height: #{$baseLineHeight};
+  color: white;
+  overflow-x: hidden;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+html {
+  font-size: #{$baseFontSize};
+  overflow-x: hidden;
+  background: url("../../static/background.svg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+:root {
+  --wrapperColour: #222326;
+  --borderColour: #5d6572;
+  --border: 2px solid #5d6572;
+}
+
+.wrapper {
+  width: 1200px;
+  background-color: var(--wrapperColour);
+  border-radius: 25px;
+  display: inline-block;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+
+  header {
+    background: transparent;
+
+    img {
+
+    }
+  }
+
+  article {
+    .top {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)) 150px;
+      grid-column-gap: 5%;
+      padding: var(--marginx5) 5% var(--marginx3) 5%;
+
+      .column-one {
+        border: var(--border);
+        border-top-left-radius: 50px;
+        min-height: 290px;
+      }
+
+      .column-two {
+        border: var(--border);
+        background-clip: padding-box;
+
+        .viewer {
+
+        }
+
+        .viewer img {
+          border-radius: 10px/10px;
+          object-fit: cover;
+        }
+
+      }
+
+      .column-three {
+        .levels {
+          border: var(--border);
+          height: 100%;
+        }
+      }
+    }
+    .middle {
+      display: grid;
+      grid-template-columns: minmax(360px, 0.5fr) minmax(360px, 1.5fr);
+      padding: 0 5%;
+
+      .column-one {
+        .admin {
+          width: 5rem;
+          aspect-ratio: 8 / 6;
+        }
+        time {
+          @include font-calculator($baseFontFamily, 22px);
+        }
+      }
+
+      .column-two {
+        ul {
+          display: flex;
+          justify-content: flex-end;
+          align-content: center;
+          column-gap: 2rem;
+
+          button {
+            border: none;
+            background: none;
+          }
+
+          .left-cut, .right-cut, .left-frame, .play, .right-frame, .upload, .export {
+            width: 3rem;
+            aspect-ratio: 8 / 6;
+          }
+        }
+      }
+    }
+    .bottom {
+      margin: var(--marginx3) 5% var(--marginx5) 5%;
+      border: var(--border);
+      border-bottom-right-radius: 50px;
+      border-bottom-left-radius: 50px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      button {
+        border: none;
+        background: none;
+      }
+      > div:last-of-type {
+        border-bottom-right-radius: 50px;
+        border-bottom-left-radius: 50px;
+      }
+      .eye {
+        width: 4rem;
+        aspect-ratio: 8 / 6;
+      }
+      .row-one {
+        height: 100px;
+        display: grid;
+        grid-template-columns: minmax(250px, 0.5fr) minmax(360px, 1.5fr);
+        border-bottom: var(--border);
+        .controls {
+          border-right: var(--border);
+          display: grid;
+          place-items: center;
+        }
+        .timeline {
+
+        }
+      }
+      .row-two {
+        height: 100px;
+        display: grid;
+        grid-template-columns: minmax(250px, 0.5fr) minmax(360px, 1.5fr);
+        .controls {
+          border-right: var(--border);
+          display: grid;
+          place-items: center;
+        }
+        .timeline {
+
+        }
+      }
+    }
+  }
+}

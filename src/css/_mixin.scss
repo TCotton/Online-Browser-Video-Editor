@@ -1,0 +1,155 @@
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+// increases margin-bottom if font size is greater than 20px
+@function double-size($fontSize, $marginNumber) {
+  @if strip-units($fontSize) > 20  {
+    @return $marginNumber * 1;
+  } @else {
+    @return $marginNumber;
+  }
+}
+
+@function basefont-to-pixel($baseFS) {
+  // see http://pxtoem.com/
+  @if $baseFS == 37.5% {
+    @return 6;
+  } @else if $baseFS == 43.8% {
+    @return 7;
+  } @else if $baseFS == 50.0% {
+    @return 8;
+  } @else if $baseFS == 56.3% {
+    @return 9;
+  } @else if $baseFS == 62.5% {
+    @return 10;
+  } @else if $baseFS == 68.8% {
+    @return 11;
+  } @else if $baseFS == 75.0% {
+    @return 12;
+  } @else if $baseFS == 81.3% {
+    @return 13;
+  } @else if $baseFS == 87.5% {
+    @return 14;
+  } @else if $baseFS == 93.8% {
+    @return 15;
+  } @else if $baseFS == 100.0% {
+    @return 16;
+  }
+
+}
+
+@mixin font-calculator($fontFamily, $fontSize, $divider: null) {
+
+  $fontSizeEm: strip-units($fontSize) / basefont-to-pixel($baseFontSize);
+
+  font-size: #{$fontSizeEm}#{"rem"};
+  font-family: #{$fontFamily};
+
+  @if $divider == 0 {
+    margin-bottom: 0;
+  } @else if $divider == 3 {
+    $margin: (strip-units($baseLineHeight) / $fontSizeEm) * 3;
+    margin-bottom: #{double-size($fontSize, $margin)}#{"rem"};
+  } @else if $divider == 2 {
+    $margin: (strip-units($baseLineHeight) / $fontSizeEm) * 2;
+    margin-bottom: #{double-size($fontSize, $margin)}#{"rem"};
+  } @else if $divider == 1 {
+    $margin: (strip-units($baseLineHeight) / $fontSizeEm);
+    margin-bottom: #{double-size($fontSize, $margin)}#{"rem"};
+  } @else if $divider == 1.5 {
+    $margin: (strip-units($baseLineHeight) / $fontSizeEm) * 1.5;
+    margin-bottom: #{double-size($fontSize, $margin)}#{"rem"};
+  } @else if $divider == 0.5 {
+    $margin: strip-units($baseLineHeight) / $fontSizeEm / 2;
+    margin-bottom: #{double-size($fontSize, $margin)}#{"rem"};
+  } @else if $divider == 0.25 {
+    $margin: strip-units($baseLineHeight) / $fontSizeEm / 4;
+    margin-bottom: #{double-size($fontSize, $margin)}#{"rem"};
+  } @else if $divider == null {
+    $margin: strip-units($baseLineHeight) / $fontSizeEm;
+    margin-bottom: #{double-size($fontSize, $margin)}#{"rem"};
+  }
+}
+
+// media queries mixin
+@mixin breakpoint($name) {
+  @if $name == "wide" {
+    @media (max-width: $media_breakpoint_wide) {
+      @content;
+    }
+  } @else if $name == "tablet" {
+    @media (max-width: $media_breakpoint_tablet) {
+      @content;
+    }
+  } @else if $name == "mobile" {
+    @media (max-width: $media_breakpoint_mobile) {
+      @content;
+    }
+  } @else if $name == "ipad" {
+    // check that this works
+    @media (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2), not all, (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      @content;
+    }
+  } @else if $name == "ipadlandscape" {
+    // check that this works
+    @media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2), not all, (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      @content;
+    }
+  } @else if $name == "ipadportrait" {
+    // check that this works
+    @media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2), not all, (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      @content;
+    }
+  } @else if $name == "retina" {
+    // check that this works
+    @media (-webkit-min-device-pixel-ratio: 2), not all, (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      @content;
+    }
+  } @else if $name == "mintablet" {
+    @media (min-device-width: 768px) and (orientation: landscape) {
+      @content;
+    }
+  }
+}
+
+// sharper fonts
+@mixin font-sharp() {
+  text-rendering: optimizeLegibility;
+  -webkit-font-kerning: normal;
+  -moz-font-kerning: normal;
+  font-kerning: normal;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga", "kern";
+  font-feature-settings: "liga", "kern";
+}
+
+// Overflow Ellipsis
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Word Wrapping
+@mixin word-wrap() {
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+@mixin word-nowrap() {
+  word-break: normal;
+  word-break: normal;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  hyphens: none;
+}
+
+.line-through {
+  text-decoration: line-through;
+  user-select: none;
+}
