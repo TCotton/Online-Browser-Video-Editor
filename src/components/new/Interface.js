@@ -48,6 +48,7 @@ export default function Interface() {
                 <TooltipReference {...tooltip6}>
                     <InputFile />
                 </TooltipReference>
+                <Tooltip {...tooltip6}>Upload</Tooltip>
             </li>
             <li>
                 <TooltipReference {...tooltip7} as={Button}>

@@ -140,6 +140,36 @@ main {
             background: none;
           }
 
+          input[type="file"] {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+          }
+
+          input[type="file"] + label {
+            background: url("../../static/import.svg") no-repeat top center;
+            width: 3rem;
+            aspect-ratio: 8 / 6;
+            color: rgba(255, 255, 255, 0);
+            display: inline-block;
+            cursor: pointer;
+          }
+          form {
+            position: relative;
+          }
+
+          .fileStyling {
+            + .Errors {
+              position: absolute;
+              transform: translate(-50%, 50%);
+              white-space: nowrap;
+              @include font-calculator($baseFontFamily, 12px);
+            }
+          }
+
           .left-cut, .right-cut, .left-frame, .play, .right-frame, .upload, .export {
             width: 3rem;
             aspect-ratio: 8 / 6;
