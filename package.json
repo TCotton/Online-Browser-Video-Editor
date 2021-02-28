@@ -1,9 +1,10 @@
 {
-  "name": "gatsby-starter-advanced",
-  "description": "GatsbyJS starter that includes examples for advanced use cases.",
+  "name": "video-editor",
+  "description": "",
   "version": "2.20.11",
-  "author": "Ruben Harutyunyan <vagr9k@gmail.com>",
+  "author": "Andrew Walpole",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
     "formik": "^2.2.6",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
@@ -34,6 +35,7 @@
     "moment": "^2.29.1",
     "netlify-cms-app": "^2.13.3",
     "prismjs": "^1.22.0",
+    "prop-types": "^15.7.2",
     "ramda": "^0.27.1",
     "react": "^17.0.1",
     "react-disqus-comments": "^1.4.0",
@@ -85,7 +87,7 @@
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "format:styles": "prettier '**/*.{css,scss}' --write",
-    "serveW": "gatsby develop -p 5000",
+    "serveW": "gatsby --verbose develop -p 5000",
     "devW": "node $NODE_DEBUG_OPTION ./node_modules/.bin/gatsby develop -p 5000"
   },
   "remarkConfig": {

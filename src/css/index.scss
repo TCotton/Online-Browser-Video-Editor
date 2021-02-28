@@ -166,6 +166,7 @@ main {
               position: absolute;
               transform: translate(-50%, 50%);
               white-space: nowrap;
+              color: #e2376c;
               @include font-calculator($baseFontFamily, 12px);
             }
           }
@@ -226,4 +227,17 @@ main {
       }
     }
   }
+}
+
+div[role="tooltip"] {
+  background: #e0b838;
+  color: #ffffff;
+  @include font-calculator($baseFontFamily, 11px, 0);
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.fragmentDetails {
+  color: red;
+  font-size: "clamp(200%, 1rem + 2vw, 30px)";
 }

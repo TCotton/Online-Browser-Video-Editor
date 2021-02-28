@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react';
-import {ErrorMessage, Field, Form, Formik, useFormikContext} from 'formik';
+import React, {useEffect, useReducer} from 'react';
+import {Field, Form, Formik, useFormikContext} from 'formik';
+import {fileReducer} from '../../reducers/fileReducer';
 
 const Logger = () => {
     const formik = useFormikContext();
@@ -36,39 +37,51 @@ const AutoSubmit = () => {
     return null;
 };
 
-const App = () => (
-    <div className="app">
-        <Formik
-            initialValues={{
-                file: "",
-            }}
-            validate={values => {
-                const errors = {};
-                if (!values.file) {
-                    errors.file = '';
-                } else if (!/(pdf|zip|doc)$/ig.test(values.email)) {
-                    errors.file = 'Only JPEG and PNG images please';
-                }
-                return errors
-            }}
-            onSubmit={(values, {setSubmitting}) => {
-                setTimeout(() => {
-                    setSubmitting(false);
-                }, 400);
-            }}
-        >
-            <Form>
-                <Logger/>
-                <div className="fileStyling">
-                    <Field name="file" id="file" type="file"/>
-                    <label htmlFor="file">Choose a file</label>
-                </div>
-                <div className="Errors">
-                    <ErrorMessage name="file"/>
-                </div>
-            </Form>
-        </Formik>
-    </div>
-);
 
-export default App;
+const FileUpload = () => {
+    const [{file}, dispatch] = useReducer(fileReducer ,{file: null});
+
+    return (
+        <div className="app">
+            <Formik
+                initialValues={{
+                    file: "",
+                }}
+                validate={values => {
+                    const errors = {};
+                    if (!values.file) {
+                        errors.file = '';
+                    } else if (!/(png|jpeg|jpg)$/ig.test(values.email)) {
+                        errors.file = 'Only JPEG and PNG images please';
+                    }
+                    return errors
+                }}
+                onSubmit={(values, {setSubmitting}) => {
+                    alert('yes');
+                    setTimeout(() => {
+                        setSubmitting(false);
+                    }, 400);
+                }}
+                render={({values, handleSubmit}) => {
+                    return (
+                        <Form onSubmit={handleSubmit}>
+                            <Logger/>
+                            <div className="fileStyling">
+                                <Field name="file" id="file" type="file" onChange={(event) => {
+                                    console.dir(event.currentTarget.files[0]);
+                                    dispatch({type: 'add', payload: event.currentTarget.files[0]});
+                                }}/>
+                                <label htmlFor="file">Choose a file</label>
+                            </div>
+                            <div className="Errors">
+                                {values.file.error}
+                            </div>
+                        </Form>
+                    )
+                }}
+            />
+        </div>
+    )
+};
+
+export default FileUpload;
