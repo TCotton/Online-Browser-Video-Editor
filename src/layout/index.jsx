@@ -1,10 +1,24 @@
 import React from "react";
+import {useDispatch, useSelector} from 'react-redux';
 import {Helmet} from "react-helmet";
 import config from "../../data/SiteConfig";
 import Interface from '../components/new/Interface';
 import "../css/index.scss";
+import {increment, selectCount} from '../components/new/counterSlice';
 //{children}
-export default function MainLayout() {
+
+const Counter = () => {
+    const count = useSelector(selectCount);
+    const dispatch = useDispatch();
+    return (
+        <div>
+            <p>Count: {count}</p>
+            <button onClick={() => dispatch(increment())}>Increment</button>
+        </div>
+    )
+}
+
+const MainLayout = () => {
     return (
         <div className="wrapper">
             <Helmet>
@@ -14,6 +28,7 @@ export default function MainLayout() {
             <main>
                 <header>
                     <img src={"./had.svg"} alt=""/>
+                    <Counter/>
                 </header>
                 <article>
                     <section className="top">
@@ -37,7 +52,7 @@ export default function MainLayout() {
                             </div>
                         </div>
                         <div className="column-two">
-                            <Interface />
+                            <Interface/>
                         </div>
                     </section>
                     <section className="bottom">
@@ -65,3 +80,5 @@ export default function MainLayout() {
         </div>
     );
 }
+
+export default MainLayout;
