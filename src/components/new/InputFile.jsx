@@ -1,6 +1,9 @@
-import React, {useEffect, useReducer} from 'react';
+import React, {useEffect} from 'react';
 import {Field, Form, Formik, useFormikContext} from 'formik';
-import {fileReducer} from '../../reducers/fileReducer';
+import {useDispatch} from "react-redux";
+import {add} from './slices/filesSlice'
+import useLocalStorage from '../../hooks/useLocalStorage';
+import Dexie, { liveQuery } from "dexie";
 
 const Logger = () => {
     const formik = useFormikContext();
@@ -39,8 +42,12 @@ const AutoSubmit = () => {
 
 
 const FileUpload = () => {
-    const [{file}, dispatch] = useReducer(fileReducer ,{file: null});
-
+    const dispatch = useDispatch();
+    const [fileObject, setFileObject] = useLocalStorage('fileObject', {});
+    const db = new Dexie('MyDatabase');
+    db.version(1).stores({
+        file: '++'
+    });
     return (
         <div className="app">
             <Formik
@@ -68,14 +75,18 @@ const FileUpload = () => {
                             <Logger/>
                             <div className="fileStyling">
                                 <Field name="file" id="file" type="file" onChange={(event) => {
-                                    console.dir(event.currentTarget.files[0]);
-                                    dispatch({type: 'add', payload: event.currentTarget.files[0]});
+                                    setFileObject();
+                                    db.file.add(event.currentTarget.files[0])
+                                    dispatch(add({
+                                        lastModified: event.currentTarget.files[0].lastModified,
+                                        name: event.currentTarget.files[0].name,
+                                        size: event.currentTarget.files[0].size,
+                                        type: event.currentTarget.files[0].type
+                                    }));
                                 }}/>
                                 <label htmlFor="file">Choose a file</label>
                             </div>
-                            <div className="Errors">
-                                {values.file.error}
-                            </div>
+                            <div className="Errors">{values.file.error}</div>
                         </Form>
                     )
                 }}

@@ -1,6 +1,9 @@
 import React from "react";
 import {Button} from "reakit/Button";
 import {Tooltip, TooltipReference, useTooltipState} from "reakit/Tooltip";
+import {useSelector} from "react-redux";
+import {nameFile} from "./slices/filesSlice";
+
 import FileUpload from './InputFile';
 import ErrorBoundary from '../ErrorBoundary/Error';
 
@@ -12,10 +15,14 @@ export default function Interface() {
     const tooltip5 = useTooltipState({baseId: 'tooltip5'});
     const tooltip6 = useTooltipState({baseId: 'tooltip6'});
     const tooltip7 = useTooltipState({baseId: 'tooltip7'});
+    const name = useSelector(nameFile);
 
     return (
         <ErrorBoundary>
             <ul>
+                <li>
+                    File: {name}
+                </li>
                 <li>
                     <TooltipReference {...tooltip1} as={Button}>
                         <img src={"./cut.svg"} className="left-cut" alt="left cut"/>

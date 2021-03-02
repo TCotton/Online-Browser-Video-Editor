@@ -4,8 +4,7 @@ import {Helmet} from "react-helmet";
 import config from "../../data/SiteConfig";
 import Interface from '../components/new/Interface';
 import "../css/index.scss";
-import {increment, selectCount} from '../components/new/counterSlice';
-//{children}
+import {increment, selectCount} from '../components/new/slices/counterSlice';
 
 const Counter = () => {
     const count = useSelector(selectCount);
