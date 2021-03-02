@@ -5,6 +5,7 @@ import config from "../../data/SiteConfig";
 import Interface from '../components/new/Interface';
 import "../css/index.scss";
 import {increment, selectCount} from '../components/new/slices/counterSlice';
+import VideoSettings from "../../src/components/new/VideoSettings";
 
 const Counter = () => {
     const count = useSelector(selectCount);
@@ -35,6 +36,7 @@ const MainLayout = () => {
                         </div>
                         <div className="column-two">
                             <div className="viewer">
+                                <VideoSettings />
                             </div>
                         </div>
                         <div className="column-three">

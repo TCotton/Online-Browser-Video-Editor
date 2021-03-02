@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react';
 import {Field, Form, Formik, useFormikContext} from 'formik';
 import {useDispatch} from "react-redux";
+import db from '../indexDB';
 import {add} from './slices/filesSlice'
 import useLocalStorage from '../../hooks/useLocalStorage';
-import Dexie, { liveQuery } from "dexie";
+
+
 
 const Logger = () => {
     const formik = useFormikContext();
@@ -44,10 +46,6 @@ const AutoSubmit = () => {
 const FileUpload = () => {
     const dispatch = useDispatch();
     const [fileObject, setFileObject] = useLocalStorage('fileObject', {});
-    const db = new Dexie('MyDatabase');
-    db.version(1).stores({
-        file: '++'
-    });
     return (
         <div className="app">
             <Formik
@@ -58,10 +56,10 @@ const FileUpload = () => {
                     const errors = {};
                     if (!values.file) {
                         errors.file = '';
-                    } else if (!/(png|jpeg|jpg)$/ig.test(values.email)) {
-                        errors.file = 'Only JPEG and PNG images please';
+                    } else if (!/([a-zA-Z0-9\s_\\.\-\(\):])+(.mp4|.wav|.mov|.webm|.ogg)$/ig.test(values.email)) {
+                        errors.file = 'Please only add a video';
                     }
-                    return errors
+                    return errors;
                 }}
                 onSubmit={(values, {setSubmitting}) => {
                     alert('yes');

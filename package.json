@@ -4,8 +4,10 @@
   "version": "2.20.11",
   "author": "Andrew Walpole",
   "dependencies": {
-    "dexie": "3.1.0-alpha.8",
     "@reduxjs/toolkit": "^1.5.0",
+    "check-video-codec": "^1.1.1",
+    "codec-detect": "^1.3.0",
+    "dexie": "3.1.0-alpha.8",
     "formik": "^2.2.6",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
@@ -49,7 +51,8 @@
     "redux": "^4.0.5",
     "remotion": "^1.4.0",
     "sass": "^1.32.8",
-    "url-join": "^4.0.0"
+    "url-join": "^4.0.0",
+    "video.js": "^7.11.4"
   },
   "devDependencies": {
     "cli-glob": "^0.1.0",
