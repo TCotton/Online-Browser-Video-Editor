@@ -39,6 +39,10 @@ const AutoSubmit = () => {
     return null;
 };
 
+const dexieRun = (files) => {
+    db.file.clear();
+    db.file.add(files);
+}
 
 const FileUpload = () => {
     const dispatch = useDispatch();
@@ -69,7 +73,7 @@ const FileUpload = () => {
                             <Logger/>
                             <div className="fileStyling">
                                 <Field name="file" id="file" type="file" onChange={(event) => {
-                                    db.file.add(event.currentTarget.files[0])
+                                    dexieRun(event.currentTarget.files[0]);
                                     dispatch(add({
                                         lastModified: event.currentTarget.files[0].lastModified,
                                         name: event.currentTarget.files[0].name,

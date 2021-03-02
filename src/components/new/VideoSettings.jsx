@@ -14,7 +14,9 @@ const VideoSettings = () => {
     );
 
     friendsObservable.subscribe({
-        next: result => console.log("Got result:", result),
+        next: result => {
+            console.log("Got result:", result)
+        },
         error: error => console.error(error)
     });
 
