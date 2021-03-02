@@ -13629,6 +13629,11 @@ react-hot-loader@^4.12.21, react-hot-loader@^4.8.0:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
+react-html5video@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/react-html5video/-/react-html5video-2.5.1.tgz#bbc4314be1d583cb991a11ca3480e70a3c964caf"
+  integrity sha1-u8QxS+HVg8uZGhHKNIDnCjyWTK8=
+
 react-immutable-proptypes@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/react-immutable-proptypes/-/react-immutable-proptypes-2.2.0.tgz#cce96d68cc3c18e89617cbf3092d08e35126af4a"
@@ -17447,6 +17452,14 @@ vfile@^4.0.0:
     safe-json-parse "4.0.0"
     videojs-font "3.2.0"
     videojs-vtt.js "^0.15.2"
+
+videojs-css@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/videojs-css/-/videojs-css-1.1.0.tgz#6c1302f2f8d60e4b1f0017472aa596a841c9aa05"
+  integrity sha512-xyp34GxvT8O+jS6X3N/4PHu019qp9N3+yJ0/F/p5tVEf0a/W3LK90ghb1Sg5mihxJTy3XTN3BuIe16TVHFJOSQ==
+  dependencies:
+    global "^4.4.0"
+    video.js "^6 || ^7"
 
 videojs-font@3.2.0:
   version "3.2.0"

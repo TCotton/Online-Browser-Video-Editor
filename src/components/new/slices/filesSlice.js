@@ -19,6 +19,7 @@ export const filesSlice = createSlice({
 
 export const { add } = filesSlice.actions;
 
-export const nameFile = state => state.files.file.name;
+export const fileName = state => state.files.file.name;
+export const fileType = state => state.files.file.type;
 
 export default filesSlice.reducer;

@@ -1,6 +1,5 @@
 import React, {useEffect, useRef} from "react";
 import videojs from 'video.js';
-
 const VideoDisplay = (props) => {
     const {videoSrc, autoplay, muted} = props;
     const playerRef = useRef();
@@ -16,7 +15,7 @@ const VideoDisplay = (props) => {
     }, [videoSrc, autoplay, muted]);
 
     return (
-        <div data-vjs-player>
+        <div>
             <video ref={node => playerRef.current = node} className="video-js"></video>
         </div>
     )

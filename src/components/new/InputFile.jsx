@@ -3,9 +3,6 @@ import {Field, Form, Formik, useFormikContext} from 'formik';
 import {useDispatch} from "react-redux";
 import db from '../indexDB';
 import {add} from './slices/filesSlice'
-import useLocalStorage from '../../hooks/useLocalStorage';
-
-
 
 const Logger = () => {
     const formik = useFormikContext();
@@ -45,7 +42,6 @@ const AutoSubmit = () => {
 
 const FileUpload = () => {
     const dispatch = useDispatch();
-    const [fileObject, setFileObject] = useLocalStorage('fileObject', {});
     return (
         <div className="app">
             <Formik
@@ -56,7 +52,7 @@ const FileUpload = () => {
                     const errors = {};
                     if (!values.file) {
                         errors.file = '';
-                    } else if (!/([a-zA-Z0-9\s_\\.\-\(\):])+(.mp4|.wav|.mov|.webm|.ogg)$/ig.test(values.email)) {
+                    } else if (!/([a-zA-Z0-9\s_\\.\-\(\):])+(.mp4|.wav|.mov|.webm|.ogg|.avi|.mpg|.mpeg|.m4v)$/ig.test(values.email)) {
                         errors.file = 'Please only add a video';
                     }
                     return errors;
@@ -73,7 +69,6 @@ const FileUpload = () => {
                             <Logger/>
                             <div className="fileStyling">
                                 <Field name="file" id="file" type="file" onChange={(event) => {
-                                    setFileObject();
                                     db.file.add(event.currentTarget.files[0])
                                     dispatch(add({
                                         lastModified: event.currentTarget.files[0].lastModified,

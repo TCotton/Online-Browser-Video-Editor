@@ -1,8 +1,12 @@
 import React from 'react';
-import VideoDisplay from "./VideoDisplay";
+import {useSelector} from 'react-redux';
 import {liveQuery} from "dexie";
+import VideoDisplay from "./VideoDisplay";
+import VideoTag from './VideoTag';
 import db from '../indexDB';
+import {fileName, fileType} from './slices/filesSlice'
 import ErrorBoundary from '../../components/ErrorBoundary/Error';
+
 const VideoSettings = () => {
 
     const friendsObservable = liveQuery (
@@ -14,18 +18,22 @@ const VideoSettings = () => {
         error: error => console.error(error)
     });
 
+    const fName = useSelector(fileName);
+    const fType = useSelector(fileType);
+    console.dir(fName);
+
     const videoJsOptions = {
-        autoplay: true,
-        controls: true,
+        autoPlay: true,
+        controls: false,
         sources: [{
-            src: '/path/to/video.mp4',
-            type: 'video/mp4'
+            src: fName,
+            type: fType
         }]
     }
 
     return (
         <ErrorBoundary>
-            <VideoDisplay { ...videoJsOptions } />
+            <VideoTag { ...videoJsOptions } />
         </ErrorBoundary>
     )
 
