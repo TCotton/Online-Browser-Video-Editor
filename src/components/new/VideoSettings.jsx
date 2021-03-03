@@ -1,42 +1,27 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
-import {liveQuery} from "dexie";
-import VideoDisplay from "./VideoDisplay";
+import {useLiveQuery} from "dexie-react-hooks";
+import {window} from "browser-monads";
 import VideoTag from './VideoTag';
 import db from '../indexDB';
-import {fileName, fileType} from './slices/filesSlice'
 import ErrorBoundary from '../../components/ErrorBoundary/Error';
 
 const VideoSettings = () => {
-
-    const friendsObservable = liveQuery (
-        () => db.file
-    );
-
-    friendsObservable.subscribe({
-        next: result => {
-            console.log("Got result:", result)
-        },
-        error: error => console.error(error)
-    });
-
-    const fName = useSelector(fileName);
-    const fType = useSelector(fileType);
-    console.dir(fName);
+    const allItems = useLiveQuery(() => db.file.toArray(), []);
 
     const videoJsOptions = {
         autoPlay: true,
-        controls: false,
+        controls: true,
         sources: [{
-            src: fName,
-            type: fType
+            src: allItems ? window.URL.createObjectURL(allItems[0]) : '',
+            type: allItems ? allItems.type : '',
         }]
     }
 
     return (
-        <ErrorBoundary>
-            <VideoTag { ...videoJsOptions } />
-        </ErrorBoundary>
+        allItems ? (<ErrorBoundary>
+            <VideoTag autoPlay={videoJsOptions.autoPlay} controls={videoJsOptions.controls}
+                      sources={videoJsOptions.sources}/>
+        </ErrorBoundary>) : null
     )
 
 }

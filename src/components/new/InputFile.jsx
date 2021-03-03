@@ -4,40 +4,46 @@ import {useDispatch} from "react-redux";
 import db from '../indexDB';
 import {add} from './slices/filesSlice'
 
-const Logger = () => {
-    const formik = useFormikContext();
-    React.useEffect(() => {
-        console.group("Formik State");
-        console.log("values", formik.values);
-        console.log("errors", formik.errors);
-        console.log("touched", formik.touched);
-        console.log("isSubmitting", formik.isSubmitting);
-        console.log("isValidating", formik.isValidating);
-        console.log("submitCount", formik.submitCount);
-        console.groupEnd();
-    }, [
-        formik.values,
-        formik.errors,
-        formik.touched,
-        formik.isSubmitting,
-        formik.isValidating,
-        formik.submitCount
-    ]);
-    return null;
-};
+//if (process.env.NODE_ENV === 'development') {
 
-const AutoSubmit = () => {
-    // Grab values and submitForm from context
-    const {values, submitForm} = useFormikContext();
-    useEffect(() => {
-        if (values.file.length > 0) {
-            submitForm().then((e) => {
-                console.dir(e);
-            });
-        }
-    }, [values, submitForm]);
-    return null;
-};
+    // eslint-disable-next-line no-unused-vars
+    const Logger = () => {
+        const formik = useFormikContext();
+        React.useEffect(() => {
+            console.group("Formik State");
+            console.log("values", formik.values);
+            console.log("errors", formik.errors);
+            console.log("touched", formik.touched);
+            console.log("isSubmitting", formik.isSubmitting);
+            console.log("isValidating", formik.isValidating);
+            console.log("submitCount", formik.submitCount);
+            console.groupEnd();
+        }, [
+            formik.values,
+            formik.errors,
+            formik.touched,
+            formik.isSubmitting,
+            formik.isValidating,
+            formik.submitCount
+        ]);
+        return null;
+    };
+
+    // eslint-disable-next-line no-unused-vars
+    const AutoSubmit = () => {
+        // Grab values and submitForm from context
+        const {values, submitForm} = useFormikContext();
+        useEffect(() => {
+            if (values.file.length > 0) {
+                submitForm().then((e) => {
+                    console.dir(e);
+                });
+            }
+        }, [values, submitForm]);
+        return null;
+    };
+
+//}
 
 const dexieRun = (files) => {
     db.file.clear();
@@ -48,6 +54,7 @@ const FileUpload = () => {
     const dispatch = useDispatch();
     return (
         <div className="app">
+
             <Formik
                 initialValues={{
                     file: "",
@@ -56,7 +63,7 @@ const FileUpload = () => {
                     const errors = {};
                     if (!values.file) {
                         errors.file = '';
-                    } else if (!/([a-zA-Z0-9\s_\\.\-\(\):])+(.mp4|.wav|.mov|.webm|.ogg|.avi|.mpg|.mpeg|.m4v)$/ig.test(values.email)) {
+                    } else if (!(/\.(mp4|wav|mov|webm|ogg|avi|mpg|mpeg|m4v)$/i).test(values.file)) {
                         errors.file = 'Please only add a video';
                     }
                     return errors;
@@ -69,10 +76,10 @@ const FileUpload = () => {
                 }}
                 render={({values, handleSubmit}) => {
                     return (
-                        <Form onSubmit={handleSubmit}>
-                            <Logger/>
+                        <Form onSubmit={handleSubmit} enctype="multipart/form-data">
+                            <Logger />
                             <div className="fileStyling">
-                                <Field name="file" id="file" type="file" onChange={(event) => {
+                                <Field name="file" id="file" type="file" required accept="video/*" onChange={(event) => {
                                     dexieRun(event.currentTarget.files[0]);
                                     dispatch(add({
                                         lastModified: event.currentTarget.files[0].lastModified,

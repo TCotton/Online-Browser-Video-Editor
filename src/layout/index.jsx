@@ -6,6 +6,7 @@ import Interface from '../components/new/Interface';
 import "../css/index.scss";
 import {increment, selectCount} from '../components/new/slices/counterSlice';
 import VideoSettings from "../../src/components/new/VideoSettings";
+import ErrorBoundary from '../../src/components/ErrorBoundary/Error';
 
 const Counter = () => {
     const count = useSelector(selectCount);
@@ -36,7 +37,9 @@ const MainLayout = () => {
                         </div>
                         <div className="column-two">
                             <div className="viewer">
-                                <VideoSettings />
+                                <ErrorBoundary>
+                                    <VideoSettings />
+                                </ErrorBoundary>
                             </div>
                         </div>
                         <div className="column-three">
