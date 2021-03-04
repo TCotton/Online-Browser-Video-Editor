@@ -1,14 +1,32 @@
 import React from 'react';
+import {useVideo} from 'react-use';
+import {useDispatch} from "react-redux";
+import {add} from './slices/videoSlice';
+
 
 const VideoTag = (props) => {
-    const {autoPlay, controls, sources} = props;
+    const {autoPlay, controlz, sources} = props;
+
+    const [video, state, controls, ref] = useVideo(
+        <video src={sources[0].src}/>
+    );
+
+    const map = new Map();
+    map.set('video', video);
+
+    const dispatch = useDispatch();
+    dispatch(add({video: map, state: map, controls: map, ref: map}));
 
     return (
-        <video autoPlay={autoPlay} controls={controls} id="video" key={sources[0].src}>
-            {sources.map((item) => {
-                return <source key={item.src} src={item.src} type={item.type}/>
-            })}
-        </video>
+        <>
+            {video}
+        </>
     )
 }
+
+const widthVideoProps = (BaseComponent) => (props) => (
+    <BaseComponent {...props} />
+);
+//const EnhancedHello = withStyling(HelloComponent);
+
 export default VideoTag;

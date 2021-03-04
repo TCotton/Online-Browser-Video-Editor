@@ -9,19 +9,21 @@ const VideoSettings = () => {
     const allItems = useLiveQuery(() => db.file.toArray(), []);
 
     const videoJsOptions = {
-        autoPlay: true,
-        controls: true,
+        autoPlay: false,
+        controlz: true,
         sources: [{
-            src: allItems ? window.URL.createObjectURL(allItems[0]) : '',
-            type: allItems ? allItems.type : '',
+            src: (allItems && allItems.length === 1) ? window.URL.createObjectURL(allItems[0]) : '',
+            type: (allItems && allItems.length === 1) ? allItems.type : '',
         }]
     }
 
     return (
-        allItems ? (<ErrorBoundary>
-            <VideoTag autoPlay={videoJsOptions.autoPlay} controls={videoJsOptions.controls}
-                      sources={videoJsOptions.sources}/>
-        </ErrorBoundary>) : null
+        allItems ? (
+            <ErrorBoundary>
+                <VideoTag autoPlay={videoJsOptions.autoPlay} controls={videoJsOptions.controls}
+                          sources={videoJsOptions.sources}/>
+            </ErrorBoundary>
+        ) : null
     )
 
 }

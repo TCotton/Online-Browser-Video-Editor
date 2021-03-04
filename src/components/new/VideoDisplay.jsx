@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from "react";
 import videojs from 'video.js';
+
 const VideoDisplay = (props) => {
     const {videoSrc, autoplay, muted} = props;
     const playerRef = useRef();

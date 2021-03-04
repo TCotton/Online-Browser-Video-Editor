@@ -241,3 +241,9 @@ div[role="tooltip"] {
   color: red;
   font-size: "clamp(200%, 1rem + 2vw, 30px)";
 }
+
+video {
+  width: 100%;
+  object-fit: contain;
+  aspect-ratio: 11 / 8;
+}
