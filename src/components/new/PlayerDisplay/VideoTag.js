@@ -1,7 +1,7 @@
 import React from 'react';
 import {useVideo} from 'react-use';
-import {useDispatch} from "react-redux";
-import {add} from '../slices/videoSlice';
+import {useSelector} from "react-redux";
+import {selectPlay} from '../slices/playerSlice';
 
 const VideoTag = (props) => {
     const {autoPlay, controlz, sources} = props;
@@ -10,11 +10,12 @@ const VideoTag = (props) => {
         <video src={sources[0].src}/>
     );
 
-    const map = new Map();
-    map.set('video', video);
-
-    const dispatch = useDispatch();
-    dispatch(add({video: map, state: map, controls: map, ref: map}));
+    const play = useSelector(selectPlay);
+    play.then((result) => {
+        if(result) {
+            controls.play();
+        }
+    });
 
     return (
         <>

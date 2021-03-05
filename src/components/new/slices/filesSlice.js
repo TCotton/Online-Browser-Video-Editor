@@ -12,6 +12,7 @@ export const filesSlice = createSlice({
     },
     reducers: {
         add: (state, action) => {
+            console.dir(action.payload);
             state.file = action.payload;
         },
     },

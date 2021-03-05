@@ -1,7 +1,7 @@
 import React from 'react';
 import {useLiveQuery} from "dexie-react-hooks";
 import {window} from "browser-monads";
-import VideoTag from './VideoTag';
+import VideoTag from '../PlayerDisplay/VideoTag';
 import db from '../../indexDB';
 import ErrorBoundary from '../../ErrorBoundary/Error';
 

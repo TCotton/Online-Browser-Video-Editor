@@ -5,6 +5,7 @@ import {Tooltip, TooltipReference, useTooltipState} from "reakit/Tooltip";
 import FileUpload from './PlayerComponents/InputFile';
 import ErrorBoundary from '../ErrorBoundary/Error';
 import {fileName} from './slices/filesSlice';
+import {Play} from './PlayerDisplay/Play';
 
 export default function Interface() {
     const tooltip1 = useTooltipState({baseId: 'tooltip1'});
@@ -14,8 +15,6 @@ export default function Interface() {
     const tooltip5 = useTooltipState({baseId: 'tooltip5'});
     const tooltip6 = useTooltipState({baseId: 'tooltip6'});
     const tooltip7 = useTooltipState({baseId: 'tooltip7'});
-
-
 
     return (
         <ErrorBoundary>
@@ -43,7 +42,7 @@ export default function Interface() {
                 </li>
                 <li>
                     <TooltipReference {...tooltip4} as={Button}>
-                        <img src={"./play.svg"} className="play" alt="play"/>
+                        <Play />
                     </TooltipReference>
                     <Tooltip {...tooltip4}>Play</Tooltip>
                 </li>

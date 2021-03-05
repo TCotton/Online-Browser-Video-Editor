@@ -76,7 +76,7 @@ const FileUpload = () => {
                 }}
                 render={({values, handleSubmit}) => {
                     return (
-                        <Form onSubmit={handleSubmit} enctype="multipart/form-data">
+                        <Form onSubmit={handleSubmit}>
                             <Logger />
                             <div className="fileStyling">
                                 <Field name="file" id="file" type="file" required accept="video/*" onChange={(event) => {
