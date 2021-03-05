@@ -2,7 +2,7 @@ import React from "react";
 import {Button} from "reakit/Button";
 import {Tooltip, TooltipReference, useTooltipState} from "reakit/Tooltip";
 
-import FileUpload from './InputFile';
+import FileUpload from './PlayerComponents/InputFile';
 import ErrorBoundary from '../ErrorBoundary/Error';
 import {fileName} from './slices/filesSlice';
 
@@ -14,6 +14,8 @@ export default function Interface() {
     const tooltip5 = useTooltipState({baseId: 'tooltip5'});
     const tooltip6 = useTooltipState({baseId: 'tooltip6'});
     const tooltip7 = useTooltipState({baseId: 'tooltip7'});
+
+
 
     return (
         <ErrorBoundary>

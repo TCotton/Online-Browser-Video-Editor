@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {Field, Form, Formik, useFormikContext} from 'formik';
 import {useDispatch} from "react-redux";
-import db from '../indexDB';
-import {add} from './slices/filesSlice'
+import db from '../../indexDB';
+import {add} from '../slices/filesSlice'
 
 //if (process.env.NODE_ENV === 'development') {
 

@@ -5,9 +5,9 @@ import config from "../../data/SiteConfig";
 import Interface from '../components/new/Interface';
 import "../css/index.scss";
 import {increment, selectCount} from '../components/new/slices/counterSlice';
-import VideoSettings from "../components/new/VideoSettings";
+import VideoSettings from "../components/new/PlayerComponents/VideoSettings";
 import ErrorBoundary from "../components/ErrorBoundary/Error";
-import VideoTimers from "../components/new/VideoTimers";
+import VideoTimers from "../components/new/PlayerDisplay/VideoTimers";
 
 const Counter = () => {
     const count = useSelector(selectCount);

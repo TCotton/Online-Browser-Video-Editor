@@ -1,8 +1,7 @@
 import React from 'react';
 import {useVideo} from 'react-use';
 import {useDispatch} from "react-redux";
-import {add} from './slices/videoSlice';
-
+import {add} from '../slices/videoSlice';
 
 const VideoTag = (props) => {
     const {autoPlay, controlz, sources} = props;
@@ -23,10 +22,5 @@ const VideoTag = (props) => {
         </>
     )
 }
-
-const widthVideoProps = (BaseComponent) => (props) => (
-    <BaseComponent {...props} />
-);
-//const EnhancedHello = withStyling(HelloComponent);
 
 export default VideoTag;

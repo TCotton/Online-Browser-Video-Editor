@@ -2,8 +2,8 @@ import React from 'react';
 import {useLiveQuery} from "dexie-react-hooks";
 import {window} from "browser-monads";
 import VideoTag from './VideoTag';
-import db from '../indexDB';
-import ErrorBoundary from '../../components/ErrorBoundary/Error';
+import db from '../../indexDB';
+import ErrorBoundary from '../../ErrorBoundary/Error';
 
 const VideoSettings = () => {
     const allItems = useLiveQuery(() => db.file.toArray(), []);
