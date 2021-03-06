@@ -1,27 +1,37 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useVideo} from 'react-use';
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {selectPlay, selectStop, selectBackward, selectForward} from '../slices/playerSlice';
+import {durationFn, timeFn} from '../slices/videoSlice';
 
 const VideoTag = (props) => {
-    const {autoPlay, controlz, sources} = props;
+    const {sources} = props;
+    const dispatch = useDispatch();
 
     const [video, state, controls, ref] = useVideo(
         <video src={sources[0].src}/>
     );
 
+    useEffect(() => {
+        dispatch(durationFn(state.duration))
+    }, [state.duration]);
+
+    useEffect(() => {
+        dispatch(timeFn(state.time))
+    }, [state.time]);
+
     const play = useSelector(selectPlay);
     play.then((result) => {
-        // eslint-disable-next-line no-unused-expressions
         console.log(result, 'play');
         if(result) {
-            controls.play();
+            controls.play().then(() => {
+              //  console.dir(state.time);
+            });
         }
     });
 
     const pause = useSelector(selectStop);
     pause.then((result) => {
-        // eslint-disable-next-line no-unused-expressions
         console.log(result, 'pause');
         if(result) {
             controls.pause();
@@ -32,7 +42,7 @@ const VideoTag = (props) => {
     back.then((result) => {
         if(result) {
             console.log(result, 'back');
-            controls.seek(state.time - 0.1)
+            controls.seek(state.time - 0.1);
         }
     });
 
@@ -40,7 +50,7 @@ const VideoTag = (props) => {
     forward.then((result) => {
         if(result) {
             console.log(result, 'forward');
-            controls.seek(state.time + 0.1)
+            controls.seek(state.time + 0.1);
         }
     });
 

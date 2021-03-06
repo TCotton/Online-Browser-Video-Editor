@@ -3,28 +3,23 @@ import { createSlice } from '@reduxjs/toolkit';
 export const videoSlice = createSlice({
     name: 'video',
     initialState: {
-        part: {
-            video: null,
-            state: null,
-            controls: null,
-            ref: null
-        }
+        duration: 0,
+        time: 0
     },
     reducers: {
-        add: (state, action) => {
-            state.part = action.payload;
+        timeFn: (state, action) => {
+            console.dir(action.payload, 'action.payload');
+            state.duration = action.payload;
         },
-        addControls: (state, action) => {
-            state.part.controls = action.payload;
+        durationFn: (state, action) => {
+            state.time = action.payload;
         },
     },
 });
 
-export const { add, addControls } = videoSlice.actions;
+export const { timeFn, durationFn } = videoSlice.actions;
 
-export const video = state => state.video.part.video;
-export const videoState = state => state.video.part.state;
-export const videoControls = state => state.video.part.controls;
-export const videoRef = state => state.video.part.ref;
+export const time = state => state.video.time;
+export const duration = state => state.video.duration;
 
 export default videoSlice.reducer;

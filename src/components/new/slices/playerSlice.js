@@ -19,13 +19,9 @@ export const playerSlice = createSlice({
             state.play = false;
         },
         forwardFn: (state, action) => {
-            console.dir(state.forward, 'state.forward');
-            console.dir(action.payload, 'action.payload');
             state.forward = !!action.payload;
         },
         backwardFn: (state, action) => {
-            console.dir(state.backward, 'state.backward');
-            console.dir(action.payload, 'action.payload');
             state.backward = !!action.payload;
         },
         reset: () => initialState

@@ -7,7 +7,8 @@ import "../css/index.scss";
 import {increment, selectCount} from '../components/new/slices/counterSlice';
 import VideoSettings from "../components/new/PlayerComponents/VideoSettings";
 import ErrorBoundary from "../components/ErrorBoundary/Error";
-import VideoTimers from "../components/new/PlayerDisplay/VideoTimers";
+import TimeDisplay from "../components/new/PlayerComponents/TimeDisplay";
+import DurationDisplay from "../components/new/PlayerComponents/DurationDisplay";
 
 const Counter = () => {
     const count = useSelector(selectCount);
@@ -52,7 +53,9 @@ const MainLayout = () => {
                             <div className="time">
                                 <div className="admin-icon">
                                     <img src={"./admin.svg"} alt="admin" className="admin"/>
-                                    <time>00:00:10:00</time>
+                                    <ErrorBoundary>
+                                        <TimeDisplay />  |  <DurationDisplay />
+                                    </ErrorBoundary>
                                 </div>
                             </div>
                         </div>
