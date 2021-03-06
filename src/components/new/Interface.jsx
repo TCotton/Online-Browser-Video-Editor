@@ -6,6 +6,9 @@ import FileUpload from './PlayerComponents/InputFile';
 import ErrorBoundary from '../ErrorBoundary/Error';
 import {fileName} from './slices/filesSlice';
 import {Play} from './PlayerDisplay/Play';
+import {Pause} from './PlayerDisplay/Pause';
+import {Forward} from './PlayerDisplay/Forward';
+import {Backward} from './PlayerDisplay/Backward';
 
 export default function Interface() {
     const tooltip1 = useTooltipState({baseId: 'tooltip1'});
@@ -15,6 +18,7 @@ export default function Interface() {
     const tooltip5 = useTooltipState({baseId: 'tooltip5'});
     const tooltip6 = useTooltipState({baseId: 'tooltip6'});
     const tooltip7 = useTooltipState({baseId: 'tooltip7'});
+    const tooltip8 = useTooltipState({baseId: 'tooltip8'});
 
     return (
         <ErrorBoundary>
@@ -36,21 +40,27 @@ export default function Interface() {
                 </li>
                 <li>
                     <TooltipReference {...tooltip3} as={Button}>
-                        <img src={"./left-frame.svg"} className="left-frame" alt="left frame"/>
+                        <Backward />
                     </TooltipReference>
-                    <Tooltip {...tooltip3}>Left frame</Tooltip>
+                    <Tooltip {...tooltip3}>Backward</Tooltip>
+                </li>
+                <li>
+                    <TooltipReference {...tooltip8} as={Button}>
+                        <Pause/>
+                    </TooltipReference>
+                    <Tooltip {...tooltip8}>Stop</Tooltip>
                 </li>
                 <li>
                     <TooltipReference {...tooltip4} as={Button}>
-                        <Play />
+                        <Play/>
                     </TooltipReference>
                     <Tooltip {...tooltip4}>Play</Tooltip>
                 </li>
                 <li>
                     <TooltipReference {...tooltip5} as={Button}>
-                        <img src={"./right-frame.svg"} className="right-frame" alt="right frame"/>
+                        <Forward />
                     </TooltipReference>
-                    <Tooltip {...tooltip5}>Right Frame</Tooltip>
+                    <Tooltip {...tooltip5}>Forward</Tooltip>
                 </li>
                 <li>
                     <TooltipReference {...tooltip6}>

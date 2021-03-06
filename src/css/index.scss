@@ -139,7 +139,6 @@ main {
             border: none;
             background: none;
           }
-
           input[type="file"] {
             width: 0.1px;
             height: 0.1px;
@@ -171,9 +170,10 @@ main {
             }
           }
 
-          .left-cut, .right-cut, .left-frame, .play, .right-frame, .upload, .export {
+          .left-cut, .right-cut, .left-frame, .play, .right-frame, .upload, .export, .stop, .forward, .backward {
             width: 3rem;
             aspect-ratio: 8 / 6;
+            fill: #20e0bb;
           }
         }
       }
