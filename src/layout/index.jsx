@@ -46,10 +46,11 @@ const MainLayout = () => {
                             </div>
                         </div>
                         <div className="column-three">
-                            <div className="levels"></div>
-                            <ErrorBoundary>
-                                <ChannelDisplay />
-                            </ErrorBoundary>
+                            <div className="levels">
+                                <ErrorBoundary>
+                                    <ChannelDisplay />
+                                </ErrorBoundary>
+                            </div>
                         </div>
                     </section>
                     <section className="middle">

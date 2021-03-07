@@ -1,12 +1,30 @@
-export const audioDisplay = (videoElement) => {
+export const audioDisplay = (videoElement, win) => {
     if (!(videoElement instanceof HTMLMediaElement)) return;
+    let source;
 
-    console.dir(videoElement);
+    if (source) {
+        source.disconnect();
+    }
 
-    //alert('yes');
-    const ctx = new AudioContext();
-    let source = ctx.createMediaElementSource(videoElement);
-    const srcChannelCount = source.channelCount;  // Always 2!!!
-    console.dir(srcChannelCount);
+    const ctx = new (win.AudioContext || win.webkitAudioContext)();
+    const analyser = ctx.createAnalyser();
+    source = ctx.createMediaElementSource(videoElement);
+    source.connect(analyser);
+    analyser.connect(ctx.destination);
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
 
+    analyser.getByteFrequencyData(dataArray);
+
+    function requestAnimationFrameFnc() {
+        win.requestAnimationFrame(requestAnimationFrameFnc);
+        analyser.getByteFrequencyData(dataArray);
+        const peakFrequency = Math.max.apply( null, dataArray );
+
+        return {
+            peakFrequency
+        }
+    }
+    requestAnimationFrameFnc();
 }
+

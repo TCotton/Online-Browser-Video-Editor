@@ -1,10 +1,9 @@
 import React, {useEffect, useMemo} from 'react';
 import {useVideo} from 'react-use';
 import {useDispatch, useSelector} from "react-redux";
-import useDeepCompareEffect from 'use-deep-compare-effect'
 import {selectBackward, selectForward, selectPlay, selectStop} from '../slices/playerSlice';
 import {durationFn, elFn, timeFn} from '../slices/videoSlice';
-import {audioDisplay} from '../helperFunctions/audioDisplay';
+import RefComp from "./RefComp";
 
 const VideoTag = (props) => {
     const {sources} = props;
@@ -34,12 +33,9 @@ const VideoTag = (props) => {
         };
     }, [state.time]);
 
-    useDeepCompareEffect(
-        () => {
-            dispatch(elFn(true))
-            audioDisplay(ref.current);
-        }, [ref],
-    )
+    useMemo(() => {
+        dispatch(elFn(true))
+    }, [ref]);
 
     const play = useSelector(selectPlay);
     play.then((result) => {
@@ -71,9 +67,11 @@ const VideoTag = (props) => {
 
     return (
         <>
+            <RefComp component={ref.current}/>
             {video}
         </>
     )
 }
+
 
 export default VideoTag;

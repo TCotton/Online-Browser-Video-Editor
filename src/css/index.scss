@@ -96,7 +96,6 @@ main {
         background-clip: padding-box;
 
         .viewer {
-
         }
 
         .viewer img {
@@ -110,9 +109,114 @@ main {
         .levels {
           border: var(--border);
           height: 100%;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 100%;
+          width: 100%;
+          justify-content: center;
+          background: white;
+
+          .left {
+            meter {
+              appearance: none;
+              -moz-appearance: meter;
+              -webkit-appearance: meter;
+              width: 100%;
+              height: 0;
+              transform: rotate(-90deg) translateX(-150px) translateY(10px);
+            }
+
+            meter::-webkit-meter-optimum-value {
+              background-image: repeating-linear-gradient(to right,
+                      transparent 0rem, transparent 0.25rem,
+                      green 0.25rem, green 0.5rem, transparent 0.5rem, transparent 0.75rem,
+                      green 0.75rem, green 1rem, transparent 1rem, transparent 1.25rem,
+                      green 1.25rem, green 1.5rem, transparent 1.5rem, transparent 1.75rem,
+                      green 1.75rem, green 2rem, transparent 2rem, transparent 2.25rem),
+              repeating-linear-gradient(to right,
+                              transparent 0%, transparent 2.25rem, green 2.25rem, green 2.5rem, transparent 2.5rem);
+              background-size: 2.5rem 3rem, 2.5rem 4rem;
+              background-position-y: center, center;
+              background-repeat: repeat-x, repeat-x;
+            }
+
+            meter::-moz-meter-bar {
+              background: none;
+              background-image: repeating-linear-gradient(to right,
+                      transparent 0rem, transparent 0.25rem,
+                      green 0.25rem, green 0.5rem, transparent 0.5rem, transparent 0.75rem,
+                      green 0.75rem, green 1rem, transparent 1rem, transparent 1.25rem,
+                      green 1.25rem, green 1.5rem, transparent 1.5rem, transparent 1.75rem,
+                      green 1.75rem, green 2rem, transparent 2rem, transparent 2.25rem),
+              repeating-linear-gradient(to right,
+                              transparent 0%, transparent 2.25rem, green 2.25rem, green 2.5rem, transparent 2.5rem);
+              background-size: 2.5rem 3rem, 2.5rem 4rem;
+              background-position-y: center, center;
+              background-repeat: repeat-x, repeat-x;
+            }
+
+          }
+
+          .right {
+
+            meter,
+            meter::-webkit-meter-bar,
+            meter::-webkit-meter-optimum-value,
+            meter::-webkit-meter-suboptimum-value,
+            meter::-webkit-meter-even-less-good-value,
+            meter::-webkit-meter-inner-element {
+              background: none;
+              border-radius: 0;
+              border: none;
+              width: 100%;
+              height: 4rem;
+            }
+
+            meter {
+              appearance: none;
+              -moz-appearance: meter;
+              -webkit-appearance: meter;
+             /* width: 100%; //very important
+              height: 100%;*/
+              width: 300px;
+              height: 0;
+              transform: rotate(-90deg) translateX(-150px) translateY(10px);
+            }
+
+            meter::-webkit-meter-optimum-value {
+              background-image: repeating-linear-gradient(to right,
+                      transparent 0rem, transparent 0.25rem,
+                      green 0.25rem, green 0.5rem, transparent 0.5rem, transparent 0.75rem,
+                      green 0.75rem, green 1rem, transparent 1rem, transparent 1.25rem,
+                      green 1.25rem, green 1.5rem, transparent 1.5rem, transparent 1.75rem,
+                      green 1.75rem, green 2rem, transparent 2rem, transparent 2.25rem),
+              repeating-linear-gradient(to right,
+                              transparent 0%, transparent 2.25rem, green 2.25rem, green 2.5rem, transparent 2.5rem);
+              background-size: 2.5rem 3rem, 2.5rem 4rem;
+              background-position-y: center, center;
+              background-repeat: repeat-x, repeat-x;
+            }
+
+            meter::-moz-meter-bar {
+              background: none;
+              background-image: repeating-linear-gradient(to right,
+                      transparent 0rem, transparent 0.25rem,
+                      green 0.25rem, green 0.5rem, transparent 0.5rem, transparent 0.75rem,
+                      green 0.75rem, green 1rem, transparent 1rem, transparent 1.25rem,
+                      green 1.25rem, green 1.5rem, transparent 1.5rem, transparent 1.75rem,
+                      green 1.75rem, green 2rem, transparent 2rem, transparent 2.25rem),
+              repeating-linear-gradient(to right,
+                              transparent 0%, transparent 2.25rem, green 2.25rem, green 2.5rem, transparent 2.5rem);
+              background-size: 2.5rem 3rem, 2.5rem 4rem;
+              background-position-y: center, center;
+              background-repeat: repeat-x, repeat-x;
+            }
+
+          }
         }
       }
     }
+
     .middle {
       display: grid;
       grid-template-columns: minmax(360px, 0.5fr) minmax(360px, 1.5fr);
@@ -123,6 +227,7 @@ main {
           width: 5rem;
           aspect-ratio: 8 / 6;
         }
+
         time {
           @include font-calculator($baseFontFamily, 22px);
         }
@@ -139,6 +244,7 @@ main {
             border: none;
             background: none;
           }
+
           input[type="file"] {
             width: 0.1px;
             height: 0.1px;
@@ -156,6 +262,7 @@ main {
             display: inline-block;
             cursor: pointer;
           }
+
           form {
             position: relative;
           }
@@ -178,6 +285,7 @@ main {
         }
       }
     }
+
     .bottom {
       margin: var(--marginx3) 5% var(--marginx5) 5%;
       border: var(--border);
@@ -186,41 +294,50 @@ main {
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 1fr;
+
       button {
         border: none;
         background: none;
       }
+
       > div:last-of-type {
         border-bottom-right-radius: 50px;
         border-bottom-left-radius: 50px;
       }
+
       .eye {
         width: 4rem;
         aspect-ratio: 8 / 6;
       }
+
       .row-one {
         height: 100px;
         display: grid;
         grid-template-columns: minmax(250px, 0.5fr) minmax(360px, 1.5fr);
         border-bottom: var(--border);
+
         .controls {
           border-right: var(--border);
           display: grid;
           place-items: center;
         }
+
         .timeline {
 
         }
       }
+
       .row-two {
         height: 100px;
         display: grid;
         grid-template-columns: minmax(250px, 0.5fr) minmax(360px, 1.5fr);
+
         .controls {
           border-right: var(--border);
           display: grid;
           place-items: center;
         }
+
         .timeline {
 
         }

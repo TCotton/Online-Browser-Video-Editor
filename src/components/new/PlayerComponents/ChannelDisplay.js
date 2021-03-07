@@ -1,54 +1,25 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+import {useSelector} from "react-redux";
+import {peakFrequency} from '../slices/audioSlice';
 
 const ChannelDisplay = () => {
-
-    useEffect(() => {
-
-        const video = document.querySelector('video');
-
-        if (video) {
-            let context = new AudioContext();
-            let source = context.createMediaElementSource(video);
-            let srcChannelCount = source.channelCount;
-            console.dir(srcChannelCount);
-        }
-
-    }, );
-
-    /*  if(elm) {
-          elm.then(() => {
-
-          });
-      }*/
-
-
-    /*    useEffect(() => {
-            const video = document.querySelector('video');
-            console.dir(video);
-        },[])*/
-
-    /*  useEffect(() => {
-          const video = document.querySelector('video');
-          if(video) {
-              video.addEventListener('onplay', (e) => {
-                  console.dir(e.captureStream());
-                  console.dir(video.captureStream());
-              });
-          }
-      }[]);*/
+    const range = useSelector(peakFrequency);
+    console.dir(range);
 
     return (
         <>
-            <meter id="left"
-                   min="0"
-                   max="100"
-                   low="33"
-                   high="66"
-                   optimum="80"
-                   value="50"
-            >
-                at 50/100
-            </meter>
+            <div className="left">
+                <meter min="0"
+                       max="255"
+                       low="33"
+                       high="66"
+                       optimum="80"
+                       value={range}
+                />
+            </div>
+            <div className="right">
+
+            </div>
         </>
     )
 }
