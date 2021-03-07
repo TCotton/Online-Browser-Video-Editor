@@ -9,6 +9,7 @@ import VideoSettings from "../components/new/PlayerComponents/VideoSettings";
 import ErrorBoundary from "../components/ErrorBoundary/Error";
 import TimeDisplay from "../components/new/PlayerComponents/TimeDisplay";
 import DurationDisplay from "../components/new/PlayerComponents/DurationDisplay";
+import ChannelDisplay from "../components/new/PlayerComponents/ChannelDisplay";
 
 const Counter = () => {
     const count = useSelector(selectCount);
@@ -46,6 +47,9 @@ const MainLayout = () => {
                         </div>
                         <div className="column-three">
                             <div className="levels"></div>
+                            <ErrorBoundary>
+                                <ChannelDisplay />
+                            </ErrorBoundary>
                         </div>
                     </section>
                     <section className="middle">

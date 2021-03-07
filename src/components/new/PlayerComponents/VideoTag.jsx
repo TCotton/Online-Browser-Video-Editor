@@ -1,55 +1,70 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {useVideo} from 'react-use';
-import {useSelector, useDispatch} from "react-redux";
-import {selectPlay, selectStop, selectBackward, selectForward} from '../slices/playerSlice';
-import {durationFn, timeFn} from '../slices/videoSlice';
+import {useDispatch, useSelector} from "react-redux";
+import useDeepCompareEffect from 'use-deep-compare-effect'
+import {selectBackward, selectForward, selectPlay, selectStop} from '../slices/playerSlice';
+import {durationFn, elFn, timeFn} from '../slices/videoSlice';
+import {audioDisplay} from '../helperFunctions/audioDisplay';
 
 const VideoTag = (props) => {
     const {sources} = props;
     const dispatch = useDispatch();
 
     const [video, state, controls, ref] = useVideo(
-        <video src={sources[0].src}/>
+        <video src={sources[0].src} id="video"/>
     );
 
     useEffect(() => {
-        dispatch(durationFn(state.duration))
+        let isStopped = false;
+        if (!isStopped) {
+            dispatch(durationFn(state.duration))
+        }
+        return () => {
+            isStopped = true;
+        };
     }, [state.duration]);
 
     useEffect(() => {
-        dispatch(timeFn(state.time))
+        let isStopped = false;
+        if (!isStopped) {
+            dispatch(timeFn(state.time))
+        }
+        return () => {
+            isStopped = true;
+        };
     }, [state.time]);
+
+    useDeepCompareEffect(
+        () => {
+            dispatch(elFn(true))
+            audioDisplay(ref.current);
+        }, [ref],
+    )
 
     const play = useSelector(selectPlay);
     play.then((result) => {
-        console.log(result, 'play');
-        if(result) {
-            controls.play().then(() => {
-              //  console.dir(state.time);
-            });
+        if (result) {
+            controls.play();
         }
     });
 
     const pause = useSelector(selectStop);
     pause.then((result) => {
-        console.log(result, 'pause');
-        if(result) {
+        if (result) {
             controls.pause();
         }
     });
 
     const back = useSelector(selectBackward);
     back.then((result) => {
-        if(result) {
-            console.log(result, 'back');
+        if (result) {
             controls.seek(state.time - 0.1);
         }
     });
 
     const forward = useSelector(selectForward);
     forward.then((result) => {
-        if(result) {
-            console.log(result, 'forward');
+        if (result) {
             controls.seek(state.time + 0.1);
         }
     });
