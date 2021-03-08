@@ -30,14 +30,12 @@ const RefComp = React.memo((component) => {
         window.requestAnimationFrame(requestAnimationFrameFnc);
         analyser.getByteFrequencyData(dataArray);
         const peakFrequency = Math.max.apply(null, dataArray);
-
-        console.dir(peakFrequency);
         dispatch(peakFrequencyFn(peakFrequency));
     }
 
     requestAnimationFrameFnc();
 
-    return null;
+    return <></>;
 });
 
 export default RefComp;

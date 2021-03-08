@@ -8,6 +8,7 @@
     "browser-monads": "^1.0.0",
     "check-video-codec": "^1.1.1",
     "codec-detect": "^1.3.0",
+    "d3": "^6.5.0",
     "date-fns": "^2.19.0",
     "dexie": "3.1.0-alpha.8",
     "dexie-react-hooks": "^1.0.6",
@@ -63,6 +64,7 @@
     "videojs-css": "^1.1.0"
   },
   "devDependencies": {
+    "@types/d3": "^6.3.0",
     "cli-glob": "^0.1.0",
     "eslint": "^7.9.0",
     "eslint-config-airbnb": "^18.2.0",
