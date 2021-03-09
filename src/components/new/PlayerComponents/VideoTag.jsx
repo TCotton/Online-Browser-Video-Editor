@@ -40,6 +40,7 @@ const VideoTag = (props) => {
     const play = useSelector(selectPlay);
     play.then((result) => {
         if (result) {
+            console.dir(result, 'play');
             controls.play();
         }
     });
@@ -47,6 +48,7 @@ const VideoTag = (props) => {
     const pause = useSelector(selectStop);
     pause.then((result) => {
         if (result) {
+            console.log(result, 'pause')
             controls.pause();
         }
     });
@@ -54,6 +56,7 @@ const VideoTag = (props) => {
     const back = useSelector(selectBackward);
     back.then((result) => {
         if (result) {
+            console.log(result, 'backwards');
             controls.seek(state.time - 0.1);
         }
     });
@@ -61,6 +64,7 @@ const VideoTag = (props) => {
     const forward = useSelector(selectForward);
     forward.then((result) => {
         if (result) {
+            console.log(result, 'forward');
             controls.seek(state.time + 0.1);
         }
     });

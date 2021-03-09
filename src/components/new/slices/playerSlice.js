@@ -30,7 +30,7 @@ export const playerSlice = createSlice({
 
 export const {playFn, stopFn, forwardFn, backwardFn} = playerSlice.actions;
 
-
+//TODO: only create promise when ready
 export const selectPlay = state => new Promise((resolve) => {
     resolve(state.player.play);
 });

@@ -17,7 +17,7 @@ const Circles = () => {
 
     useEffect(() => {
         const svgElement = d3.select(ref.current)
-        svgElement.selectAll("circle")
+        svgElement.selectAll('.circle').selectAll("circle")
             .data(dataset)
             .join("circle")
             .attr("cx", d => d[0])
@@ -34,7 +34,9 @@ const Circles = () => {
         <svg
             viewBox="0 0 100 50"
             ref={ref}
-        />
+        >
+            <g className="circle"></g>
+        </svg>
     )
 }
 

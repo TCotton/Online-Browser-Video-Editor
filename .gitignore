@@ -60,3 +60,4 @@ bundle-stats.json
 
 # macOS
 .DS_Store
+.history/
