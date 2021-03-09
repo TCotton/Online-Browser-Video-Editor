@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import {peakFrequency} from '../slices/audioSlice';
 //import BarChart from './BarChart';
 import D3BarChart from './D3BarChart';
+import Circles from './AnimatedCircles';
 
 const Foo = () => {
     const [ref, setRef] = useState(null);
@@ -29,6 +30,7 @@ const ChannelDisplay = () => {
         <>
             <div className="left">
                 <D3BarChart data={[1,2,3]} width={250} height={250} padding={2} />
+                <Circles />
             </div>
             <div className="right" />
         </>
