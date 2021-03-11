@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    "jest/globals": true
   },
   extends: [
     "airbnb",
@@ -9,6 +10,6 @@ module.exports = {
     "prettier/react",
     "plugin:react-hooks/recommended",
   ],
-  plugins: ["react", "prettier", "react-hooks"],
+  plugins: ["react", "prettier", "react-hooks", "jest"],
   rules: { "react/prop-types": 0 },
 };

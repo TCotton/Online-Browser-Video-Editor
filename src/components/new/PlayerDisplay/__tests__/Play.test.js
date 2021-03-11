@@ -1,7 +1,6 @@
 import React from 'react';
-import { Play } from '../Play';
-
 import { render } from '@testing-library/react';
+import { Play } from '../Play';
  
 describe('Play', () => {
 
