@@ -5,7 +5,6 @@ const BarChart = props => {
     const { randomData, width, height, padding } = props;
     const ref = useRef(null);
 
-
     const group = d3.select(ref.current);
 
     useEffect(() => {
