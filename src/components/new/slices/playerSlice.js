@@ -6,6 +6,7 @@ const initialState = {
     forward: false,
     backward: false
 }
+
 export const playerSlice = createSlice({
     name: 'player',
     initialState,
@@ -28,16 +29,9 @@ export const playerSlice = createSlice({
     },
 });
 
-export const {playFn, stopFn, forwardFn, backwardFn} = playerSlice.actions;
+export const {playFn, stopFn, forwardFn, backwardFn, reset} = playerSlice.actions;
 
-//TODO: only create promise when ready
-export const selectPlay = state => new Promise((resolve) => {
-    resolve(state.player.play);
-});
-
-export const selectStop = state => new Promise((resolve) => {
-    resolve(state.player.stop);
-});
+export const selectPlay = state => state.player.play;
 
 export const selectForward = state => new Promise((resolve) => {
     resolve(state.player.forward);

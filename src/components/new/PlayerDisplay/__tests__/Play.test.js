@@ -1,6 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Play } from '../Play';
+
+jest.mock('react-redux', () => ({
+    ...jest.requireActual('react-redux'),
+    useDispatch: jest.fn()
+}));
  
 describe('Play', () => {
 
