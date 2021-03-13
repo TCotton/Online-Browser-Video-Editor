@@ -1,19 +1,22 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {peakFrequency} from '../slices/audioSlice';
+import {peakFrequencyLeft, peakFrequencyRight} from '../slices/audioSlice';
 import BarChart from './BarChart';
 //import D3BarChart from './D3BarChart';
 import Circles from './AnimatedCircles';
 
 const ChannelDisplay = () => {
-    const range = useSelector(peakFrequency);
+    const rangeLeft = useSelector(peakFrequencyLeft);
+    const rangeRight = useSelector(peakFrequencyRight);
 
     return (
         <>
             <div className="left">
-                <BarChart randomData={range} width={250} height={250} padding={2} />
+                <BarChart randomData={rangeLeft} width={250} height={250} padding={0} colour={`rgb(32, 224, 187)`} />
             </div>
-            <div className="right" />
+            <div className="right">
+                <BarChart randomData={rangeRight} width={250} height={250} padding={0} colour={`rgb(14, 175, 163)`}/>
+            </div>
         </>
     )
 }

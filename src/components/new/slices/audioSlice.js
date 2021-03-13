@@ -3,17 +3,22 @@ import {createSlice} from '@reduxjs/toolkit';
 export const audioSlice = createSlice({
     name: 'audio',
     initialState: {
-        peakFrequency: 0,
+        peakFrequencyLeft: 0,
+        peakFrequencyRight: 0,
     },
     reducers: {
-        peakFrequencyFn: (state, action) => {
-            state.peakFrequency = action.payload;
+        peakFrequencyFnLeft: (state, action) => {
+            state.peakFrequencyLeft = action.payload;
+        },
+        peakFrequencyFnRight: (state, action) => {
+            state.peakFrequencyRight = action.payload;
         },
     },
 });
 
-export const {peakFrequencyFn} = audioSlice.actions;
+export const {peakFrequencyFnLeft, peakFrequencyFnRight} = audioSlice.actions;
 
-export const peakFrequency = state => state.audio.peakFrequency;
+export const peakFrequencyLeft = state => state.audio.peakFrequencyLeft;
+export const peakFrequencyRight = state => state.audio.peakFrequencyRight;
 
 export default audioSlice.reducer;
