@@ -1,9 +1,10 @@
 import React, {useEffect, useMemo} from 'react';
 import {useVideo} from 'react-use';
 import {useDispatch, useSelector} from "react-redux";
+import {window} from "browser-monads";
 import {selectBackward, selectForward, selectPlay} from '../slices/playerSlice';
 import {durationFn, elFn, timeFn} from '../slices/videoSlice';
-import {AudioConnect} from './audioConnect';
+import {peakFrequencyFn} from '../slices/audioSlice';
 
 const VideoTag = (props) => {
     const {sources} = props;
@@ -13,8 +14,30 @@ const VideoTag = (props) => {
         <video src={sources[0].src} id="video"/>
     );
 
-    const result = AudioConnect(ref.current);
-    console.dir(result);
+    useEffect(() => {
+        //TODO: refactor into custom hook
+        let current;
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const analyser = ctx.createAnalyser();
+        const source = ctx.createMediaElementSource(ref.current);
+        source.connect(analyser);
+        analyser.connect(ctx.destination);
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        analyser.getByteFrequencyData(dataArray);
+
+        function requestAnimationFrameFnc() {
+            current = window.requestAnimationFrame(requestAnimationFrameFnc);
+            analyser.getByteFrequencyData(dataArray);
+            const peakFrequency = Math.max.apply( null, dataArray );
+            dispatch(peakFrequencyFn(peakFrequency));
+        }
+        requestAnimationFrameFnc();
+
+        return () => window.cancelAnimationFrame(current);
+    }, [ref]);
+
 
     useEffect(() => {
         let isStopped = false;
@@ -26,6 +49,7 @@ const VideoTag = (props) => {
         };
     }, [state.duration]);
 
+
     useEffect(() => {
         let isStopped = false;
         if (!isStopped) {
@@ -36,12 +60,14 @@ const VideoTag = (props) => {
         };
     }, [state.time]);
 
+
     useMemo(() => {
+        //TODO: what's this for??
         dispatch(elFn(true))
     }, [ref]);
 
+
     const play = useSelector(selectPlay);
-    console.dir(play);
     if (play) {
         controls.play();
     } else {

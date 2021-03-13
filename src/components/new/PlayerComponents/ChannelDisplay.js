@@ -25,6 +25,7 @@ const Foo = () => {
 
 const ChannelDisplay = () => {
     const range = useSelector(peakFrequency);
+    console.dir(range);
 
     return (
         <>
