@@ -4,7 +4,8 @@ const initialState = {
     play: false,
     stop: false,
     forward: false,
-    backward: false
+    backward: false,
+    mute: false,
 }
 
 export const playerSlice = createSlice({
@@ -25,13 +26,20 @@ export const playerSlice = createSlice({
         backwardFn: (state, action) => {
             state.backward = !!action.payload;
         },
+        soundFn: (state, action) => {
+            state.mute = !!action.payload;
+        },
         reset: () => initialState
     },
 });
 
-export const {playFn, stopFn, forwardFn, backwardFn, reset} = playerSlice.actions;
+export const {playFn, stopFn, forwardFn, backwardFn, soundFn, reset} = playerSlice.actions;
 
 export const selectPlay = state => state.player.play;
+
+export const selectMute = state => new Promise((resolve) => {
+    resolve(state.player.mute);
+});
 
 export const selectForward = state => new Promise((resolve) => {
     resolve(state.player.forward);

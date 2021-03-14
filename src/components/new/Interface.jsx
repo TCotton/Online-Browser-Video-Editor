@@ -9,6 +9,7 @@ import {Play} from './PlayerDisplay/Play';
 import {Pause} from './PlayerDisplay/Pause';
 import {Forward} from './PlayerDisplay/Forward';
 import {Backward} from './PlayerDisplay/Backward';
+import {Sound} from './PlayerDisplay/Sound';
 
 export default function Interface() {
     const tooltip1 = useTooltipState({baseId: 'tooltip1'});
@@ -19,6 +20,7 @@ export default function Interface() {
     const tooltip6 = useTooltipState({baseId: 'tooltip6'});
     const tooltip7 = useTooltipState({baseId: 'tooltip7'});
     const tooltip8 = useTooltipState({baseId: 'tooltip8'});
+    const tooltip9 = useTooltipState({baseId: 'tooltip9'});
 
     return (
         <ErrorBoundary>
@@ -62,6 +64,14 @@ export default function Interface() {
                     </TooltipReference>
                     <Tooltip {...tooltip5}>Forward</Tooltip>
                 </li>
+
+                <li>
+                    <TooltipReference {...tooltip9} as={Button}>
+                        <Sound />
+                    </TooltipReference>
+                    <Tooltip {...tooltip9}>Mute/Sound</Tooltip>
+                </li>
+
                 <li>
                     <TooltipReference {...tooltip6}>
                         <FileUpload/>
