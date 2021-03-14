@@ -6,11 +6,11 @@ export const Sound = () => {
     const dispatch = useDispatch();
     const [mute, setMute] = useState(false);
     const onClick = () => {
-        dispatch(soundFn(true))
+        setMute(!mute);
+        dispatch(soundFn());
     }
     return (
-        <>
-            <img src={"./sound.svg"} className="sound" alt="mute" onClick={onClick}/>
-        </>
+        <img src={mute ? "./mute.svg" : "./sound.svg"} className="sound" alt={mute ? "mute" : "sound"}
+             onClick={onClick}/>
     )
 }

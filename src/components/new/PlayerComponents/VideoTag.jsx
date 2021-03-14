@@ -2,7 +2,7 @@ import React, {useEffect, useMemo} from 'react';
 import {useVideo} from 'react-use';
 import {useDispatch, useSelector} from "react-redux";
 import {window} from "browser-monads";
-import {selectBackward, selectForward, selectPlay} from '../slices/playerSlice';
+import {selectBackward, selectForward, selectMute, selectPlay} from '../slices/playerSlice';
 import {durationFn, elFn, timeFn} from '../slices/videoSlice';
 import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
 
@@ -45,11 +45,12 @@ const VideoTag = (props) => {
             current = window.requestAnimationFrame(requestAnimationFrameFnc);
             lAnalyser.getByteFrequencyData(lArray);
             rAnalyser.getByteFrequencyData(rArray);
-            const peakFrequencyLeft = Math.max.apply( null, lArray );
-            const peakFrequencyRight = Math.max.apply( null, rArray );
+            const peakFrequencyLeft = Math.max.apply(null, lArray);
+            const peakFrequencyRight = Math.max.apply(null, rArray);
             dispatch(peakFrequencyFnLeft(peakFrequencyLeft));
             dispatch(peakFrequencyFnRight(peakFrequencyRight));
         }
+
         requestAnimationFrameFnc();
 
         return () => window.cancelAnimationFrame(current);
@@ -93,18 +94,21 @@ const VideoTag = (props) => {
 
     const back = useSelector(selectBackward);
     back.then((result) => {
-        if (result) {
-            console.log(result, 'backwards');
-            controls.seek(state.time - 0.1);
-        }
+        console.log(result, 'backwards');
+        if (result) controls.seek(state.time - 0.1);
     });
 
     const forward = useSelector(selectForward);
     forward.then((result) => {
-        if (result) {
-            console.log(result, 'forward');
-            controls.seek(state.time + 0.1);
-        }
+        console.log(result, 'forward');
+        if (result) controls.seek(state.time + 0.1);
+    });
+
+    const mute = useSelector(selectMute);
+    mute.then((result) => {
+        console.log(result, 'mute');
+        if (result && !state.muted) controls.mute();
+        if (!result && state.muted) controls.unmute();
     });
 
     return (

@@ -27,7 +27,7 @@ export const playerSlice = createSlice({
             state.backward = !!action.payload;
         },
         soundFn: (state, action) => {
-            state.mute = !!action.payload;
+            state.mute = !state.mute;
         },
         reset: () => initialState
     },
