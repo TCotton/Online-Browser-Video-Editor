@@ -1,6 +1,10 @@
 const urljoin = require("url-join");
 const path = require("path");
 const config = require("./data/SiteConfig");
+// eslint-disable-next-line import/no-extraneous-dependencies
+const autoprefixer = require('autoprefixer');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const postcssAspectRatio = require('postcss-aspect-ratio');
 
 // Make sure that pathPrefix is not empty
 const validatedPathPrefix = config.pathPrefix === "" ? "/" : config.pathPrefix;
@@ -26,6 +30,15 @@ module.exports = {
         "gatsby-plugin-sass",
         "gatsby-plugin-lodash",
         "gatsby-plugin-ramda",
+        {
+            resolve: `gatsby-plugin-postcss`,
+            options: {
+                postCssPlugins: [
+                    autoprefixer(),
+                    postcssAspectRatio
+                ],
+            },
+        },
         {
             resolve: "gatsby-source-filesystem",
             options: {

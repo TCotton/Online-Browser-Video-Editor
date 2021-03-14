@@ -20,10 +20,8 @@ const VideoTag = (props) => {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
         const analyser = ctx.createAnalyser();
         const source = ctx.createMediaElementSource(ref.current);
-       /* source.connect(analyser);
+        source.connect(analyser);
         analyser.connect(ctx.destination);
-        const bufferLength = analyser.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);*/
 
         const oscillator = ctx.createOscillator();
         const channels = oscillator.channelCount;
@@ -33,6 +31,7 @@ const VideoTag = (props) => {
         const rAnalyser = ctx.createAnalyser();
 
         source.connect(splitter);
+
         splitter.connect(lAnalyser, 0, 0);
         splitter.connect(rAnalyser, 1, 0);
 
