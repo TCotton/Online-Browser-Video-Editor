@@ -8,6 +8,6 @@ export const Play = () => {
         dispatch(playFn(true))
     }
     return (
-        <img src={"./play.svg"} className="play" alt="play" onClick={onClick}/>
+        <img src={"./play.svg"} className="play" alt="play" onClick={onClick} data-testid="play"/>
     )
 }

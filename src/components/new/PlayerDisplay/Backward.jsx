@@ -12,6 +12,7 @@ export const Backward = () => {
         dispatch(stopFn(true))
     }
     return (
-        <img src={"./back.svg"} className="backward" alt="backward" onPointerDown={onPointerDown} onPointerUp={onPointerUp} />
+        <img src={"./back.svg"} data-testid="forward" className="backward" alt="backward" onPointerDown={onPointerDown}
+             onPointerUp={onPointerUp}/>
     )
 }

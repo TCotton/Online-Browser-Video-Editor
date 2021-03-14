@@ -12,6 +12,7 @@ export const Forward = () => {
         dispatch(stopFn(true));
     }
     return (
-        <img src={"./forward.svg"} className="forward" alt="forward" onPointerDown={onPointerDown} onPointerUp={onPointerUp}/>
+        <img src={"./forward.svg"} data-testid="forward" className="forward" alt="forward" onPointerDown={onPointerDown}
+             onPointerUp={onPointerUp}/>
     )
 }

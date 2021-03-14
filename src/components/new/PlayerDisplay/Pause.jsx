@@ -8,6 +8,6 @@ export const Pause = () => {
         dispatch(stopFn(true))
     }
     return (
-        <img src={"./pause.svg"} className="stop" alt="stop" onClick={onClick}/>
+        <img src={"./pause.svg"} className="stop" alt="stop" onClick={onClick} data-testid="pause"/>
     )
 }

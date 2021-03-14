@@ -11,6 +11,6 @@ export const Sound = () => {
     }
     return (
         <img src={mute ? "./mute.svg" : "./sound.svg"} className="sound" alt={mute ? "mute" : "sound"}
-             onClick={onClick}/>
+             onClick={onClick} data-testid="sound"/>
     )
 }
