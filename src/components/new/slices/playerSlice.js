@@ -20,6 +20,7 @@ export const playerSlice = createSlice({
             state.stop = !!action.payload;
             state.play = false;
         },
+        //TODO: make sure video is stopped before fast forward or rewind
         forwardFn: (state, action) => {
             state.forward = !!action.payload;
         },
