@@ -11,7 +11,7 @@ import TimeDisplay from "../components/new/PlayerComponents/TimeDisplay";
 import DurationDisplay from "../components/new/PlayerComponents/DurationDisplay";
 import ChannelDisplay from "../components/new/PlayerComponents/ChannelDisplay";
 
-const Counter = () => {
+/*const Counter = () => {
     const count = useSelector(selectCount);
     const dispatch = useDispatch();
     return (
@@ -20,7 +20,7 @@ const Counter = () => {
             <button onClick={() => dispatch(increment())}>Increment</button>
         </div>
     )
-}
+}*/
 
 const MainLayout = () => {
     return (
@@ -32,7 +32,6 @@ const MainLayout = () => {
             <main>
                 <header>
                     <img src={"./had.svg"} alt=""/>
-                    <Counter/>
                 </header>
                 <article>
                     <section className="top">
@@ -59,7 +58,7 @@ const MainLayout = () => {
                                 <div className="admin-icon">
                                     <img src={"./admin.svg"} alt="admin" className="admin"/>
                                     <ErrorBoundary>
-                                        <TimeDisplay />  |  <DurationDisplay />
+                                        <TimeDisplay />&nbsp;&nbsp;<span className='break'>|</span>&nbsp;&nbsp;<DurationDisplay />
                                     </ErrorBoundary>
                                 </div>
                             </div>

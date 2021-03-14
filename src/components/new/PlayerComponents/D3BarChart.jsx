@@ -2,13 +2,16 @@ import React, {useEffect, useRef} from "react";
 import * as d3 from "d3";
 
 const D3BarChart = props => {
-    const {randomData, width, height, padding, colour} = props;
+    const {data, width, height, padding, colour, setClass} = props;
 
     const ref = useRef()
 
     useEffect(() => {
+        if(data > 0) {
+            setClass();
+        }
         const svgElement = d3.select(ref.current);
-        const result = [{h: randomData, c: colour}];
+        const result = [{h: data, c: colour}];
 
         const x = d3.scaleBand().range([0, width]).domain(result.map(d => d.c)).padding(padding);
         const y = d3.scaleLinear().range([height, 0]).domain([1, 255]);
@@ -60,19 +63,7 @@ const D3BarChart = props => {
             }
         )
 
-        const svgTicks = svgElement.selectAll('.left-ticks').selectAll("text").data(result);
-
-        const axlft = d3.axisLeft(y).ticks(10, 's');
-
-        svgTicks.join(
-            enter => {
-                enter
-                    .append('text').text("value").attr('font-size', 14)
-            }
-        ).call(axlft);
-
-
-    }, [randomData])
+    }, [data])
 
     return (
         <svg

@@ -116,9 +116,17 @@ main {
           justify-content: center;
           background: transparent;
 
-          .left {}
+          .left {
+            &.default {
+              background: rgb(32, 224, 187);
+            }
+          }
 
-          .right {}
+          .right {
+            &.default {
+              background: rgb(14, 175, 163);
+            }
+          }
         }
       }
     }
@@ -134,8 +142,15 @@ main {
           aspect-ratio: 8 / 6;
         }
 
+        .break {
+          background: rgb(0, 120, 253);
+        }
+
         time {
           @include font-calculator($baseFontFamily, 22px);
+          &.duration {
+            color: rgb(238, 185, 34);
+          }
         }
       }
 
