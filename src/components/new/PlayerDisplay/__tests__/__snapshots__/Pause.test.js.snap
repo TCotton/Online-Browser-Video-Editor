@@ -4,10 +4,10 @@ exports[`Play should match snapshot 1`] = `
 <body>
   <div>
     <img
-      alt="play"
-      class="play"
-      data-testid="play"
-      src="./play.svg"
+      alt="stop"
+      class="stop"
+      data-testid="pause"
+      src="./pause.svg"
     />
   </div>
 </body>

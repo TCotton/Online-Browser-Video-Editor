@@ -1,21 +1,21 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Play } from '../Play.jsx';
+import { Sound } from '../Sound.jsx';
 
 jest.mock('react-redux', () => ({
     ...jest.requireActual('react-redux'),
     useDispatch: jest.fn()
 }));
  
-describe('Play', () => {
+describe('Sound', () => {
 
     it('should render successfully', () => {
-        const {container} = render(<Play />);
-        expect(container.querySelector("[data-testid=\"play\"]")).not.toBeNull();
+        const {container} = render(<Sound />);
+        expect(container.querySelector("[data-testid=\"sound\"]")).not.toBeNull();
     });
 
     it('should match snapshot', () => {
-        const {baseElement} = render(<Play />);
+        const {baseElement} = render(<Sound />);
         expect(baseElement).toMatchSnapshot();
     });
 

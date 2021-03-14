@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Play } from '../Play.jsx';
+import { Pause } from '../Pause.jsx';
 
 jest.mock('react-redux', () => ({
     ...jest.requireActual('react-redux'),
@@ -10,12 +10,12 @@ jest.mock('react-redux', () => ({
 describe('Play', () => {
 
     it('should render successfully', () => {
-        const {container} = render(<Play />);
-        expect(container.querySelector("[data-testid=\"play\"]")).not.toBeNull();
+        const {container} = render(<Pause />);
+        expect(container.querySelector("[data-testid=\"pause\"]")).not.toBeNull();
     });
 
     it('should match snapshot', () => {
-        const {baseElement} = render(<Play />);
+        const {baseElement} = render(<Pause />);
         expect(baseElement).toMatchSnapshot();
     });
 

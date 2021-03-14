@@ -1,21 +1,21 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Play } from '../Play.jsx';
+import { Forward } from '../Forward.jsx';
 
 jest.mock('react-redux', () => ({
     ...jest.requireActual('react-redux'),
     useDispatch: jest.fn()
 }));
  
-describe('Play', () => {
+describe('Forward', () => {
 
     it('should render successfully', () => {
-        const {container} = render(<Play />);
-        expect(container.querySelector("[data-testid=\"play\"]")).not.toBeNull();
+        const {container} = render(<Forward />);
+        expect(container.querySelector("[data-testid=\"forward\"]")).not.toBeNull();
     });
 
     it('should match snapshot', () => {
-        const {baseElement} = render(<Play />);
+        const {baseElement} = render(<Forward />);
         expect(baseElement).toMatchSnapshot();
     });
 

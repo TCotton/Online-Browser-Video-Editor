@@ -1,21 +1,21 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Play } from '../Play.jsx';
+import { Backward } from '../Backward.jsx';
 
 jest.mock('react-redux', () => ({
     ...jest.requireActual('react-redux'),
     useDispatch: jest.fn()
 }));
  
-describe('Play', () => {
+describe('Backward', () => {
 
     it('should render successfully', () => {
-        const {container} = render(<Play />);
-        expect(container.querySelector("[data-testid=\"play\"]")).not.toBeNull();
+        const {container} = render(<Backward />);
+        expect(container.querySelector("[data-testid=\"reverse\"]")).not.toBeNull();
     });
 
     it('should match snapshot', () => {
-        const {baseElement} = render(<Play />);
+        const {baseElement} = render(<Backward />);
         expect(baseElement).toMatchSnapshot();
     });
 
