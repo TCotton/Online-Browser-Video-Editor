@@ -16,6 +16,7 @@ const VideoTag = (props) => {
 
     useEffect(() => {
         //TODO: refactor into custom hook
+        //move requestAnimationFrame into only component for performance reasons
         let current;
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
         const analyser = ctx.createAnalyser();
@@ -86,11 +87,8 @@ const VideoTag = (props) => {
 
 
     const play = useSelector(selectPlay);
-    if (play) {
-        controls.play();
-    } else {
-        controls.pause();
-    }
+    if (play) controls.play();
+    if (!play) controls.pause();
 
     const back = useSelector(selectBackward);
     back.then((result) => {

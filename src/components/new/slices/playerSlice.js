@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-    play: false,
+    play: true,
     stop: false,
     forward: false,
     backward: false,
