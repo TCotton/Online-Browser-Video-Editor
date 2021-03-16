@@ -4,7 +4,8 @@ import counterReducer from '../components/new/slices/counterSlice';
 import filesReducer from '../components/new/slices/filesSlice';
 import videoReducer from '../components/new/slices/videoSlice';
 import playerReducer from '../components/new/slices/playerSlice';
-import audioSlice from '../components/new/slices/audioSlice';
+import audioReducer from '../components/new/slices/audioSlice';
+import imageReducer from '../components/new/slices/imageSlice';
 
 export default configureStore({
     reducer: {
@@ -12,7 +13,8 @@ export default configureStore({
         files:  filesReducer,
         video: videoReducer,
         player: playerReducer,
-        audio: audioSlice,
+        audio: audioReducer,
+        images: imageReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: true,

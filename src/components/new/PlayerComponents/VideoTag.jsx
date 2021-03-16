@@ -2,6 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {useVideo} from 'react-use';
 import {useDispatch, useSelector} from "react-redux";
 import {window} from "browser-monads";
+//import canAutoplay from 'can-autoplay';
 import {selectBackward, selectForward, selectMute, selectPlay} from '../slices/playerSlice';
 import {durationFn, elFn, timeFn} from '../slices/videoSlice';
 import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
@@ -12,7 +13,7 @@ const VideoTag = (props) => {
     const {sources} = props;
     const dispatch = useDispatch();
     let newRef;
-    const [imageArray, setImageArray] = useState([]);
+    const [context, setContext] = useState();
 
     const [video, state, controls, ref] = useVideo(
         <video src={sources[0].src} id="video"/>
@@ -23,6 +24,7 @@ const VideoTag = (props) => {
         if (ref) {
             newRef = ref.current.cloneNode(true);
             const isSameNode = newRef.isSameNode(ref.current);
+            console.dir(newRef);
             if(isSameNode) return;
 
             newRef.muted = true;
@@ -51,9 +53,8 @@ const VideoTag = (props) => {
                 } else {
                     // Done!, next action
                     console.dir(result);
-                    setImageArray(result);
                     console.log('done');
-                    dispatch(imageFn(imageArray));
+                    dispatch(imageFn(result));
                 }
             });
         }
@@ -65,6 +66,8 @@ const VideoTag = (props) => {
         //TODO: move requestAnimationFrame into only component for performance reasons
         let current;
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        setContext(ctx);
+        console.dir(context, 'context');
         const analyser = ctx.createAnalyser();
         const source = ctx.createMediaElementSource(ref.current);
         source.connect(analyser);
@@ -133,7 +136,14 @@ const VideoTag = (props) => {
 
 
     const play = useSelector(selectPlay);
-    if (play) controls.play();
+    if (play) {
+        if(context && context.state === 'suspended') {
+            context.resume().then(() => {
+                console.log('Playback resumed successfully');
+            });
+        }
+        controls.play();
+    }
     if (!play) controls.pause();
 
     const back = useSelector(selectBackward);

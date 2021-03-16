@@ -1,18 +1,14 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-const initialState = {
-    imageArray: [],
-}
-
 export const imageSlice = createSlice({
     name: 'images',
     initialState: {
-        imageArray: []
+        iArray: []
     },
     reducers: {
         imageFn: (state, action) => {
             console.log(action.payload);
-            state.imageArray = action.payload;
+            state.iArray = action.payload;
         },
     },
     reset: () => initialState
@@ -20,6 +16,6 @@ export const imageSlice = createSlice({
 
 export const {imageFn} = imageSlice.actions;
 
-export const imageArray = state => state.images.imageArray;
+export const imgArray = state => state.images.iArray;
 
 export default imageSlice.reducer;

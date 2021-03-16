@@ -261,7 +261,12 @@ main {
         }
 
         .timeline {
-
+          display: grid;
+          grid-auto-flow: column;
+          .image-container {
+            display: grid;
+            place-items: center;
+          }
         }
       }
 
@@ -301,6 +306,7 @@ video {
   width: 100%;
   object-fit: contain;
   aspect-ratio: 11 / 8;
+  object-fit: scale-down;
 }
 
 .path {
