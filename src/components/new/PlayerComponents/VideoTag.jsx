@@ -1,22 +1,68 @@
-import React, {useEffect, useMemo} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {useVideo} from 'react-use';
 import {useDispatch, useSelector} from "react-redux";
 import {window} from "browser-monads";
 import {selectBackward, selectForward, selectMute, selectPlay} from '../slices/playerSlice';
 import {durationFn, elFn, timeFn} from '../slices/videoSlice';
 import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
+import {generateThumbnail} from '../helperFunctions/generateThumbnail'
+import {imageFn} from '../slices/imageSlice';
 
 const VideoTag = (props) => {
     const {sources} = props;
     const dispatch = useDispatch();
+    let newRef;
+    const [imageArray, setImageArray] = useState([]);
 
     const [video, state, controls, ref] = useVideo(
         <video src={sources[0].src} id="video"/>
     );
 
     useEffect(() => {
+
+        if (ref) {
+            newRef = ref.current.cloneNode(true);
+            const isSameNode = newRef.isSameNode(ref.current);
+            if(isSameNode) return;
+
+            newRef.muted = true;
+            newRef.autoplay = true;
+
+            let i = 0;
+            const result = [];
+            newRef.addEventListener('loadeddata', function () {
+                newRef.currentTime = i;
+            });
+
+            newRef.addEventListener('seeked', function () {
+
+                // now video has seeked and current frames will show
+                // at the time as we expect
+                const r = generateThumbnail(i, newRef);
+                result.push(r);
+
+                // when frame is captured, increase here by 5 seconds
+                i += (newRef.duration / 5);
+
+                // if we are not past end, seek to next interval
+                if (i <= newRef.duration) {
+                    // this will trigger another seeked event
+                    newRef.currentTime = i;
+                } else {
+                    // Done!, next action
+                    console.dir(result);
+                    setImageArray(result);
+                    console.log('done');
+                    dispatch(imageFn(imageArray));
+                }
+            });
+        }
+        //TODO: clean up eventListeners
+    }, [ref]);
+
+    useEffect(() => {
         //TODO: refactor into custom hook
-        //move requestAnimationFrame into only component for performance reasons
+        //TODO: move requestAnimationFrame into only component for performance reasons
         let current;
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
         const analyser = ctx.createAnalyser();
@@ -92,19 +138,19 @@ const VideoTag = (props) => {
 
     const back = useSelector(selectBackward);
     back.then((result) => {
-        console.log(result, 'backwards');
+        //console.log(result, 'backwards');
         if (result) controls.seek(state.time - 0.1);
     });
 
     const forward = useSelector(selectForward);
     forward.then((result) => {
-        console.log(result, 'forward');
+        //console.log(result, 'forward');
         if (result) controls.seek(state.time + 0.1);
     });
 
     const mute = useSelector(selectMute);
     mute.then((result) => {
-        console.log(result, 'mute');
+        //console.log(result, 'mute');
         if (result && !state.muted) controls.mute();
         if (!result && state.muted) controls.unmute();
     });

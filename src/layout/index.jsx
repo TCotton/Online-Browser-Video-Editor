@@ -10,6 +10,7 @@ import ErrorBoundary from "../components/ErrorBoundary/Error";
 import TimeDisplay from "../components/new/PlayerComponents/TimeDisplay";
 import DurationDisplay from "../components/new/PlayerComponents/DurationDisplay";
 import ChannelDisplay from "../components/new/PlayerComponents/ChannelDisplay";
+import {ImageFramesComponent} from '../components/new/TimelineDisplay/ImageFramesComponent';
 
 /*const Counter = () => {
     const count = useSelector(selectCount);
@@ -75,6 +76,9 @@ const MainLayout = () => {
                                 </button>
                             </div>
                             <div className="timeline">
+                                <ErrorBoundary>
+                                    <ImageFramesComponent />
+                                </ErrorBoundary>
                             </div>
                         </div>
                         <div className="row-two">

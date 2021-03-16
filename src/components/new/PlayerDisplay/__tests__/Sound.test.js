@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Sound } from '../Sound.jsx';
+import { Sound } from '../Sound';
 
 jest.mock('react-redux', () => ({
     ...jest.requireActual('react-redux'),

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Backward } from '../Backward.jsx';
+import { Backward } from '../Backward';
 
 jest.mock('react-redux', () => ({
     ...jest.requireActual('react-redux'),

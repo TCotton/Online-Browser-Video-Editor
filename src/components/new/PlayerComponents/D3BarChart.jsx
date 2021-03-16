@@ -72,9 +72,9 @@ const D3BarChart = props => {
             viewBox={`0 0 ${width} ${height}`}
             preserveAspectRatio="none"
             ref={ref}
+            data-testid="svg"
         >
-            <g className="rects" transform="translate(0,0)"/>
-            <g className="left-ticks" transform="translate(20,20)"/>
+            <g className="rects" transform="translate(0,0)" data-testid="rects"/>
         </svg>
     );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Pause } from '../Pause.jsx';
+import { Pause } from '../Pause';
 
 jest.mock('react-redux', () => ({
     ...jest.requireActual('react-redux'),

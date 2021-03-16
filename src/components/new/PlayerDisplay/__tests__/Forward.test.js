@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Forward } from '../Forward.jsx';
+import { Forward } from '../Forward';
 
 jest.mock('react-redux', () => ({
     ...jest.requireActual('react-redux'),
