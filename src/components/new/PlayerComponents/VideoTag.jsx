@@ -2,15 +2,22 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {useVideo} from 'react-use';
 import {useDispatch, useSelector} from "react-redux";
 import {window} from "browser-monads";
+import WaveformData from "waveform-data"
 //import canAutoplay from 'can-autoplay';
 import {selectBackward, selectForward, selectMute, selectPlay} from '../slices/playerSlice';
 import {durationFn, elFn, timeFn} from '../slices/videoSlice';
 import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
 import {generateThumbnail} from '../helperFunctions/generateThumbnail'
 import {imageFn} from '../slices/imageSlice';
+import dbW from "../indexDB/indexDBWaveformData";
+
+const dexieRun = (file) => {
+    dbW.wave.clear();
+    dbW.wave.add(file);
+}
 
 const VideoTag = (props) => {
-    const {sources} = props;
+    const {sources, files} = props;
     const dispatch = useDispatch();
     let newRef;
     const [context, setContext] = useState();
@@ -25,7 +32,7 @@ const VideoTag = (props) => {
             newRef = ref.current.cloneNode(true);
             const isSameNode = newRef.isSameNode(ref.current);
             console.dir(newRef);
-            if(isSameNode) return;
+            if (isSameNode) return;
 
             newRef.muted = true;
             newRef.autoplay = true;
@@ -52,8 +59,6 @@ const VideoTag = (props) => {
                     newRef.currentTime = i;
                 } else {
                     // Done!, next action
-                    console.dir(result);
-                    console.log('done');
                     dispatch(imageFn(result));
                 }
             });
@@ -62,12 +67,63 @@ const VideoTag = (props) => {
     }, [ref]);
 
     useEffect(() => {
+
+        if (files[0]) {
+            const file = files[0];
+            const reader = new FileReader();
+            reader.readAsArrayBuffer(file);
+
+            reader.onload = () => {
+                let audioCtx;
+                if (window.webkitAudioContext) {
+                    audioCtx = new window.webkitAudioContext();
+                } else {
+                    audioCtx = new window.AudioContext();
+                }
+
+                audioCtx.decodeAudioData(reader.result)
+
+                    .then((audioBuffer) => {
+                        const options = {
+                            audio_context: audioCtx,
+                            audio_buffer: audioBuffer,
+                            scale: 128
+                        };
+
+                        return new Promise((resolve, reject) => {
+
+                            WaveformData.createFromAudio(options, (err, waveform) => {
+                                if (err) {
+                                    reject(err);
+                                } else {
+                                    resolve(waveform);
+                                }
+                            });
+                        });
+                    })
+                    .then(waveform => {
+
+                        console.info(`Waveform has ${waveform.channels} channels`);
+                        console.info(`Waveform has length ${waveform.length} points`);
+                        dexieRun(waveform);
+                    }).catch((error) => {
+
+                    throw new Error(error);
+                });
+            };
+
+            reader.onerror = () => {
+                throw new Error(reader.error.toString());
+            };
+        }
+    }, [files]);
+
+    useEffect(() => {
         //TODO: refactor into custom hook
         //TODO: move requestAnimationFrame into only component for performance reasons
         let current;
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
         setContext(ctx);
-        console.dir(context, 'context');
         const analyser = ctx.createAnalyser();
         const source = ctx.createMediaElementSource(ref.current);
         source.connect(analyser);
@@ -137,7 +193,7 @@ const VideoTag = (props) => {
 
     const play = useSelector(selectPlay);
     if (play) {
-        if(context && context.state === 'suspended') {
+        if (context && context.state === 'suspended') {
             context.resume().then(() => {
                 console.log('Playback resumed successfully');
             });

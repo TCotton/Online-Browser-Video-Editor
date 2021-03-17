@@ -1,27 +1,14 @@
 import React from "react";
-import {useDispatch, useSelector} from 'react-redux';
 import {Helmet} from "react-helmet";
 import config from "../../data/SiteConfig";
 import Interface from '../components/new/Interface';
 import "../css/index.scss";
-import {increment, selectCount} from '../components/new/slices/counterSlice';
 import VideoSettings from "../components/new/PlayerComponents/VideoSettings";
 import ErrorBoundary from "../components/ErrorBoundary/Error";
 import TimeDisplay from "../components/new/PlayerComponents/TimeDisplay";
 import DurationDisplay from "../components/new/PlayerComponents/DurationDisplay";
 import ChannelDisplay from "../components/new/PlayerComponents/ChannelDisplay";
-import {ImageFramesComponent} from '../components/new/TimelineDisplay/ImageFramesComponent';
-
-/*const Counter = () => {
-    const count = useSelector(selectCount);
-    const dispatch = useDispatch();
-    return (
-        <div>
-            <p>Count: {count}</p>
-            <button onClick={() => dispatch(increment())}>Increment</button>
-        </div>
-    )
-}*/
+import {TimeLines} from "../components/new/TimelineDisplay/TimeLines";
 
 const MainLayout = () => {
     return (
@@ -68,29 +55,7 @@ const MainLayout = () => {
                             <Interface/>
                         </div>
                     </section>
-                    <section className="bottom">
-                        <div className="row-one">
-                            <div className="controls">
-                                <button>
-                                    <img className="eye" src={"./eye.svg"} alt=""/>
-                                </button>
-                            </div>
-                            <div className="timeline">
-                                <ErrorBoundary>
-                                    <ImageFramesComponent />
-                                </ErrorBoundary>
-                            </div>
-                        </div>
-                        <div className="row-two">
-                            <div className="controls">
-                                <button>
-                                    <img className="eye" src={"./eye.svg"} alt=""/>
-                                </button>
-                            </div>
-                            <div className="timeline">
-                            </div>
-                        </div>
-                    </section>
+                    <TimeLines />
                 </article>
             </main>
         </div>

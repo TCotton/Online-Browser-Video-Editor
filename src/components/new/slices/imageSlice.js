@@ -1,13 +1,14 @@
 import {createSlice} from '@reduxjs/toolkit';
 
+const initialState = {
+    iArray: []
+}
+
 export const imageSlice = createSlice({
     name: 'images',
-    initialState: {
-        iArray: []
-    },
+    initialState,
     reducers: {
         imageFn: (state, action) => {
-            console.log(action.payload);
             state.iArray = action.payload;
         },
     },
