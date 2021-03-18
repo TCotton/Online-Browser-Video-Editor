@@ -33,7 +33,7 @@ export const TimeLines = () => {
                 </div>
                 <div className="timeline">
                     <ErrorBoundary>
-                        <WavelineComponent data={waveForm} height={500} width={100} />
+                        <WavelineComponent data={waveForm} height={98} width={807} />
                     </ErrorBoundary>
                 </div>
             </div>

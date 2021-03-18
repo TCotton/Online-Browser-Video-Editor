@@ -8,41 +8,50 @@ export const WavelineComponent = (props) => {
 
     useEffect(() => {
 
-        if (data) {
+        if (data && Array.isArray(data.min_array) && Array.isArray(data.max_array)) {
 
-            const layout = d3.select(ref.current).select('svg');
-            const x = d3.scaleLinear();
-            const y = d3.scaleLinear();
-            const offsetX = 100;
+            const layout = d3.select(ref.current);
 
             const min = data.min_array;
             const max = data.max_array;
 
-            x.domain([0, data.length]).rangeRound([0, 1024]);
-            y.domain([d3.min(min), d3.max(max)]).rangeRound([offsetX, -offsetX]);
+            const xScale = d3.scaleLinear()
+                .range([0, width])
+                .domain([0, data.length]);
 
-            const area = d3.area()
-                .x((d, i) => x(i))
-                .y0((d, i) => y(min[i]))
-                .y1((d,) => y(d));
+            const yScale = d3.scaleLinear()
+                .range([height, 0])
+                .domain([d3.min(min), d3.max(max)]);
 
-            layout.select('path')
+            const d3Line = d3.line()
+                .x( (d, i) => {
+                    return xScale(i);
+                })
+                .y( (d) => {
+                    return yScale(d);
+                });
+
+            layout
                 .datum(max)
-                .attr('transform', () => `translate(0, ${offsetX})`)
-                .attr('d', area);
-
+                .attr("d", d3Line);
         }
 
     }, [data])
 
-    return null;
-      /*  <svg
-            height={`100%`}
-            width={`100%`}
+    return (
+        <svg
             viewBox={`0 0 ${width} ${height}`}
-            ref={ref}
+            preserveAspectRatio="xMidYMid slice"
             data-testid="svg"
         >
-            <g className="area" transform="translate(0,0)" data-testid="area"/>
-        </svg>*/
+            <g className="area" transform="translate(0,0)" data-testid="area">
+                <path
+                    className="wave"
+                    ref={ref}
+                    fill="#20e0bb"
+                />
+            </g>
+        </svg>
+    )
+
 }
