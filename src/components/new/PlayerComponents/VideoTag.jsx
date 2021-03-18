@@ -9,6 +9,7 @@ import {durationFn, elFn, timeFn} from '../slices/videoSlice';
 import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
 import {generateThumbnail} from '../helperFunctions/generateThumbnail'
 import {imageFn} from '../slices/imageSlice';
+import {waveformFn} from "../slices/waveformSlice";
 import dbW from "../indexDB/indexDBWaveformData";
 
 const dexieRun = (file) => {
@@ -19,7 +20,6 @@ const dexieRun = (file) => {
 const VideoTag = (props) => {
     const {sources, files} = props;
     const dispatch = useDispatch();
-    let newRef;
     const [context, setContext] = useState();
 
     const [video, state, controls, ref] = useVideo(
@@ -27,11 +27,11 @@ const VideoTag = (props) => {
     );
 
     useEffect(() => {
+        let newRef;
 
         if (ref) {
             newRef = ref.current.cloneNode(true);
             const isSameNode = newRef.isSameNode(ref.current);
-            console.dir(newRef);
             if (isSameNode) return;
 
             newRef.muted = true;
@@ -105,7 +105,16 @@ const VideoTag = (props) => {
 
                         console.info(`Waveform has ${waveform.channels} channels`);
                         console.info(`Waveform has length ${waveform.length} points`);
-                        dexieRun(waveform);
+
+                        const channel = waveform.channel(0);
+
+                        const data = {
+                            min_array: channel.min_array(),
+                            max_array: channel.max_array(),
+                            length: waveform.length,
+                        }
+
+                        dispatch(waveformFn(data));
                     }).catch((error) => {
 
                     throw new Error(error);
@@ -116,7 +125,7 @@ const VideoTag = (props) => {
                 throw new Error(reader.error.toString());
             };
         }
-    }, [files]);
+    }, [files[0]]);
 
     useEffect(() => {
         //TODO: refactor into custom hook
@@ -153,8 +162,8 @@ const VideoTag = (props) => {
             rAnalyser.getByteFrequencyData(rArray);
             const peakFrequencyLeft = Math.max.apply(null, lArray);
             const peakFrequencyRight = Math.max.apply(null, rArray);
-            dispatch(peakFrequencyFnLeft(peakFrequencyLeft));
-            dispatch(peakFrequencyFnRight(peakFrequencyRight));
+            if (peakFrequencyLeft > 0) dispatch(peakFrequencyFnLeft(peakFrequencyLeft));
+            if (peakFrequencyRight > 0) dispatch(peakFrequencyFnRight(peakFrequencyRight));
         }
 
         requestAnimationFrameFnc();

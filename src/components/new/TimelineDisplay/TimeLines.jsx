@@ -1,13 +1,16 @@
 import React from 'react'
-import ErrorBoundary from "../../ErrorBoundary/Error";
 import {useSelector} from "react-redux";
+import ErrorBoundary from "../../ErrorBoundary/Error";
 import {imgArray} from '../slices/imageSlice';
+import {data} from '../slices/waveformSlice';
 import {ImageFramesComponent} from "./ImageFramesComponent";
 import {WavelineComponent} from "./WavelineComponent";
 
 export const TimeLines = () => {
 
-    const iA = useSelector(imgArray);
+    const iArr = useSelector(imgArray);
+    const waveForm = useSelector(data);
+    console.dir(waveForm);
 
     return (
         <section className="bottom">
@@ -19,7 +22,7 @@ export const TimeLines = () => {
                 </div>
                 <div className="timeline">
                     <ErrorBoundary>
-                        <ImageFramesComponent images={iA}/>
+                        <ImageFramesComponent images={iArr}/>
                     </ErrorBoundary>
                 </div>
             </div>
@@ -31,7 +34,7 @@ export const TimeLines = () => {
                 </div>
                 <div className="timeline">
                     <ErrorBoundary>
-                        <WavelineComponent />
+                        <WavelineComponent data={waveForm} height={500} width={100} />
                     </ErrorBoundary>
                 </div>
             </div>
