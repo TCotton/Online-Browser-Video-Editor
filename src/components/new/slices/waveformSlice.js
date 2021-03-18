@@ -4,7 +4,6 @@ export const waveformSlice = createSlice({
     name: 'waveform',
     initialState: {
         data: {
-            channel: null,
             min_array: 0,
             max_array: 0,
             length: 0,
@@ -19,6 +18,6 @@ export const waveformSlice = createSlice({
 
 export const {waveformFn} = waveformSlice.actions;
 
-export const data = state => state.audio.data;
+export const data = state => state.waveform.data;
 
 export default waveformSlice.reducer;

@@ -26,6 +26,6 @@ export default configureStore({
         images: imageReducer,
         waveform: waveformReducer,
     },
-    middleware: [logger, immutableInvariantMiddleware, serializableStateInvariantMiddleware],
+    middleware: [immutableInvariantMiddleware, serializableStateInvariantMiddleware],
     devTools: process.env.NODE_ENV !== 'production',
 });

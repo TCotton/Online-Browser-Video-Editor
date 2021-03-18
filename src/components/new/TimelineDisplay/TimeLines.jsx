@@ -10,7 +10,6 @@ export const TimeLines = () => {
 
     const iArr = useSelector(imgArray);
     const waveForm = useSelector(data);
-    console.dir(waveForm);
 
     return (
         <section className="bottom">
