@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeDisplay should match snapshot 1`] = `
+<body>
+  <div>
+    <time
+      data-testid="time"
+    >
+      0.000
+    </time>
+  </div>
+</body>
+`;

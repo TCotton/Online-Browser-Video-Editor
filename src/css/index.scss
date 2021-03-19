@@ -88,6 +88,55 @@ main {
         border: var(--border);
         border-top-left-radius: 50px;
         min-height: 290px;
+
+
+        position: relative;
+        .message {
+          padding: var(--margin) 10px;
+          position: absolute;
+          bottom: 0;
+        }
+
+        .message p {
+          @include font-calculator($baseFontFamily, 14px);
+          color: lighten(#20E0BB, 20%);
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .filelists {
+        margin-top: var(--marginx7);
+        border-top: 2px solid #5D6572;
+        border-bottom: 2px solid #5D6572;
+
+        .file-row {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+          grid-auto-flow: column dense;
+          align-content: space-evenly;
+
+          p {
+            @include font-calculator($baseFontFamily, 16px, 0);
+            color: #20E0BB;
+          }
+
+          div[class*="column"] {
+            display: grid;
+            place-items: center;
+            padding: var(--margin) 5px;
+
+            &:not(:first-of-type) {
+              border-left: 2px solid #5D6572;
+            }
+          }
+
+          .icon {
+            width: 5rem;
+            aspect-ratio: 8 / 6;
+          }
+        }
       }
 
       .column-two {
@@ -147,6 +196,7 @@ main {
 
         time {
           @include font-calculator($baseFontFamily, 22px);
+
           &.duration {
             color: rgb(238, 185, 34);
           }
@@ -182,6 +232,7 @@ main {
             display: inline-block;
             cursor: pointer;
             transition: all 0.3s;
+
             &:hover {
               transform: scale(1.1);
             }
@@ -206,15 +257,18 @@ main {
             aspect-ratio: 8 / 6;
             transition: all 0.3s;
             fill: #20e0bb;
+
             &:hover {
               transform: scale(1.1);
             }
           }
+
           .sound {
             width: 3.6rem;
             aspect-ratio: 8 / 6;
             fill: #20e0bb;
             transition: all 0.3s;
+
             &:hover {
               transform: scale(1.1);
             }
@@ -262,10 +316,12 @@ main {
         .timeline {
           display: grid;
           grid-auto-flow: column;
+
           .image-container {
             display: grid;
             place-items: center;
           }
+
           .wave {
             stroke: white;
             stroke-width: 2;
@@ -284,15 +340,20 @@ main {
           place-items: center;
         }
 
-        .timeline {}
+        .timeline {
+        }
       }
 
       .row-three {
         display: grid;
         grid-template-columns: minmax(250px, 0.5fr) minmax(360px, 1.5fr);
-        .timeline {}
+
+        .timeline {
+        }
+
         .timeline-display {
           height: 0;
+
           > svg {
             height: 300px;
             transform: translate(-17px, -230px);
@@ -306,7 +367,7 @@ main {
 
 div[role="tooltip"] {
   background: #e0b838;
-  color:#161719;
+  color: #161719;
   @include font-calculator($baseFontFamily, 13px, 0);
   padding: 5px;
   border-radius: 5px;

@@ -11,6 +11,7 @@ import {generateThumbnail} from '../helperFunctions/generateThumbnail'
 import {imageFn} from '../slices/imageSlice';
 import {waveformFn} from "../slices/waveformSlice";
 import dbW from "../indexDB/indexDBWaveformData";
+import videoBackground from "../../../../static/video-background.png"
 
 const dexieRun = (file) => {
     dbW.wave.clear();
@@ -23,7 +24,7 @@ const VideoTag = (props) => {
     const [context, setContext] = useState();
 
     const [video, state, controls, ref] = useVideo(
-        <video src={sources[0].src} id="video"/>
+        <video src={sources[0].src} id="video" poster={videoBackground}/>
     );
 
     useEffect(() => {

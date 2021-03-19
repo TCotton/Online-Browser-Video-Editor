@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DurationDisplay should match snapshot 1`] = `
+<body>
+  <div>
+    <time
+      class="duration"
+      data-testid="duration"
+    >
+      0.000
+    </time>
+  </div>
+</body>
+`;

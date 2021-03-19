@@ -5,8 +5,8 @@ import Interface from '../components/new/Interface';
 import "../css/index.scss";
 import VideoSettings from "../components/new/PlayerComponents/VideoSettings";
 import ErrorBoundary from "../components/ErrorBoundary/Error";
-import TimeDisplay from "../components/new/PlayerComponents/TimeDisplay";
-import DurationDisplay from "../components/new/PlayerComponents/DurationDisplay";
+import TimeDisplay from "../components/new/PlayerDisplay/TimeDisplay";
+import DurationDisplay from "../components/new/PlayerDisplay/DurationDisplay";
 import ChannelDisplay from "../components/new/PlayerComponents/ChannelDisplay";
 import {TimeLines} from "../components/new/TimelineDisplay/TimeLines";
 
@@ -25,33 +25,40 @@ const MainLayout = () => {
                     <section className="top">
                         <div className="column-one">
                             <div className="filelists">
-
                                 <section className="file-row">
-
                                     <div className="column-1">
-                                        <img src={`./file.svg`} alt={`file`} />
+                                        <img src={`./file.svg`} alt={`file`} className={`icon`}/>
                                     </div>
                                     <div className="column-2">
-                                        File Name
+                                        <p>File Name</p>
                                     </div>
                                     <div className="column-3">
-                                        File size
+                                        <p>File size</p>
                                     </div>
                                 </section>
-
                             </div>
+                            <section className={`message`}>
+                                <p>
+                                    Upload and covert video files for use on social media.
+                                </p>
+                                <p>This is a lockdown project by <a href="">Andrew Walpole</a>, built using D3.js,
+                                    the Web Audio API and Web Assembly (WASM) on a Gatsby/React/Redux base. The app
+                                    comes pre-loaded with a video clip from It's Grim Up North by
+                                    The Justified Ancients of Mu Mu. <a href="">This is an alpha release</a>.
+                                </p>
+                            </section>
                         </div>
                         <div className="column-two">
                             <div className="viewer">
                                 <ErrorBoundary>
-                                    <VideoSettings />
+                                    <VideoSettings/>
                                 </ErrorBoundary>
                             </div>
                         </div>
                         <div className="column-three">
                             <div className="levels">
                                 <ErrorBoundary>
-                                    <ChannelDisplay />
+                                    <ChannelDisplay/>
                                 </ErrorBoundary>
                             </div>
                         </div>
@@ -62,7 +69,8 @@ const MainLayout = () => {
                                 <div className="admin-icon">
                                     <img src={"./admin.svg"} alt="admin" className="admin"/>
                                     <ErrorBoundary>
-                                        <TimeDisplay />&nbsp;&nbsp;<span className='break'>|</span>&nbsp;&nbsp;<DurationDisplay />
+                                        <TimeDisplay/>&nbsp;&nbsp;<span className='break'>|</span>&nbsp;&nbsp;
+                                        <DurationDisplay/>
                                     </ErrorBoundary>
                                 </div>
                             </div>
@@ -71,7 +79,7 @@ const MainLayout = () => {
                             <Interface/>
                         </div>
                     </section>
-                    <TimeLines />
+                    <TimeLines/>
                 </article>
             </main>
         </div>

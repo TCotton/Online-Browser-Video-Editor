@@ -6,7 +6,7 @@ const TimeDisplay = () => {
     const timeDisplay = useSelector(time);
 
     return (
-        <time>{timeDisplay.toFixed(3)}</time>
+        <time data-testid="time">{timeDisplay.toFixed(3)}</time>
     )
 }
 
