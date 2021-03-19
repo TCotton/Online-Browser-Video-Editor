@@ -4,7 +4,8 @@ import ErrorBoundary from "../../ErrorBoundary/Error";
 import {imgArray} from '../slices/imageSlice';
 import {data} from '../slices/waveformSlice';
 import {ImageFramesComponent} from "./ImageFramesComponent";
-import {WavelineComponent} from "./WavelineComponent";
+import {D3WavelineComponent} from "./D3WavelineComponent";
+import {TimeDisplay} from "./TimeDisplay";
 
 export const TimeLines = () => {
 
@@ -33,7 +34,15 @@ export const TimeLines = () => {
                 </div>
                 <div className="timeline">
                     <ErrorBoundary>
-                        <WavelineComponent data={waveForm} height={98} width={807} />
+                        <D3WavelineComponent data={waveForm} height={98} width={807} />
+                    </ErrorBoundary>
+                </div>
+            </div>
+            <div className="row-three">
+                <div className="controls" />
+                <div className="timeline">
+                    <ErrorBoundary>
+                        <TimeDisplay />
                     </ErrorBoundary>
                 </div>
             </div>

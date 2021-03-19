@@ -31,6 +31,14 @@ module.exports = {
         "gatsby-plugin-lodash",
         "gatsby-plugin-ramda",
         {
+            resolve: `gatsby-plugin-react-svg`,
+            options: {
+                rule: {
+                    include: /\.inline\.svg$/
+                }
+            }
+        },
+        {
             resolve: `gatsby-plugin-postcss`,
             options: {
                 postCssPlugins: [

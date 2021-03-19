@@ -74,7 +74,6 @@ main {
     background: transparent;
 
     img {
-
     }
   }
 
@@ -285,8 +284,20 @@ main {
           place-items: center;
         }
 
-        .timeline {
+        .timeline {}
+      }
 
+      .row-three {
+        display: grid;
+        grid-template-columns: minmax(250px, 0.5fr) minmax(360px, 1.5fr);
+        .timeline {}
+        .timeline-display {
+          height: 0;
+          > svg {
+            height: 300px;
+            transform: translate(-17px, -230px);
+            opacity: 0.4;
+          }
         }
       }
     }

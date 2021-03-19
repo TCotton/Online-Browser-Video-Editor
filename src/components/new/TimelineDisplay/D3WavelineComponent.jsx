@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import * as d3 from 'd3';
 
-export const WavelineComponent = (props) => {
+export const D3WavelineComponent = (props) => {
     const {data, width, height} = props;
 
     const ref = useRef();
