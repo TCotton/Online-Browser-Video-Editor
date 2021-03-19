@@ -1,5 +1,6 @@
 import React, {useRef, useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
+import {window} from 'browser-monads';
 import {duration, time} from '../slices/videoSlice';
 import Counter from '../../../../static/counter.inline.svg'
 
@@ -14,12 +15,11 @@ export const TimeDisplay = () => {
         const perSecond = domRect.width / timeDisplay;
         const currentTime = durationDisplay;
 
-        if(Number.isFinite(currentTime) && Number.isFinite(perSecond)) {
+        if(window.Number.isFinite(currentTime) && window.Number.isFinite(perSecond)) {
             setTranslate(() => {
                 return (currentTime * perSecond) + (-17);
             });
         }
-
 
     },[container, durationDisplay, timeDisplay]);
 

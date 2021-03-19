@@ -24,6 +24,22 @@ const MainLayout = () => {
                 <article>
                     <section className="top">
                         <div className="column-one">
+                            <div className="filelists">
+
+                                <section className="file-row">
+
+                                    <div className="column-1">
+                                        <img src={`./file.svg`} alt={`file`} />
+                                    </div>
+                                    <div className="column-2">
+                                        File Name
+                                    </div>
+                                    <div className="column-3">
+                                        File size
+                                    </div>
+                                </section>
+
+                            </div>
                         </div>
                         <div className="column-two">
                             <div className="viewer">
