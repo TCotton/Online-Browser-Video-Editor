@@ -3,9 +3,10 @@ import {Field, Form, Formik, useFormikContext} from 'formik';
 import {useDispatch} from "react-redux";
 import db from '../indexDB/indexDB';
 import {add} from '../slices/filesSlice'
+import dbVF from "../indexDB/indexDBVideo";
 
+//TODO: make sure file is only for development
 //if (process.env.NODE_ENV === 'development') {
-
     // eslint-disable-next-line no-unused-vars
     const Logger = () => {
         const formik = useFormikContext();
@@ -28,21 +29,6 @@ import {add} from '../slices/filesSlice'
         ]);
         return null;
     };
-
-    // eslint-disable-next-line no-unused-vars
-    const AutoSubmit = () => {
-        // Grab values and submitForm from context
-        const {values, submitForm} = useFormikContext();
-        useEffect(() => {
-            if (values.file.length > 0) {
-                submitForm().then((e) => {
-                    console.dir(e);
-                });
-            }
-        }, [values, submitForm]);
-        return null;
-    };
-
 //}
 
 const dexieRun = (files) => {
@@ -50,8 +36,13 @@ const dexieRun = (files) => {
     db.file.add(files);
 }
 
+const dexieRunVideo = (file) => {
+    dbVF.videofile.clear();
+    dbVF.videofile.add(file);
+}
+
 const FileUpload = () => {
-    const dispatch = useDispatch();
+   // const dispatch = useDispatch();
     return (
         <div className="app">
 
@@ -81,12 +72,13 @@ const FileUpload = () => {
                             <div className="fileStyling">
                                 <Field name="file" id="file" type="file" required accept="video/*" onChange={(event) => {
                                     dexieRun(event.currentTarget.files[0]);
-                                    dispatch(add({
+                                    const file = {
                                         lastModified: event.currentTarget.files[0].lastModified,
                                         name: event.currentTarget.files[0].name,
                                         size: event.currentTarget.files[0].size,
                                         type: event.currentTarget.files[0].type
-                                    }));
+                                    }
+                                    dexieRunVideo(file);
                                 }}/>
                                 <label htmlFor="file">Choose a file</label>
                             </div>

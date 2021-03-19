@@ -9,6 +9,7 @@ import TimeDisplay from "../components/new/PlayerDisplay/TimeDisplay";
 import DurationDisplay from "../components/new/PlayerDisplay/DurationDisplay";
 import ChannelDisplay from "../components/new/PlayerComponents/ChannelDisplay";
 import {TimeLines} from "../components/new/TimelineDisplay/TimeLines";
+import {FileListComponent} from "../components/new/FileListDisplay/FileListComponent";
 
 const MainLayout = () => {
     return (
@@ -24,25 +25,15 @@ const MainLayout = () => {
                 <article>
                     <section className="top">
                         <div className="column-one">
-                            <div className="filelists">
-                                <section className="file-row">
-                                    <div className="column-1">
-                                        <img src={`./file.svg`} alt={`file`} className={`icon`}/>
-                                    </div>
-                                    <div className="column-2">
-                                        <p>File Name</p>
-                                    </div>
-                                    <div className="column-3">
-                                        <p>File size</p>
-                                    </div>
-                                </section>
-                            </div>
+                            <ErrorBoundary>
+                                <FileListComponent />
+                            </ErrorBoundary>
                             <section className={`message`}>
                                 <p>
                                     Upload and covert video files for use on social media.
                                 </p>
                                 <p>This is a lockdown project by <a href="">Andrew Walpole</a>, built using D3.js,
-                                    the Web Audio API and Web Assembly (WASM) on a Gatsby/React/Redux base. The app
+                                    the Web Audio API, IndexedDB and Web Assembly (WASM) on a Gatsby/React/Redux base. The app
                                     comes pre-loaded with a video clip from It's Grim Up North by
                                     The Justified Ancients of Mu Mu. <a href="">This is an alpha release</a>.
                                 </p>
