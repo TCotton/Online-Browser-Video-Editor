@@ -10,13 +10,7 @@ import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
 import {generateThumbnail} from '../helperFunctions/generateThumbnail'
 import {imageFn} from '../slices/imageSlice';
 import {waveformFn} from "../slices/waveformSlice";
-import dbW from "../indexDB/indexDBWaveformData";
-import videoBackground from "../../../../static/video-background.png"
-
-const dexieRun = (file) => {
-    dbW.wave.clear();
-    dbW.wave.add(file);
-}
+import videoBackground from "../../../../static/video-background.png";
 
 const VideoTag = (props) => {
     const {sources, files} = props;
@@ -40,11 +34,11 @@ const VideoTag = (props) => {
 
             let i = 0;
             const result = [];
-            newRef.addEventListener('loadeddata', function () {
+            newRef.addEventListener('loadeddata',  () => {
                 newRef.currentTime = i;
             });
 
-            newRef.addEventListener('seeked', function () {
+            newRef.addEventListener('seeked',  () => {
 
                 // now video has seeked and current frames will show
                 // at the time as we expect
@@ -65,7 +59,7 @@ const VideoTag = (props) => {
             });
         }
         //TODO: clean up eventListeners
-    }, [ref]);
+    }, [files]);
 
     useEffect(() => {
 
@@ -126,7 +120,7 @@ const VideoTag = (props) => {
                 throw new Error(reader.error.toString());
             };
         }
-    }, [files[0]]);
+    }, [files]);
 
     useEffect(() => {
         //TODO: refactor into custom hook

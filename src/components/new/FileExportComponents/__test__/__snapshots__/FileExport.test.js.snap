@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileExport should match snapshot 1`] = `
+<body>
+  <div>
+    <img
+      alt="export"
+      class="export"
+      data-testid="file-export"
+      src="./export.svg"
+    />
+  </div>
+</body>
+`;

@@ -1,15 +1,14 @@
 import React from "react";
 import {Button} from "reakit/Button";
 import {Tooltip, TooltipReference, useTooltipState} from "reakit/Tooltip";
-
 import FileUpload from './PlayerComponents/InputFile';
 import ErrorBoundary from '../ErrorBoundary/Error';
-import {fileName} from './slices/filesSlice';
 import {Play} from './PlayerDisplay/Play';
 import {Pause} from './PlayerDisplay/Pause';
 import {Forward} from './PlayerDisplay/Forward';
 import {Backward} from './PlayerDisplay/Backward';
 import {Sound} from './PlayerDisplay/Sound';
+import {FileExport} from "./FileExportComponents/FileExport";
 
 export default function Interface() {
     const tooltip1 = useTooltipState({baseId: 'tooltip1'});
@@ -26,9 +25,6 @@ export default function Interface() {
         <ErrorBoundary>
             <ul>
                 <li>
-                    File: {fileName}
-                </li>
-                <li>
                     <TooltipReference {...tooltip1} as={Button}>
                         <img src={"./cut.svg"} className="left-cut" alt="left cut"/>
                     </TooltipReference>
@@ -42,7 +38,7 @@ export default function Interface() {
                 </li>
                 <li>
                     <TooltipReference {...tooltip3} as={Button}>
-                        <Backward />
+                        <Backward/>
                     </TooltipReference>
                     <Tooltip {...tooltip3}>Backward</Tooltip>
                 </li>
@@ -60,14 +56,14 @@ export default function Interface() {
                 </li>
                 <li>
                     <TooltipReference {...tooltip5} as={Button}>
-                        <Forward />
+                        <Forward/>
                     </TooltipReference>
                     <Tooltip {...tooltip5}>Forward</Tooltip>
                 </li>
 
                 <li>
                     <TooltipReference {...tooltip9} as={Button}>
-                        <Sound />
+                        <Sound/>
                     </TooltipReference>
                     <Tooltip {...tooltip9}>Mute/Sound</Tooltip>
                 </li>
@@ -80,7 +76,9 @@ export default function Interface() {
                 </li>
                 <li>
                     <TooltipReference {...tooltip7} as={Button}>
-                        <img src={"./export.svg"} className="export" alt="export"/>
+                        <ErrorBoundary>
+                            <FileExport/>
+                        </ErrorBoundary>
                     </TooltipReference>
                     <Tooltip {...tooltip7}>Export</Tooltip>
                 </li>

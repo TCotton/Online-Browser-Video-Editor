@@ -120,6 +120,7 @@ main {
           p {
             @include font-calculator($baseFontFamily, 16px, 0);
             color: #20E0BB;
+            word-break: break-all;
           }
 
           div[class*="column"] {

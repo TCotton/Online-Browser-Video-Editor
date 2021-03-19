@@ -1,8 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Field, Form, Formik, useFormikContext} from 'formik';
-import {useDispatch} from "react-redux";
 import db from '../indexDB/indexDB';
-import {add} from '../slices/filesSlice'
 import dbVF from "../indexDB/indexDBVideo";
 
 //TODO: make sure file is only for development
@@ -60,7 +58,6 @@ const FileUpload = () => {
                     return errors;
                 }}
                 onSubmit={(values, {setSubmitting}) => {
-                    alert('yes');
                     setTimeout(() => {
                         setSubmitting(false);
                     }, 400);
