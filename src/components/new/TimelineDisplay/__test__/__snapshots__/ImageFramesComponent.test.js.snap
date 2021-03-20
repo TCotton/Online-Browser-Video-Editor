@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileExport should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="image-container"
+      data-testid="ImageFramesComponent"
+    >
+      <img
+        alt=""
+        class="images"
+        src="image.png"
+      />
+    </div>
+  </div>
+</body>
+`;
