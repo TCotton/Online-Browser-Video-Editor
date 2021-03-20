@@ -142,25 +142,27 @@ export const FileConvertExport = () => {
 
     return (
         <>
-            <div className={`export`}>
-                <p>Click below to export (optimises for those platforms)</p>
-                <p>{status}</p>
+            <div className="export">
+                <header>
+                    <p className="title">Click below to export</p>
+                    <p className="status">{status}</p>
+                </header>
                 <ul className="social">
                     <li>
                         <button onClick={onClickTwitter}>
-                            <img src={`./social/twitter.svg`} alt={`click to export for twitter`} width="400"
-                                 height="400"/>
+                            <img src={"./social/twitter.svg"} alt="click to export for twitter" width="400"
+                                 height="400" />
                         </button>
                     </li>
                     <li>
                         <button onClick={onClickFacebook}>
-                            <img src={`./social/facebook.png`} alt={`click to export for Facebook`} width="250"
+                            <img src={"./social/facebook.png"} alt="click to export for Facebook" width="250"
                                  height="250"/>
                         </button>
                     </li>
                     <li>
-                        <button onClick={onClickLinkedin}> d
-                            <img src={`./social/linkedin.png`} alt={`click to export for Linkedin`} width="650"
+                        <button onClick={onClickLinkedin}>
+                            <img src={"./social/linkedin.png"} alt="click to export for Linkedin" width="650"
                                  height="540"/>
                         </button>
                     </li>

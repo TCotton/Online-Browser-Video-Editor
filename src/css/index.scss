@@ -67,6 +67,18 @@ html {
 }
 
 .export {
+  header {
+    text-align: center;
+  }
+
+  .title {
+    @include font-calculator($baseFontFamily, 30px, 2);
+  }
+
+  .status {
+    @include font-calculator($baseFontFamily, 18px);
+  }
+
   ul.social {
     display: flex;
     grid-column-gap: 20px;
