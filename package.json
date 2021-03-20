@@ -19,6 +19,7 @@
     "dexie": "3.1.0-alpha.8",
     "dexie-react-hooks": "^1.0.6",
     "emotion": "^11.0.0",
+    "enzyme": "^3.11.0",
     "formik": "^2.2.6",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
@@ -75,6 +76,7 @@
   "devDependencies": {
     "@testing-library/react": "^11.2.5",
     "@types/d3": "^6.3.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
     "autoprefixer": "^10.2.5",
     "babel-jest": "^26.6.3",
     "babel-preset-gatsby": "^1.0.0",

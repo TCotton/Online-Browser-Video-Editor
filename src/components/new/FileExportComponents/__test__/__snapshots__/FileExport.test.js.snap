@@ -3,12 +3,87 @@
 exports[`FileExport should match snapshot 1`] = `
 <body>
   <div>
-    <img
-      alt="export"
-      class="export"
-      data-testid="file-export"
-      src="./export.svg"
-    />
+    <button
+      aria-controls="id-ikt1vp"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      type="button"
+    >
+      <img
+        alt="export"
+        class="export"
+        data-testid="file-export"
+        src="./export.svg"
+      />
+    </button>
+  </div>
+  <div
+    class="__reakit-portal"
+  >
+    <div
+      class="css-11godxk"
+      data-dialog-ref="id-ikt1vp"
+      hidden=""
+      style="display: none;"
+    >
+      <div
+        aria-label="Welcome"
+        aria-modal="true"
+        class="css-16r9f9h"
+        data-dialog="true"
+        hidden=""
+        id="id-ikt1vp"
+        role="dialog"
+        style="display: none;"
+        tabindex="-1"
+      >
+        <div>
+          <div
+            class="export"
+          >
+            <p>
+              Click below to export (optimises for those platforms)
+            </p>
+            <p />
+            <ul
+              class="social"
+            >
+              <li>
+                <button>
+                  <img
+                    alt="click to export for twitter"
+                    height="400"
+                    src="./social/twitter.svg"
+                    width="400"
+                  />
+                </button>
+              </li>
+              <li>
+                <button>
+                  <img
+                    alt="click to export for Facebook"
+                    height="250"
+                    src="./social/facebook.png"
+                    width="250"
+                  />
+                </button>
+              </li>
+              <li>
+                <button>
+                   d
+                  <img
+                    alt="click to export for Linkedin"
+                    height="540"
+                    src="./social/linkedin.png"
+                    width="650"
+                  />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 `;

@@ -35,18 +35,18 @@ export const FileConvertExport = () => {
     const allFileItems = useLiveQuery(() => db.file.toArray(), []);
     const allVideoItems = useLiveQuery(() => dbVF.videofile.toArray(), []);
 
+    const ffmpeg = createFFmpeg({
+        log: true, progress: ({ratio}) => {
+            if ((ratio * 100.0).toFixed(2) < 99.9) {
+                setStatus(`Complete: ${(ratio * 100.0).toFixed(2)}%`);
+            }
+
+        }
+    });
+
     const onClickTwitter = async () => {
         const result = window.confirm('Convert video for Twitter?');
         if (!result) return;
-
-        const ffmpeg = createFFmpeg({
-            log: true, progress: ({ratio}) => {
-                if ((ratio * 100.0).toFixed(2) < 99.9) {
-                    setStatus(`Complete: ${(ratio * 100.0).toFixed(2)}%`);
-                }
-
-            }
-        });
 
         console.info('Loading ffmpeg-core.js');
         await ffmpeg.load();
@@ -92,15 +92,6 @@ export const FileConvertExport = () => {
         const result = window.confirm('Convert video for Facebook?');
         if (!result) return;
 
-        const ffmpeg = createFFmpeg({
-            log: true, progress: ({ratio}) => {
-                if ((ratio * 100.0).toFixed(2) < 99.9) {
-                    setStatus(`Complete: ${(ratio * 100.0).toFixed(2)}%`);
-                }
-
-            }
-        });
-
         console.info('Loading ffmpeg-core.js');
         await ffmpeg.load();
         setStatus('Video transcoding started');
@@ -126,15 +117,6 @@ export const FileConvertExport = () => {
     const onClickLinkedin = async () => {
         const result = window.confirm('Convert to video for Linkedin?');
         if (!result) return;
-
-        const ffmpeg = createFFmpeg({
-            log: true, progress: ({ratio}) => {
-                if ((ratio * 100.0).toFixed(2) < 99.9) {
-                    setStatus(`Complete: ${(ratio * 100.0).toFixed(2)}%`);
-                }
-
-            }
-        });
 
         console.info('Loading ffmpeg-core.js');
         await ffmpeg.load();

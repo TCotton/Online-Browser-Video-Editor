@@ -4,7 +4,6 @@ import ErrorBoundary from "../../ErrorBoundary/Error";
 
 export const ImageFramesComponent = (props) => {
 const { images } = props
-    //TODO check render method of `ImageFramesComponent`  Each child in a list should have a unique "key" prop.
     return (
         images && Array.isArray(images) && images.length > 0? (
             <ErrorBoundary>

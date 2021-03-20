@@ -2,6 +2,29 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { FileExport } from '../FileExport';
 
+jest.mock('react-redux', () => ({
+    ...jest.requireActual('react-redux'),
+    useDispatch: jest.fn()
+}));
+
+jest.mock('dexie', () => {
+    return class Dexie {
+        open() {
+            return Promise.resolve();
+        }
+        version() {
+            return {
+                stores: jest.fn()
+            };
+        }
+    };
+});
+
+jest.mock('dexie-react-hooks', () => ({
+    ...jest.requireActual('dexie-react-hooks'),
+    useLiveQuery: jest.fn()
+}));
+
 describe('FileExport', () => {
 
     it('should render successfully', () => {
