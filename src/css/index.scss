@@ -321,6 +321,10 @@ main {
           .image-container {
             display: grid;
             place-items: center;
+            img {
+              object-fit: scale-down;
+              image-rendering: pixelated;
+            }
           }
 
           .wave {

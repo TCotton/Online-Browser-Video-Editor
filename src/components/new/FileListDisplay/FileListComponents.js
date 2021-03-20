@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const FileListComponents = (props) => {
     const {data} = props;
@@ -20,4 +21,14 @@ export const FileListComponents = (props) => {
             )) : null}
         </section>
     )
+}
+
+FileListComponents.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string.isRequired,
+        size: PropTypes.number.isRequired,
+        type: PropTypes.string,
+        lastModified: PropTypes.number
+    })).isRequired
 }

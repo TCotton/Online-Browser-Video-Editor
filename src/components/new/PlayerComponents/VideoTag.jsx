@@ -3,6 +3,7 @@ import {useVideo} from 'react-use';
 import {useDispatch, useSelector} from "react-redux";
 import {window} from "browser-monads";
 import WaveformData from "waveform-data"
+import PropTypes from 'prop-types';
 //import canAutoplay from 'can-autoplay';
 import {selectBackward, selectForward, selectMute, selectPlay} from '../slices/playerSlice';
 import {durationFn, elFn, timeFn} from '../slices/videoSlice';
@@ -208,19 +209,16 @@ const VideoTag = (props) => {
 
     const back = useSelector(selectBackward);
     back.then((result) => {
-        //console.log(result, 'backwards');
         if (result) controls.seek(state.time - 0.1);
     });
 
     const forward = useSelector(selectForward);
     forward.then((result) => {
-        //console.log(result, 'forward');
         if (result) controls.seek(state.time + 0.1);
     });
 
     const mute = useSelector(selectMute);
     mute.then((result) => {
-        //console.log(result, 'mute');
         if (result && !state.muted) controls.mute();
         if (!result && state.muted) controls.unmute();
     });
@@ -232,5 +230,17 @@ const VideoTag = (props) => {
     )
 }
 
+VideoTag.propTypes = {
+    // eslint-disable-next-line react/forbid-prop-types
+    files: PropTypes.array.isRequired,
+    // eslint-disable-next-line react/no-unused-prop-types
+    autoPlay: PropTypes.bool.isRequired,
+    // eslint-disable-next-line react/no-unused-prop-types
+    controls: PropTypes.bool,
+    sources: PropTypes.arrayOf(PropTypes.shape({
+        src: PropTypes.string,
+        type: PropTypes.string
+    })).isRequired
+ };
 
 export default VideoTag;

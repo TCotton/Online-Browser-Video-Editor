@@ -4,6 +4,7 @@
   "version": "2.20.11",
   "author": "Andrew Walpole",
   "dependencies": {
+    "@ffmpeg/core": "^0.8.5",
     "@reduxjs/toolkit": "^1.5.0",
     "@types/jest": "^26.0.20",
     "@use-it/interval": "^1.0.0",

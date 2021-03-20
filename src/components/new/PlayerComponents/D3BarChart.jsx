@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from "react";
 import {scaleBand, scaleLinear, select} from "d3";
+import PropTypes from 'prop-types';
 
 const D3BarChart = props => {
     const {data, width, height, padding, colour, setClass} = props;
@@ -80,3 +81,12 @@ const D3BarChart = props => {
 };
 
 export default D3BarChart;
+
+D3BarChart.propTypes = {
+    setClass: PropTypes.func.isRequired,
+    colour: PropTypes.string.isRequired,
+    padding: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+    data: PropTypes.number.isRequired,
+};

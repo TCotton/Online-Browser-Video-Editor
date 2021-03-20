@@ -1,4 +1,5 @@
 import React, {useEffect, useRef} from 'react';
+import PropTypes from 'prop-types';
 import * as d3 from 'd3';
 
 export const D3WavelineComponent = (props) => {
@@ -55,3 +56,13 @@ export const D3WavelineComponent = (props) => {
     )
 
 }
+
+D3WavelineComponent.propTypes = {
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+    data: PropTypes.shape({
+        min_array: PropTypes.arrayOf(PropTypes.number).isRequired,
+        max_array: PropTypes.arrayOf(PropTypes.number).isRequired,
+        length: PropTypes.number.isRequired,
+    }).isRequired
+};

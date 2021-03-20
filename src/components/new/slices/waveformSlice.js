@@ -4,8 +4,8 @@ export const waveformSlice = createSlice({
     name: 'waveform',
     initialState: {
         data: {
-            min_array: 0,
-            max_array: 0,
+            min_array: [0],
+            max_array: [0],
             length: 0,
         }
     },

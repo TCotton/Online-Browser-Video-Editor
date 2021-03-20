@@ -25,16 +25,9 @@ export default function Interface() {
         <ErrorBoundary>
             <ul>
                 <li>
-                    <TooltipReference {...tooltip1} as={Button}>
-                        <img src={"./cut.svg"} className="left-cut" alt="left cut"/>
-                    </TooltipReference>
-                    <Tooltip {...tooltip1}>Drap and drop to use as first edit point</Tooltip>
-                </li>
-                <li>
-                    <TooltipReference {...tooltip2} as={Button}>
+                    <button>
                         <img src={"./cut.svg"} className="right-cut" alt="right cut"/>
-                    </TooltipReference>
-                    <Tooltip {...tooltip2}>Drap and drop to use as the second edit point</Tooltip>
+                    </button>
                 </li>
                 <li>
                     <TooltipReference {...tooltip3} as={Button}>
