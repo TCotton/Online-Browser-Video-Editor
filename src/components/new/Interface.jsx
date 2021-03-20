@@ -68,7 +68,7 @@ export default function Interface() {
                     <Tooltip {...tooltip6}>Upload</Tooltip>
                 </li>
                 <li>
-                    <TooltipReference {...tooltip7} as={Button}>
+                    <TooltipReference {...tooltip7}>
                         <ErrorBoundary>
                             <FileExport/>
                         </ErrorBoundary>

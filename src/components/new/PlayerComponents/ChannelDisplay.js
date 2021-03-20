@@ -15,10 +15,10 @@ const ChannelDisplay = () => {
     return (
         <>
             <div className={`left ${def}`}>
-                <D3BarChart data={rangeLeft} width={250} height={250} padding={0} colour={`rgb(32, 224, 187)`} setClass={setDefaultClass} />
+                <D3BarChart data={rangeLeft} width={250} height={250} padding={0} colour="rgb(32, 224, 187)" setClass={setDefaultClass} />
             </div>
             <div className={`right ${def}`}>
-                <D3BarChart data={rangeRight} width={250} height={250} padding={0} colour={`rgb(14, 175, 163)`} setClass={setDefaultClass} />
+                <D3BarChart data={rangeRight} width={250} height={250} padding={0} colour="rgb(14, 175, 163)" setClass={setDefaultClass} />
             </div>
         </>
     )

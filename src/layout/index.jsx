@@ -28,7 +28,7 @@ const MainLayout = () => {
                             <ErrorBoundary>
                                 <FileListComponent />
                             </ErrorBoundary>
-                            <section className={`message`}>
+                            <section className="message">
                                 <p>
                                     Upload and covert video files for use on social media.
                                 </p>
