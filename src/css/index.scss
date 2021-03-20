@@ -66,15 +66,29 @@ html {
   display: inline-block;
 }
 
+.export {
+  ul.social {
+    display: flex;
+    grid-column-gap: 20px;
+    justify-content: center;
+    align-items: flex-end;
+    button {
+      background: transparent;
+      border: none;
+    }
+
+    img {
+      width: 250px;
+    }
+  }
+}
+
 main {
   height: 100%;
   width: 100%;
 
   header {
     background: transparent;
-
-    img {
-    }
   }
 
   article {

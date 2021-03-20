@@ -1,6 +1,9 @@
 import React from 'react';
 import {Dialog, DialogBackdrop, DialogDisclosure, useDialogState,} from "reakit/Dialog";
 import {css} from "@emotion/css";
+import {FileConvertExport} from "./FileConvertExport";
+import {useDispatch} from "react-redux";
+import {stopFn} from "../slices/playerSlice";
 
 const backdropStyles = css`
   perspective: 800px;
@@ -26,6 +29,13 @@ const dialogueStyles = css`
 
 export const FileExport = () => {
     const dialog = useDialogState();
+    const ref = React.useRef();
+    const dispatch = useDispatch();
+    React.useEffect(() => {
+        if (dialog.visible) {
+            dispatch(stopFn(true))
+        }
+    }, [dialog.visible]);
     return (
         <>
             <DialogDisclosure {...dialog}>
@@ -34,7 +44,7 @@ export const FileExport = () => {
             </DialogDisclosure>
             <DialogBackdrop {...dialog} className={backdropStyles}>
                 <Dialog {...dialog} aria-label="Welcome" className={dialogueStyles}>
-                    Welcome to Reakit!
+                    <div ref={ref}><FileConvertExport /></div>
                 </Dialog>
             </DialogBackdrop>
         </>

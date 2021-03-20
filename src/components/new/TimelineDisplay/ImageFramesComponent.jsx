@@ -8,7 +8,8 @@ const { images } = props
     return (
         images && Array.isArray(images) && images.length > 0? (
             <ErrorBoundary>
-                {images.map(x => <div className="image-container"><img key={x.substring(0,Math.floor(Math.random() * 10))} src={x} alt="" className="images"/></div>)}
+                {/* eslint-disable-next-line react/no-array-index-key */}
+                {images.map((x,i) => <div className="image-container" key={i}><img src={x} alt="" className="images"/></div>)}
             </ErrorBoundary>
         ) : null
     )
