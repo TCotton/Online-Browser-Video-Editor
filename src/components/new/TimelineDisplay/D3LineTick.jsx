@@ -35,7 +35,10 @@ export const D3LineTick = (props) => {
             const ab = d3.axisTop(xScale)
                 .ticks(20)
                 .tickFormat((d) => {
-                    return parseTime(d / perSecond * 1000);
+                    if(perSecond) {
+                        return parseTime(d / perSecond * 1000);
+                    }
+                    return null;
                 });
 
             const d3Line = d3.line()
@@ -85,6 +88,7 @@ export const D3LineTick = (props) => {
 D3LineTick.propTypes = {
     height: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
+    time: PropTypes.number.isRequired,
     data: PropTypes.shape({
         min_array: PropTypes.arrayOf(PropTypes.number).isRequired,
         max_array: PropTypes.arrayOf(PropTypes.number).isRequired,

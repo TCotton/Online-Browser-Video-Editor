@@ -1,12 +1,13 @@
 import React from 'react';
 import {useSelector} from "react-redux";
+import {millisToMinutesAndSeconds} from "../helperFunctions/generateThumbnail";
 import {duration} from '../slices/videoSlice';
 
 const TimeDisplay = () => {
     const durationDisplay = useSelector(duration);
 
     return (
-        <time className='duration' data-testid={`duration`}>{durationDisplay.toFixed(3)}</time>
+        <time className='duration' data-testid={`duration`}>{millisToMinutesAndSeconds(durationDisplay)}</time>
     )
 }
 
