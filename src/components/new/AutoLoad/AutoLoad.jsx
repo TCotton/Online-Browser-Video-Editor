@@ -11,5 +11,7 @@ export const AutoLoad = () => {
         }
     },[allFileItems]);
 
+    console.dir(allFileItems);
+
     return null;
 }

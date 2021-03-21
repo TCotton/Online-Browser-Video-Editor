@@ -75,9 +75,6 @@ export default function Interface() {
                     <Tooltip {...tooltip7}>Export</Tooltip>
                 </li>
             </ul>
-            <ErrorBoundary>
-                <AutoLoad />
-            </ErrorBoundary>
         </ErrorBoundary>
     )
 }

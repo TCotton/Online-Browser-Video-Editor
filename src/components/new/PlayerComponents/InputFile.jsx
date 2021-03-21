@@ -41,6 +41,16 @@ const dexieRunVideo = (file) => {
 }
 
 const FileUpload = () => {
+
+ /*   const allFileItems = useLiveQuery(() => db.file.toArray(), []);
+    useState(() => {
+        if(!allFileItems) {
+            console.dir(allFileItems, 'no file in db');
+        }
+    },[allFileItems]);
+
+    console.dir(allFileItems);*/
+
     return (
         <div className="app">
             <Formik
