@@ -9,6 +9,7 @@ export const D3WavelineComponent = (props) => {
 
     useEffect(() => {
 
+        //TODO: use method as advised on the GitHub account: https://github.com/bbc/waveform-data.js/blob/master/README.md
         if (data && Array.isArray(data.min_array) && Array.isArray(data.max_array)) {
 
             const layout = d3.select(ref.current);

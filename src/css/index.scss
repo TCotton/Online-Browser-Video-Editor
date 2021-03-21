@@ -114,9 +114,8 @@ main {
         border: var(--border);
         border-top-left-radius: 50px;
         min-height: 290px;
-
-
         position: relative;
+
         .message {
           padding: var(--margin) 10px;
           position: absolute;
@@ -177,7 +176,6 @@ main {
           border-radius: 10px/10px;
           object-fit: cover;
         }
-
       }
 
       .column-three {
@@ -352,11 +350,6 @@ main {
               image-rendering: pixelated;
             }
           }
-
-          .wave {
-            stroke: white;
-            stroke-width: 2;
-          }
         }
       }
 
@@ -364,6 +357,12 @@ main {
         height: 100px;
         display: grid;
         grid-template-columns: minmax(250px, 0.5fr) minmax(360px, 1.5fr);
+
+        path.wave {
+          stroke: #20e0bb;
+          stroke-width: 0.1;
+          fill: none;
+        }
 
         .controls {
           border-right: var(--border);
