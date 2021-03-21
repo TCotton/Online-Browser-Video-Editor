@@ -9,10 +9,8 @@ export const D3LineTick = (props) => {
     const ref = useRef();
 
     useEffect(() => {
-        console.dir(time);
-        if (data && Array.isArray(data.min_array) && Array.isArray(data.max_array)) {
 
-            console.dir(time);
+        if (data && Array.isArray(data.min_array) && Array.isArray(data.max_array)) {
 
             const svgElement = d3.select(ref.current);
 

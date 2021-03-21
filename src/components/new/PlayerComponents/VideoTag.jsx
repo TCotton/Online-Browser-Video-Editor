@@ -235,7 +235,7 @@ VideoTag.propTypes = {
     files: PropTypes.array.isRequired,
     // eslint-disable-next-line react/no-unused-prop-types
     autoPlay: PropTypes.bool.isRequired,
-    // eslint-disable-next-line react/no-unused-prop-types
+    // eslint-disable-next-line react/no-unused-prop-types,react/require-default-props
     controls: PropTypes.bool,
     sources: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,

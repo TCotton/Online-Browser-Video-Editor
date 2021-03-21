@@ -4,6 +4,7 @@ import {useLiveQuery} from "dexie-react-hooks";
 import {document, window} from "browser-monads";
 import db from "../indexDB/indexDB";
 import dbVF from "../indexDB/indexDBVideo";
+import {changeExt} from "../helperFunctions/generateThumbnail";
 
 function downloadBlob(blobUrl, name) {
     // Create a link element
@@ -85,7 +86,7 @@ export const FileConvertExport = () => {
         const data = ffmpeg.FS('readFile', `converted-${allVideoItems[0].name}`);
         const href = window.URL.createObjectURL(new Blob([data.buffer], {type: 'video/mp4'}));
         //TODO: change to mp4 file name not previous
-        downloadBlob(href, allVideoItems[0].name);
+        downloadBlob(href, changeExt(allVideoItems[0].name, 'mp4'));
         window.URL.revokeObjectURL(href);
     }
 
@@ -113,7 +114,7 @@ export const FileConvertExport = () => {
         setStatus('Video transcoding ended');
         const data = ffmpeg.FS('readFile', `converted-${allVideoItems[0].name}`);
         const href = window.URL.createObjectURL(new Blob([data.buffer], {type: 'video/mp4'}));
-        downloadBlob(href, allVideoItems[0].name);
+        downloadBlob(href, changeExt(allVideoItems[0].name, 'mp4'));
         window.URL.revokeObjectURL(href);
     }
 
@@ -141,7 +142,7 @@ export const FileConvertExport = () => {
         setStatus('Video transcoding ended');
         const data = ffmpeg.FS('readFile', `converted-${allVideoItems[0].name}`);
         const href = window.URL.createObjectURL(new Blob([data.buffer], {type: 'video/mp4'}));
-        downloadBlob(href, allVideoItems[0].name);
+        downloadBlob(href, changeExt(allVideoItems[0].name, 'mp4'));
         window.URL.revokeObjectURL(href);
     }
 
