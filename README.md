@@ -4,7 +4,7 @@ This project is build on a foundation of Gatsby/React/Redux and uses D3.js, the 
 
 It uses a WebAssembly port of the FFmpeg library originally written in C and Assembly
 
-All files uploads, video editing and transcoding is done in the browser
+All file uploads, video editing and transcoding is done in the browser
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/91bc8403-94e3-4781-97ae-050018b409d4/deploy-status)](https://app.netlify.com/sites/musing-kalam-86af59/deploys)
 
