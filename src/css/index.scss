@@ -125,6 +125,7 @@ main {
         .message p {
           @include font-calculator($baseFontFamily, 14px);
           color: lighten(#20E0BB, 20%);
+
           &:last-of-type {
             margin-bottom: 0;
           }
@@ -133,7 +134,7 @@ main {
 
       .filelists {
         margin-top: var(--marginx7);
-        border-top: 2px solid #5D6572;
+        border-top: none;
         border-bottom: 2px solid #5D6572;
 
         .file-row {
@@ -141,6 +142,9 @@ main {
           grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
           grid-auto-flow: column dense;
           align-content: space-evenly;
+          &:not(:empty) {
+            border-top: 1px solid #5D6572;
+          }
 
           p {
             @include font-calculator($baseFontFamily, 16px, 0);
@@ -303,13 +307,13 @@ main {
     }
 
     .bottom {
-      margin: var(--marginx3) 5% var(--marginx5) 5%;
+      margin: var(--marginx4) 5% var(--marginx5) 5%;
       border: var(--border);
       border-bottom-right-radius: 50px;
       border-bottom-left-radius: 50px;
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: 1fr;
 
       button {
         border: none;
@@ -371,6 +375,34 @@ main {
         }
 
         .timeline {
+        }
+      }
+
+      .row-timeline {
+        display: grid;
+        grid-template-columns: minmax(250px, 0.5fr) minmax(360px, 1.5fr);
+
+        .timeline {
+          height: 0;
+
+          .timeline-ticks {
+            height: 30px;
+            width: 100%;
+            transform: translate(0, -28px);
+
+            .waveform {
+              display: none;
+            }
+
+            .axis-top {
+              text {
+                ;
+              }
+              > path {
+                color: transparent;
+              }
+            }
+          }
         }
       }
 
