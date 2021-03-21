@@ -10,6 +10,7 @@ import DurationDisplay from "../components/new/PlayerDisplay/DurationDisplay";
 import ChannelDisplay from "../components/new/PlayerComponents/ChannelDisplay";
 import {TimeLines} from "../components/new/TimelineDisplay/TimeLines";
 import {FileListComponent} from "../components/new/FileListDisplay/FileListComponent";
+import {AutoLoad} from "../components/new/AutoLoad/AutoLoad";
 
 const MainLayout = () => {
     return (

@@ -9,10 +9,9 @@ import {Forward} from './PlayerDisplay/Forward';
 import {Backward} from './PlayerDisplay/Backward';
 import {Sound} from './PlayerDisplay/Sound';
 import {FileExport} from "./FileExportComponents/FileExport";
+import {AutoLoad} from "./AutoLoad/AutoLoad";;
 
 export default function Interface() {
-    const tooltip1 = useTooltipState({baseId: 'tooltip1'});
-    const tooltip2 = useTooltipState({baseId: 'tooltip2'});
     const tooltip3 = useTooltipState({baseId: 'tooltip3'});
     const tooltip4 = useTooltipState({baseId: 'tooltip4'});
     const tooltip5 = useTooltipState({baseId: 'tooltip5'});
@@ -76,6 +75,9 @@ export default function Interface() {
                     <Tooltip {...tooltip7}>Export</Tooltip>
                 </li>
             </ul>
+            <ErrorBoundary>
+                <AutoLoad />
+            </ErrorBoundary>
         </ErrorBoundary>
     )
 }

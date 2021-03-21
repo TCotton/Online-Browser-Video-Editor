@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Field, Form, Formik, useFormikContext} from 'formik';
 import db from '../indexDB/indexDB';
 import dbVF from "../indexDB/indexDBVideo";
+import {useLiveQuery} from "dexie-react-hooks";
 
 //TODO: make sure file is only for development
 //if (process.env.NODE_ENV === 'development') {
@@ -40,10 +41,8 @@ const dexieRunVideo = (file) => {
 }
 
 const FileUpload = () => {
-   // const dispatch = useDispatch();
     return (
         <div className="app">
-
             <Formik
                 initialValues={{
                     file: "",
