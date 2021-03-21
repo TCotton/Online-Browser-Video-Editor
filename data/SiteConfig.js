@@ -1,7 +1,7 @@
 const config = {
-  siteTitle: "Gatsby Advanced Starter", // Site title.
-  siteTitleShort: "GA Starter", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  siteTitleAlt: "GatsbyJS Advanced Starter", // Alternative site title for SEO.
+  siteTitle: "Covert video for social media",
+  siteTitleShort: "Video convertor", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
+  siteTitleAlt: "Video conversion for Twitter, Facebook, LinkedIn", // Alternative site title for SEO.
   siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
   siteUrl: "https://gatsby-advanced-starter-demo.netlify.com", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.

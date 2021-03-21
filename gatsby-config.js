@@ -25,7 +25,11 @@ module.exports = {
             copyright: config.copyright,
         },
     },
-    flags: { PRESERVE_WEBPACK_CACHE: true },
+    flags: {
+        PRESERVE_WEBPACK_CACHE: true,
+        DEV_SSR: true,
+        FAST_REFRESH: true,
+    },
     plugins: [
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-sass",
