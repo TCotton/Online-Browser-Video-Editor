@@ -4,7 +4,7 @@ exports[`FileExport should match snapshot 1`] = `
 <body>
   <div>
     <button
-      aria-controls="id-mfbk74"
+      aria-controls="id-h8e7pg"
       aria-expanded="false"
       aria-haspopup="dialog"
       type="button"
@@ -22,17 +22,17 @@ exports[`FileExport should match snapshot 1`] = `
   >
     <div
       class="css-11godxk"
-      data-dialog-ref="id-mfbk74"
+      data-dialog-ref="id-h8e7pg"
       hidden=""
       style="display: none;"
     >
       <div
         aria-label="Welcome"
         aria-modal="true"
-        class="css-16r9f9h"
+        class="css-jkbxbt"
         data-dialog="true"
         hidden=""
-        id="id-mfbk74"
+        id="id-h8e7pg"
         role="dialog"
         style="display: none;"
         tabindex="-1"
@@ -41,10 +41,16 @@ exports[`FileExport should match snapshot 1`] = `
           <div
             class="export"
           >
-            <p>
-              Click below to export (optimises for those platforms)
-            </p>
-            <p />
+            <header>
+              <p
+                class="title"
+              >
+                Click below to export
+              </p>
+              <p
+                class="status"
+              />
+            </header>
             <ul
               class="social"
             >
@@ -70,7 +76,6 @@ exports[`FileExport should match snapshot 1`] = `
               </li>
               <li>
                 <button>
-                   d
                   <img
                     alt="click to export for Linkedin"
                     height="540"

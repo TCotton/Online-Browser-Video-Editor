@@ -7,7 +7,7 @@ exports[`DurationDisplay should match snapshot 1`] = `
       class="duration"
       data-testid="duration"
     >
-      0.000
+      0:00.00
     </time>
   </div>
 </body>

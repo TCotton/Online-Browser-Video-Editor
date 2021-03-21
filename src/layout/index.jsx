@@ -33,7 +33,7 @@ const MainLayout = () => {
                                     Upload and covert video files for use on social media.
                                 </p>
                                 <p>This is a lockdown project by <a href="https://andywalpole.me/blog/">Andrew Walpole</a>, built using D3.js,
-                                    the Web Audio API, IndexedDB and Web Assembly (WASM) on a Gatsby/React/Redux base. The app
+                                    the Web Audio API, IndexedDB and WebAssembly (WASM) on a Gatsby/React/Redux base. The app
                                     comes pre-loaded with a video clip from It's Grim Up North by
                                     The Justified Ancients of Mu Mu. <a href="https://github.com/TCotton/Online-Browser-Video-Editor">This is an alpha release</a>.
                                 </p>

@@ -6,7 +6,7 @@ exports[`TimeDisplay should match snapshot 1`] = `
     <time
       data-testid="time"
     >
-      0.000
+      0:00.00
     </time>
   </div>
 </body>
