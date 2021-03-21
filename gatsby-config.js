@@ -21,7 +21,7 @@ module.exports = {
             image_url: `${urljoin(
                 config.siteUrl,
                 config.pathPrefix
-            )}/logos/logo-512.png`,
+            )}/logos/android-icon-192x192.png`,
             copyright: config.copyright,
         },
     },
@@ -67,28 +67,6 @@ module.exports = {
             },
         },
         {
-            resolve: "gatsby-transformer-remark",
-            options: {
-                plugins: [
-                    {
-                        resolve: `gatsby-remark-relative-images`,
-                    },
-                    {
-                        resolve: "gatsby-remark-images",
-                        options: {
-                            maxWidth: 690,
-                        },
-                    },
-                    {
-                        resolve: "gatsby-remark-responsive-iframe",
-                    },
-                    "gatsby-remark-copy-linked-files",
-                    "gatsby-remark-autolink-headers",
-                    "gatsby-remark-prismjs",
-                ],
-            },
-        },
-        {
             resolve: "gatsby-plugin-google-analytics",
             options: {
                 trackingId: config.googleAnalyticsID,
@@ -117,101 +95,46 @@ module.exports = {
                 display: "minimal-ui",
                 icons: [
                     {
-                        src: "/logos/logo-192.png",
+                        src: "/logos/android-icon-192x192.png",
                         sizes: "192x192",
                         type: "image/png",
                     },
                     {
-                        src: "/logos/logo-512.png",
-                        sizes: "512x512",
-                        type: "image/png",
+                        src: "/logos/android-icon-36x36.png",
+                        sizes: "36x36",
+                        type: "image.png",
+                        density: "0.75"
                     },
-                ],
-            },
-        },
-        "gatsby-plugin-offline",
-        {
-            resolve: "gatsby-plugin-netlify-cms",
-            options: {
-                modulePath: path.resolve("src/netlifycms/index.js"), // default: undefined
-                enableIdentityWidget: true,
-                publicPath: "admin",
-                htmlTitle: "Content Manager",
-                includeRobots: false,
-            },
-        },
-        {
-            resolve: "gatsby-plugin-feed",
-            options: {
-                setup(ref) {
-                    const ret = ref.query.site.siteMetadata.rssMetadata;
-                    ret.allMarkdownRemark = ref.query.allMarkdownRemark;
-                    ret.generator = "GatsbyJS Advanced Starter";
-                    return ret;
-                },
-                query: `
-        {
-          site {
-            siteMetadata {
-              rssMetadata {
-                site_url
-                feed_url
-                title
-                description
-                image_url
-                copyright
-              }
-            }
-          }
-        }
-      `,
-                feeds: [
                     {
-                        serialize(ctx) {
-                            const {rssMetadata} = ctx.query.site.siteMetadata;
-                            return ctx.query.allMarkdownRemark.edges.map((edge) => ({
-                                categories: edge.node.frontmatter.tags,
-                                date: edge.node.fields.date,
-                                title: edge.node.frontmatter.title,
-                                description: edge.node.excerpt,
-                                url: rssMetadata.site_url + edge.node.fields.slug,
-                                guid: rssMetadata.site_url + edge.node.fields.slug,
-                                custom_elements: [
-                                    {"content:encoded": edge.node.html},
-                                    {author: config.userEmail},
-                                ],
-                            }));
-                        },
-                        query: `
-            {
-              allMarkdownRemark(
-                limit: 1000,
-                sort: { order: DESC, fields: [fields___date] },
-              ) {
-                edges {
-                  node {
-                    excerpt
-                    html
-                    timeToRead
-                    fields {
-                      slug
-                      date
-                    }
-                    frontmatter {
-                      title
-                      cover
-                      date
-                      category
-                      tags
-                    }
-                  }
-                }
-              }
-            }
-          `,
-                        output: config.siteRss,
-                        title: config.siteRssTitle,
+                        src: "/logos/android-icon-48x48.png",
+                        sizes: "48x48",
+                        type: "image.png",
+                        density: "1.0"
                     },
+                    {
+                        src: "/logos/android-icon-72x72.png",
+                        sizes: "72x72",
+                        type: "image.png",
+                        density: "1.5"
+                    },
+                    {
+                        src: "/logos/android-icon-96x96.png",
+                        sizes: "96x96",
+                        type: "image.png",
+                        density: "2.0"
+                    },
+                    {
+                        src: "/logos/android-icon-144x144.png",
+                        sizes: "144x144",
+                        type: "image.png",
+                        density: "3.0"
+                    },
+                    {
+                        src: "/logos/android-icon-192x192.png",
+                        sizes: "192x192",
+                        type: "image.png",
+                        density: "4.0"
+                    }
                 ],
             },
         },
