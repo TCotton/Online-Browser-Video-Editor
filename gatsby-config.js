@@ -29,6 +29,7 @@ module.exports = {
         PRESERVE_WEBPACK_CACHE: true,
         DEV_SSR: true,
         FAST_REFRESH: true,
+        FAST_DEV: true,
     },
     plugins: [
         "gatsby-plugin-react-helmet",

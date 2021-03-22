@@ -10,12 +10,14 @@ import DurationDisplay from "../components/new/PlayerDisplay/DurationDisplay";
 import ChannelDisplay from "../components/new/PlayerComponents/ChannelDisplay";
 import {TimeLines} from "../components/new/TimelineDisplay/TimeLines";
 import {FileListComponent} from "../components/new/FileListDisplay/FileListComponent";
+import SEO from '../components/SEO/SEO';
 
 const MainLayout = () => {
     return (
         <div className="wrapper">
             <Helmet>
                 <meta name="description" content={config.siteDescription}/>
+                    <SEO />
                 <html lang="en"/>
             </Helmet>
             <main>

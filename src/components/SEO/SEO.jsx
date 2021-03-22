@@ -47,76 +47,13 @@ function SEO({ postNode, postPath, postSEO }) {
 
   image = getImagePath(image);
 
-  const datePublished = getPublicationDate();
-
-  const authorJSONLD = {
-    "@type": "Person",
-    name: config.userName,
-    email: config.userEmail,
-    address: config.userLocation,
-  };
-
-  const logoJSONLD = {
-    "@type": "ImageObject",
-    url: getImagePath(config.siteLogo),
-  };
-
   const blogURL = urljoin(config.siteUrl, config.pathPrefix);
-  const schemaOrgJSONLD = [
-    {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      url: blogURL,
-      name: title,
-      alternateName: config.siteTitleAlt ? config.siteTitleAlt : "",
-    },
-  ];
-  if (postSEO) {
-    schemaOrgJSONLD.push(
-      {
-        "@context": "http://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            item: {
-              "@id": postURL,
-              name: title,
-              image,
-            },
-          },
-        ],
-      },
-      {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        url: blogURL,
-        name: title,
-        alternateName: config.siteTitleAlt ? config.siteTitleAlt : "",
-        headline: title,
-        image: { "@type": "ImageObject", url: image },
-        author: authorJSONLD,
-        publisher: {
-          ...authorJSONLD,
-          "@type": "Organization",
-          logo: logoJSONLD,
-        },
-        datePublished,
-        description,
-      }
-    );
-  }
+
   return (
     <Helmet>
       {/* General tags */}
       <meta name="description" content={description} />
       <meta name="image" content={image} />
-
-      {/* Schema.org tags */}
-      <script type="application/ld+json">
-        {JSON.stringify(schemaOrgJSONLD)}
-      </script>
 
       {/* OpenGraph tags */}
       <meta property="og:url" content={postSEO ? postURL : blogURL} />
