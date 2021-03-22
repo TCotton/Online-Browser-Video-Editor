@@ -85,7 +85,6 @@ export const FileConvertExport = () => {
         setStatus('Video transcoding ended');
         const data = ffmpeg.FS('readFile', `converted-${allVideoItems[0].name}`);
         const href = window.URL.createObjectURL(new Blob([data.buffer], {type: 'video/mp4'}));
-        //TODO: change to mp4 file name not previous
         downloadBlob(href, changeExt(allVideoItems[0].name, 'mp4'));
         window.URL.revokeObjectURL(href);
     }
