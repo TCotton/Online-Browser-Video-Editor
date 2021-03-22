@@ -53,10 +53,6 @@ function SEO({ postNode, postPath, postSEO }) {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta
-        property="fb:app_id"
-        content={config.siteFBAppID ? config.siteFBAppID : ""}
-      />
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
