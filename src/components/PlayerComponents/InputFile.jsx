@@ -5,30 +5,7 @@ import dbVF from "../indexDB/indexDBVideo";
 import {useLiveQuery} from "dexie-react-hooks";
 
 //TODO: make sure file is only for development
-//if (process.env.NODE_ENV === 'development') {
-    // eslint-disable-next-line no-unused-vars
-    const Logger = () => {
-        const formik = useFormikContext();
-        React.useEffect(() => {
-            console.group("Formik State");
-            console.log("values", formik.values);
-            console.log("errors", formik.errors);
-            console.log("touched", formik.touched);
-            console.log("isSubmitting", formik.isSubmitting);
-            console.log("isValidating", formik.isValidating);
-            console.log("submitCount", formik.submitCount);
-            console.groupEnd();
-        }, [
-            formik.values,
-            formik.errors,
-            formik.touched,
-            formik.isSubmitting,
-            formik.isValidating,
-            formik.submitCount
-        ]);
-        return null;
-    };
-//}
+
 
 const dexieRun = (files) => {
     db.file.clear();
@@ -41,15 +18,30 @@ const dexieRunVideo = (file) => {
 }
 
 const FileUpload = () => {
-
- /*   const allFileItems = useLiveQuery(() => db.file.toArray(), []);
-    useState(() => {
-        if(!allFileItems) {
-            console.dir(allFileItems, 'no file in db');
-        }
-    },[allFileItems]);
-
-    console.dir(allFileItems);*/
+    //if (process.env.NODE_ENV === 'development') {
+        // eslint-disable-next-line no-unused-vars
+        const Logger = () => {
+            const formik = useFormikContext();
+            React.useEffect(() => {
+                console.group("Formik State");
+                console.log("values", formik.values);
+                console.log("errors", formik.errors);
+                console.log("touched", formik.touched);
+                console.log("isSubmitting", formik.isSubmitting);
+                console.log("isValidating", formik.isValidating);
+                console.log("submitCount", formik.submitCount);
+                console.groupEnd();
+            }, [
+                formik.values,
+                formik.errors,
+                formik.touched,
+                formik.isSubmitting,
+                formik.isValidating,
+                formik.submitCount
+            ]);
+            return null;
+        };
+    //}
 
     return (
         <div className="app">

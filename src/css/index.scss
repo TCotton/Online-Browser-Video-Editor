@@ -120,6 +120,10 @@ main {
           padding: var(--margin) 10px;
           position: absolute;
           bottom: 0;
+
+          a.demo {
+            color: #e0b838
+          }
         }
 
         .message p {
