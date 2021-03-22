@@ -2,7 +2,7 @@ import React from "react";
 import {Button} from "reakit/Button";
 import {Tooltip, TooltipReference, useTooltipState} from "reakit/Tooltip";
 import FileUpload from './PlayerComponents/InputFile';
-import ErrorBoundary from '../ErrorBoundary/Error';
+import ErrorBoundary from './ErrorBoundary/Error';
 import {Play} from './PlayerDisplay/Play';
 import {Pause} from './PlayerDisplay/Pause';
 import {Forward} from './PlayerDisplay/Forward';

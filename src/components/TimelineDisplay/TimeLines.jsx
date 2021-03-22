@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector} from "react-redux";
-import ErrorBoundary from "../../ErrorBoundary/Error";
+import ErrorBoundary from "../ErrorBoundary/Error";
 import {imgArray} from '../slices/imageSlice';
 import {data} from '../slices/waveformSlice';
 import {ImageFramesComponent} from "./ImageFramesComponent";
