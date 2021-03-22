@@ -3,9 +3,43 @@
 exports[`FileListComponent should match snapshot 1`] = `
 <body>
   <div>
-    <div
+    <section
+      class="file-row"
       data-testid="FileListComponents"
-    />
+    >
+      <section
+        class="file-row"
+      >
+        <div
+          class="column-1"
+        >
+          <img
+            alt="file"
+            class="icon"
+            src="./file.svg"
+          />
+        </div>
+        <div
+          class="column-2"
+        >
+          <p
+            data-testid="name"
+          >
+            string
+          </p>
+        </div>
+        <div
+          class="column-3"
+        >
+          <p
+            data-testid="size"
+          >
+            0
+            MB
+          </p>
+        </div>
+      </section>
+    </section>
   </div>
 </body>
 `;

@@ -26,7 +26,7 @@ export default class ErrorBoundary extends Component {
     render () {
         const { errorInfo, error } = this.state
         const { children } = this.props
-        const errorMessage = {__html: 'Opps, something went wrong! Please contact <a href="hello@kindnessbypost.org">hello@kindnessbypost.org</a> so we can help.'}
+        const errorMessage = {__html: 'Opps, something went wrong!'}
 
         if (errorInfo) {
             return (

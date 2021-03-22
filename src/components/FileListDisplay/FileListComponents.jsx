@@ -12,10 +12,10 @@ export const FileListComponents = (props) => {
                             <img src={`./file.svg`} alt="file" className="icon"/>
                         </div>
                         <div className="column-2">
-                            <p>{x.name}</p>
+                            <p data-testid="name">{x.name}</p>
                         </div>
                         <div className="column-3">
-                            <p>{(x.size / 1000 / 1000).toFixed()}MB</p>
+                            <p data-testid="size">{(x.size / 1000 / 1000).toFixed()}MB</p>
                         </div>
                     </section> : null
             )) : null}
