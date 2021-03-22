@@ -4,7 +4,7 @@ import {useLiveQuery} from "dexie-react-hooks";
 import {document, window} from "browser-monads";
 import db from "../indexDB/indexDB";
 import dbVF from "../indexDB/indexDBVideo";
-import {changeExt} from "../helperFunctions/generateThumbnail";
+import {changeExt} from "../helperFunctions";
 
 function downloadBlob(blobUrl, name) {
     // Create a link element
@@ -106,7 +106,7 @@ export const FileConvertExport = () => {
             "-crf",
             "18",
             "-preset",
-            "fast",
+            "faster",
             "-c:a",
             "copy",
             `converted-${allVideoItems[0].name}`);
@@ -134,7 +134,7 @@ export const FileConvertExport = () => {
             "-crf",
             "18",
             "-preset",
-            "fast",
+            "faster",
             "-c:a",
             "copy",
             `converted-${allVideoItems[0].name}`);

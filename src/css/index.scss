@@ -120,6 +120,10 @@ main {
           padding: var(--margin) 10px;
           position: absolute;
           bottom: 0;
+
+          a.demo {
+            color: #e0b838
+          }
         }
 
         .message p {
@@ -445,12 +449,11 @@ div[role="tooltip"] {
 
 .fragmentDetails {
   color: red;
-  font-size: "clamp(200%, 1rem + 2vw, 30px)";
+  font-size: clamp(200%, 1rem + 2vw, 20px);
 }
 
 video {
   width: 100%;
-  object-fit: contain;
   aspect-ratio: 11 / 8;
   object-fit: scale-down;
 }

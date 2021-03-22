@@ -1,7 +1,7 @@
 {
   "name": "video-editor",
-  "description": "alpha",
-  "version": "2.20.11",
+  "description": "Browser video editing and transcoding",
+  "version": "1.0.0-alpha.1",
   "author": "Andrew Walpole",
   "dependencies": {
     "@emotion/css": "^11.1.3",

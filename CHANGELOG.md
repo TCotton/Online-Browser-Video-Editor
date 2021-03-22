@@ -1,5 +1,9 @@
 ### Video Viewer and Transcoder
 
-## Alpha (March 20, 2021)
+## 1.0.0-alpha.2 (March 22, 2021)
+
+* Added link to load demo video
+
+## 1.0.0-alpha.1 (March 21, 2021)
 
 * First initial release

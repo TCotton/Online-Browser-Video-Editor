@@ -1,6 +1,6 @@
 import { document } from "browser-monads";
 
-export const generateThumbnail = (i, videoNode) => {
+export const index = (i, videoNode) => {
     const detachedContainer = document.createElement('canvas');
     const context = detachedContainer.getContext('2d');
     const vRatio = (detachedContainer.height / videoNode.videoHeight) * videoNode.videoWidth;
@@ -10,14 +10,14 @@ export const generateThumbnail = (i, videoNode) => {
     return detachedContainer.toDataURL();
 }
 
-export const millisToMinutesAndSeconds = (millis) => {
+export const toMinutesAndSeconds = (millis) => {
     const minutes = Math.floor((millis * 1000) / 60000);
     const seconds = (((millis * 1000) % 60000) / 1000).toFixed(2);
     return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
 
 export const changeExt = (fileName, newExt) => {
-    const pos = fileName.includes(".") ? fileName.lastIndexOf(".") : fileName.length
-    const fileRoot = fileName.substr(0, pos)
-    return `${fileRoot}.${newExt}`
+    const pos = fileName.includes(".") ? fileName.lastIndexOf(".") : fileName.length;
+    const fileRoot = fileName.substr(0, pos);
+    return `${fileRoot}.${newExt}`;
 }

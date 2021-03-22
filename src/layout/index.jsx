@@ -8,6 +8,7 @@ import DurationDisplay from "../components/PlayerDisplay/DurationDisplay";
 import ChannelDisplay from "../components/PlayerComponents/ChannelDisplay";
 import {TimeLines} from "../components/TimelineDisplay/TimeLines";
 import {FileListComponent} from "../components/FileListDisplay/FileListComponent";
+import {MessageComponent} from "../components/LoadDemoComponents/MessageComponent";
 
 const MainLayout = () => {
     return (
@@ -22,21 +23,7 @@ const MainLayout = () => {
                             <ErrorBoundary>
                                 <FileListComponent/>
                             </ErrorBoundary>
-                            <section className="message">
-                                <p>
-                                    Upload and transcode video files for use on social media.
-                                </p>
-                                <p>This is a lockdown project by <a href="https://andywalpole.me/blog/" target="_blank"
-                                                                    rel="noopener noreferrer">Andrew Walpole</a>, built
-                                    using D3.js,
-                                    the Web Audio API, IndexedDB and WebAssembly (WASM) on a Gatsby/React/Redux base.
-                                    The app
-                                    comes pre-loaded with a video clip from It's Grim Up North by
-                                    The Justified Ancients of Mu Mu. <a
-                                        href="https://github.com/TCotton/Online-Browser-Video-Editor" target="_blank"
-                                        rel="noopener noreferrer">This is an alpha release</a>.
-                                </p>
-                            </section>
+                            <MessageComponent/>
                         </div>
                         <div className="column-two">
                             <div className="viewer">
