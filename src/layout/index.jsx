@@ -1,25 +1,20 @@
 import React from "react";
 import {Helmet} from "react-helmet";
 import config from "../../data/SiteConfig";
-import Interface from '../components/new/Interface';
+import Interface from '../components/Interface';
 import "../css/index.scss";
-import VideoSettings from "../components/new/PlayerComponents/VideoSettings";
+import VideoSettings from "../components/PlayerComponents/VideoSettings";
 import ErrorBoundary from "../components/ErrorBoundary/Error";
-import TimeDisplay from "../components/new/PlayerDisplay/TimeDisplay";
-import DurationDisplay from "../components/new/PlayerDisplay/DurationDisplay";
-import ChannelDisplay from "../components/new/PlayerComponents/ChannelDisplay";
-import {TimeLines} from "../components/new/TimelineDisplay/TimeLines";
-import {FileListComponent} from "../components/new/FileListDisplay/FileListComponent";
+import TimeDisplay from "../components/PlayerDisplay/TimeDisplay";
+import DurationDisplay from "../components/PlayerDisplay/DurationDisplay";
+import ChannelDisplay from "../components/PlayerComponents/ChannelDisplay";
+import {TimeLines} from "../components/TimelineDisplay/TimeLines";
+import {FileListComponent} from "../components/FileListDisplay/FileListComponent";
 import SEO from '../components/SEO/SEO';
 
 const MainLayout = () => {
     return (
         <div className="wrapper">
-            <Helmet>
-                <meta name="description" content={config.siteDescription}/>
-                    <SEO />
-                <html lang="en"/>
-            </Helmet>
             <main>
                 <header>
                     <img src={"./had.svg"} alt=""/>

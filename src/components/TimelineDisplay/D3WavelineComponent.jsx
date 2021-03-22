@@ -9,7 +9,6 @@ export const D3WavelineComponent = (props) => {
 
     useEffect(() => {
 
-        //TODO: use method as advised on the GitHub account: https://github.com/bbc/waveform-data.js/blob/master/README.md
         if (data && Array.isArray(data.min_array) && Array.isArray(data.max_array)) {
 
             const layout = d3.select(ref.current);
@@ -25,17 +24,14 @@ export const D3WavelineComponent = (props) => {
                 .range([height, 0])
                 .domain([d3.min(min), d3.max(max)]);
 
-            const d3Line = d3.line()
-                .x( (d, i) => {
-                    return xScale(i);
-                })
-                .y( (d) => {
-                    return yScale(d);
-                });
+            const area = d3.area()
+                .x((d, i) => xScale(i))
+                .y0((d, i) => yScale(min[i]))
+                .y1((d) => yScale(d));
 
             layout
                 .datum(max)
-                .attr("d", d3Line);
+                .attr("d", area);
         }
 
     }, [data])
@@ -44,13 +40,15 @@ export const D3WavelineComponent = (props) => {
         <svg
             viewBox={`0 0 ${width} ${height}`}
             preserveAspectRatio="xMidYMid slice"
+            width={width}
+            height={height}
             data-testid="svg"
         >
             <g className="area" transform="translate(0,0)" data-testid="area">
                 <path
                     className="wave"
                     ref={ref}
-                    fill="#20e0bb"
+                    transform="translate(0,0)"
                 />
             </g>
         </svg>

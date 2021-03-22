@@ -2,7 +2,7 @@ import React, {useRef, useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 import {window} from 'browser-monads';
 import {duration, time} from '../slices/videoSlice';
-import Counter from '../../../../static/counter.inline.svg'
+import Counter from '../../../static/counter.inline.svg'
 
 export const TimeDisplay = () => {
     const [translate, setTranslate] = useState(-17);

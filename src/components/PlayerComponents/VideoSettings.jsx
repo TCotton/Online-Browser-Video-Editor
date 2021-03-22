@@ -3,7 +3,7 @@ import {useLiveQuery} from "dexie-react-hooks";
 import {window} from "browser-monads";
 import VideoTag from './VideoTag';
 import db from '../indexDB/indexDB';
-import ErrorBoundary from '../../ErrorBoundary/Error';
+import ErrorBoundary from '../ErrorBoundary/Error';
 
 const VideoSettings = () => {
     const allItems = useLiveQuery(() => db.file.toArray(), []);

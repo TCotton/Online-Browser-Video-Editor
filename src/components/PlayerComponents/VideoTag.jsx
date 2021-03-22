@@ -11,7 +11,7 @@ import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
 import {generateThumbnail} from '../helperFunctions/generateThumbnail'
 import {imageFn} from '../slices/imageSlice';
 import {waveformFn} from "../slices/waveformSlice";
-import videoBackground from "../../../../static/video-background.png";
+import videoBackground from "../../../static/video-background.png";
 
 const VideoTag = (props) => {
     const {sources, files} = props;

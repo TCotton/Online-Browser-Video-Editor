@@ -363,9 +363,9 @@ main {
         grid-template-columns: minmax(250px, 0.5fr) minmax(360px, 1.5fr);
 
         path.wave {
-          stroke: #20e0bb;
+          stroke: none;
           stroke-width: 0.1;
-          fill: none;
+          fill: #20e0bb;
         }
 
         .controls {
