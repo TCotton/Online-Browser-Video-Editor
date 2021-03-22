@@ -106,7 +106,7 @@ export const FileConvertExport = () => {
             "-crf",
             "18",
             "-preset",
-            "fast",
+            "veryfast",
             "-c:a",
             "copy",
             `converted-${allVideoItems[0].name}`);
@@ -134,7 +134,7 @@ export const FileConvertExport = () => {
             "-crf",
             "18",
             "-preset",
-            "fast",
+            "veryfast",
             "-c:a",
             "copy",
             `converted-${allVideoItems[0].name}`);
