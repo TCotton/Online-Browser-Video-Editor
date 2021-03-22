@@ -1,6 +1,6 @@
 import { document } from "browser-monads";
 
-export const generateThumbnail = (i, videoNode) => {
+export const index = (i, videoNode) => {
     const detachedContainer = document.createElement('canvas');
     const context = detachedContainer.getContext('2d');
     const vRatio = (detachedContainer.height / videoNode.videoHeight) * videoNode.videoWidth;

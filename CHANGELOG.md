@@ -1,5 +1,5 @@
 ### Video Viewer and Transcoder
 
-## Alpha (March 20, 2021)
+## 1.0.0-alpha.1 (March 20, 2021)
 
 * First initial release

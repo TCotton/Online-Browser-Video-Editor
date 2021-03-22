@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {millisToMinutesAndSeconds} from "../helperFunctions/generateThumbnail";
+import {millisToMinutesAndSeconds} from "../helperFunctions";
 import {duration} from '../slices/videoSlice';
 
 const TimeDisplay = () => {

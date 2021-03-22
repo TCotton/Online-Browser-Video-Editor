@@ -4,11 +4,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {window} from "browser-monads";
 import WaveformData from "waveform-data"
 import PropTypes from 'prop-types';
-//import canAutoplay from 'can-autoplay';
 import {selectBackward, selectForward, selectMute, selectPlay} from '../slices/playerSlice';
 import {durationFn, elFn, timeFn} from '../slices/videoSlice';
 import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
-import {generateThumbnail} from '../helperFunctions/generateThumbnail'
+import {index} from '../helperFunctions'
 import {imageFn} from '../slices/imageSlice';
 import {waveformFn} from "../slices/waveformSlice";
 import videoBackground from "../../../static/video-background.png";
@@ -43,7 +42,7 @@ const VideoTag = (props) => {
 
                 // now video has seeked and current frames will show
                 // at the time as we expect
-                const r = generateThumbnail(i, newRef);
+                const r = index(i, newRef);
                 result.push(r);
 
                 // when frame is captured, increase here by 5 seconds
