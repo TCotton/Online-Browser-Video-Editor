@@ -13,6 +13,7 @@ const backdropStyles = css`
   position: fixed;
   inset: 0;
   z-index: 999;
+
   &[data-enter] {
     opacity: 1;
   }
@@ -26,7 +27,7 @@ const dialogueStyles = css`
 `;
 
 export const FileExport = () => {
-    const dialog = useDialogState();
+    const dialog = useDialogState({baseId: 'FileExport'});
     const ref = React.useRef();
     const dispatch = useDispatch();
     React.useEffect(() => {
@@ -38,11 +39,11 @@ export const FileExport = () => {
         <>
             <DialogDisclosure {...dialog}>
                 <img src={"./export.svg"} className="export" alt="export"
-                                               data-testid="file-export"/>
+                     data-testid="file-export"/>
             </DialogDisclosure>
             <DialogBackdrop {...dialog} className={backdropStyles}>
                 <Dialog {...dialog} aria-label="Welcome" className={dialogueStyles}>
-                    <div ref={ref}><FileConvertExport /></div>
+                    <div ref={ref}><FileConvertExport/></div>
                 </Dialog>
             </DialogBackdrop>
         </>
