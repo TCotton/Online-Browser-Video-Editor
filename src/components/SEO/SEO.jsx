@@ -35,16 +35,6 @@ function SEO({ postNode, postPath, postSEO }) {
     return imageURI;
   };
 
-  const getPublicationDate = () => {
-    if (!postNode) return null;
-
-    if (!postNode.frontmatter) return null;
-
-    if (!postNode.frontmatter.date) return null;
-
-    return moment(postNode.frontmatter.date, config.dateFromFormat).toDate();
-  };
-
   image = getImagePath(image);
 
   const blogURL = urljoin(config.siteUrl, config.pathPrefix);
@@ -52,8 +42,10 @@ function SEO({ postNode, postPath, postSEO }) {
   return (
     <Helmet>
       {/* General tags */}
+      <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="image" content={image} />
+      <link rel="canonical" href={blogURL} />
 
       {/* OpenGraph tags */}
       <meta property="og:url" content={postSEO ? postURL : blogURL} />

@@ -15,11 +15,6 @@ import SEO from '../components/SEO/SEO';
 const MainLayout = () => {
     return (
         <div className="wrapper">
-            <Helmet>
-                <meta name="description" content={config.siteDescription}/>
-                    <SEO />
-                <html lang="en"/>
-            </Helmet>
             <main>
                 <header>
                     <img src={"./had.svg"} alt=""/>
