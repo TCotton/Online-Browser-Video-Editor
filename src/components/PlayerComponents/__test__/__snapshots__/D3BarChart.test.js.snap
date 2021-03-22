@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`D3BarChart should match snapshot 1`] = `
+<body>
+  <div>
+    <svg
+      data-testid="svg"
+      height="100%"
+      preserveAspectRatio="none"
+      viewBox="0 0 10 10"
+      width="100%"
+    >
+      <g
+        class="rects"
+        data-testid="rects"
+        transform="translate(0,0)"
+      >
+        <rect
+          class="rect"
+          fill="#000"
+          height="4.803149606299213"
+          width="0"
+          y="5.196850393700787"
+        />
+      </g>
+    </svg>
+  </div>
+</body>
+`;

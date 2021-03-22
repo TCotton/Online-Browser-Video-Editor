@@ -127,7 +127,8 @@
     "format:styles": "prettier '**/*.{css,scss}' --write",
     "serveW": "gatsby --verbose develop -p 5000",
     "devW": "node $NODE_DEBUG_OPTION ./node_modules/.bin/gatsby develop -p 5000",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage --watchAll=false"
   },
   "remarkConfig": {
     "plugins": [

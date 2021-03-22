@@ -199,7 +199,7 @@ const VideoTag = (props) => {
     if (play) {
         if (context && context.state === 'suspended') {
             context.resume().then(() => {
-                console.log('Playback resumed successfully');
+                console.info('Playback resumed successfully');
             });
         }
         controls.play();
