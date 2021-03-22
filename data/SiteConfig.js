@@ -1,11 +1,11 @@
 const config = {
   siteTitle: "Covert video for social media",
   siteTitleShort: "Video convertor", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  siteTitleAlt: "Video conversion for Twitter, Facebook, LinkedIn", // Alternative site title for SEO.
+  siteTitleAlt: "Video transcoding for Twitter, Facebook, LinkedIn", // Alternative site title for SEO.
   siteLogo: "/logos/convert-video.gif", // Logo used for SEO and manifest.
   siteUrl: "https://convertvideo.forsocialmedia.link/", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
-  siteDescription: "Covert video for use on social media - Twitter, Facebook, LinkedIn", // Website description used for RSS feeds/meta description tag.
+  siteDescription: "Transcode video to use to social media - Twitter, Facebook, LinkedIn", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   siteRssTitle: "Gatsby Advanced Starter RSS feed", // Title of the RSS feed
   siteFBAppID: "1825356251115265", // FB Application ID for using app insights
@@ -16,7 +16,7 @@ const config = {
   postsPerPage: 4, // Amount of posts displayed per listing page.
   userName: "Andrew Walpole", // Username to display in the author segment.
   userEmail: "andy.walpole@gmail.com", // Email used for RSS feed's author segment
-  userTwitter: "", // Optionally renders "Follow Me" in the UserInfo segment.
+  userTwitter: "AndrewWalpole5", // Optionally renders "Follow Me" in the UserInfo segment.
   userLocation: "London", // User location to display in the author segment.
   userAvatar: "", // User avatar to display in the author segment.
   userDescription:
