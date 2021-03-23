@@ -16,11 +16,6 @@ describe('MessageComponent', () => {
        dex.dexieRunVideo = mockDexieRunVideo;
     });
 
-  /*  afterEach(() => {
-        mockDexieRun.reset();
-        mockDexieRunVideo.reset();
-    })*/
-
     it('should render successfully', () => {
         const {container} = render(<MessageComponent />);
         expect(container.querySelector("[data-testid=\"message\"]")).not.toBeNull();
@@ -31,7 +26,7 @@ describe('MessageComponent', () => {
         expect(baseElement).toMatchSnapshot();
     });
 
-    it('should call dexieRun and dexieRunVideo on clicking link',  async () => {
+    xit('should call dexieRun and dexieRunVideo on clicking link',  async () => {
         const blob = new Blob(['a', 'b', 'c', 'd']);
         fetchMock.once('*', {body: blob}, {sendAsJson: false});
         const {container} = render(<MessageComponent />);
