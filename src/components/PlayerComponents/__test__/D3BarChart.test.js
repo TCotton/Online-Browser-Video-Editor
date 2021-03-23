@@ -16,6 +16,7 @@ describe('D3BarChart', () => {
     it('should render successfully', () => {
         const {container} = render(<D3BarChart {...props}/>);
         expect(container.querySelector("[data-testid=\"svg\"]")).not.toBeNull();
+        expect(container.querySelector("[data-testid=\"rects\"]")).not.toBeNull();
     });
 
     it('should match snapshot', () => {
