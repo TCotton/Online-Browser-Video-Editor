@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChannelDisplay should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="left "
+      data-testid="ChannelDisplay"
+    >
+      <svg
+        data-testid="svg"
+        height="100%"
+        preserveAspectRatio="none"
+        viewBox="0 0 250 250"
+        width="100%"
+      >
+        <g
+          class="rects"
+          data-testid="rects"
+          transform="translate(0,0)"
+        >
+          <rect
+            class="rect"
+            fill="rgb(32, 224, 187)"
+            height="982.2834645669292"
+            width="250"
+            y="-732.2834645669292"
+          />
+        </g>
+      </svg>
+    </div>
+    <div
+      class="right "
+    >
+      <svg
+        data-testid="svg"
+        height="100%"
+        preserveAspectRatio="none"
+        viewBox="0 0 250 250"
+        width="100%"
+      >
+        <g
+          class="rects"
+          data-testid="rects"
+          transform="translate(0,0)"
+        >
+          <rect
+            class="rect"
+            fill="rgb(14, 175, 163)"
+            height="982.2834645669292"
+            width="250"
+            y="-732.2834645669292"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+`;

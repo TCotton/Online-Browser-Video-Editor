@@ -14,7 +14,7 @@ const ChannelDisplay = () => {
 
     return (
         <>
-            <div className={`left ${def}`}>
+            <div className={`left ${def}`} data-testid="ChannelDisplay">
                 <D3BarChart data={rangeLeft} width={250} height={250} padding={0} colour="rgb(32, 224, 187)" setClass={setDefaultClass} />
             </div>
             <div className={`right ${def}`}>
