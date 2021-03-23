@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageComponent should match snapshot 1`] = `
+<body>
+  <div>
+    <section
+      class="message"
+      data-testid="message"
+    >
+      <p>
+        Upload and transcode video files for use on social media.
+      </p>
+      <p>
+        This is a lockdown project by 
+        <a
+          href="https://andywalpole.me/blog/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Andrew Walpole
+        </a>
+        , built using D3.js, the Web Audio API, IndexedDB and WebAssembly (WASM) on a Gatsby/React/Redux base. 
+        <a
+          class="demo"
+          data-testid="link"
+          href="/"
+        >
+          Click here to load a demo video file
+        </a>
+        . 
+        <a
+          href="https://github.com/TCotton/Online-Browser-Video-Editor"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          This is an alpha release
+        </a>
+        .
+      </p>
+    </section>
+  </div>
+</body>
+`;

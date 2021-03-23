@@ -12,7 +12,7 @@ module.exports = {
         __PATH_PREFIX__: ``,
     },
     testURL: `http://localhost`,
-    setupFiles: [`<rootDir>/loadershim.js`],
+    setupFiles: [`<rootDir>/loadershim.js`, `fake-indexeddb/auto`],
     collectCoverage: false,
     coverageReporters: ["lcov"],
     coverageDirectory: `<rootDir>/coverage`,
