@@ -50,11 +50,7 @@ export const FileConvertExport = () => {
 
         console.info('Loading ffmpeg-core.js');
 
-        console.dir(ffmpeg);
-
-        //await ffmpeg.load();
-        return;
-
+        await ffmpeg.load();
         setStatus('Video transcoding started');
 
         ffmpeg.FS('writeFile', allVideoItems[0].name, await fetchFile(allFileItems[0]));
