@@ -16,9 +16,8 @@ const VideoTag = (props) => {
     const {sources, files} = props;
     const dispatch = useDispatch();
     const [context, setContext] = useState();
-
     const [video, state, controls, ref] = useVideo(
-        <video src={sources[0].src} id="video" poster={videoBackground}/>
+        <video src={sources[0].src} id="video" poster={videoBackground} data-testid="video"/>
     );
 
     useEffect(() => {
@@ -196,15 +195,17 @@ const VideoTag = (props) => {
 
 
     const play = useSelector(selectPlay);
-    if (play) {
-        if (context && context.state === 'suspended') {
-            context.resume().then(() => {
-                console.info('Playback resumed successfully');
-            });
+    play.then((result) => {
+        if(result) {
+            if (context && context.state === 'suspended') {
+                context.resume().then(() => {
+                    console.info('Playback resumed successfully');
+                });
+            }
+            controls.play();
         }
-        controls.play();
-    }
-    if (!play) controls.pause();
+        controls.pause();
+    });
 
     const back = useSelector(selectBackward);
     back.then((result) => {

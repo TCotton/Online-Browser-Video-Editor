@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoTag should match snapshot 1`] = `
+<body>
+  <div>
+    <video
+      data-testid="video"
+      id="video"
+      poster="test-file-stub"
+      src="blob:http://localhost:8000/c22f16b2-09e1-4fd1-a2e1-3402d215b992"
+    />
+  </div>
+</body>
+`;
