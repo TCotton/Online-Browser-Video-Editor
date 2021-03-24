@@ -26,7 +26,7 @@ describe('MessageComponent', () => {
         expect(baseElement).toMatchSnapshot();
     });
 
-    xit('should call dexieRun and dexieRunVideo on clicking link',  async () => {
+    it('should call dexieRun and dexieRunVideo on clicking link',  async () => {
         const blob = new Blob(['a', 'b', 'c', 'd']);
         fetchMock.once('*', {body: blob}, {sendAsJson: false});
         const {container} = render(<MessageComponent />);

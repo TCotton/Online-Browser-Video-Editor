@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="export"
+      data-testid="export"
+    >
+      <header>
+        <p
+          class="title"
+        >
+          Click below to export
+        </p>
+        <p
+          class="status"
+        />
+      </header>
+      <ul
+        class="social"
+      >
+        <li>
+          <button
+            data-testid="twitter"
+          >
+            <img
+              alt="click to export for twitter"
+              height="400"
+              src="./social/twitter.svg"
+              width="400"
+            />
+          </button>
+        </li>
+        <li>
+          <button
+            data-testid="facebook"
+          >
+            <img
+              alt="click to export for Facebook"
+              height="250"
+              src="./social/facebook.png"
+              width="250"
+            />
+          </button>
+        </li>
+        <li>
+          <button
+            data-testid="linkedin"
+          >
+            <img
+              alt="click to export for Linkedin"
+              height="540"
+              src="./social/linkedin.png"
+              width="650"
+            />
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+`;
