@@ -12,7 +12,7 @@ import {MessageComponent} from "../components/LoadDemoComponents/MessageComponen
 
 const MainLayout = () => {
     return (
-        <div className="wrapper">
+        <div className="wrapper" data-testid="wrapper">
             <main>
                 <header>
                     <img src={"./had.svg"} alt=""/>
