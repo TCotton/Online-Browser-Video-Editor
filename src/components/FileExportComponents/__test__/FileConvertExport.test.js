@@ -3,11 +3,22 @@ import {window} from "browser-monads";
 import {fireEvent, render, waitFor} from "@testing-library/react";
 import {FileConvertExport} from "../FileConvertExport";
 
-jest.mock('@ffmpeg/ffmpeg', () => ({
-    ...jest.requireActual('@ffmpeg/ffmpeg'),
-    createFFmpeg: jest.fn((n) => {n}),
+
+jest.mock("@ffmpeg/ffmpeg", () => ({
+    createFFmpeg: jest.fn(() => {
+        return {
+            setProgress: jest.fn(),
+            setLogger: jest.fn(),
+            setLogging: jest.fn(),
+            load: jest.fn(),
+            isLoaded: jest.fn(),
+            run: jest.fn(),
+            FS: jest.fn()
+        }
+    }),
     fetchFile: jest.fn(),
 }));
+
 
 describe('', () => {
     const windowAlert = jest.fn();

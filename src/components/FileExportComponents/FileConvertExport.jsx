@@ -42,7 +42,7 @@ export const FileConvertExport = () => {
                 setStatus(`Complete: ${(ratio * 100.0).toFixed(2)}%`);
             }
         }
-    }) || {};
+    });
 
     const onClickTwitter = async () => {
         const result = window.confirm('Convert video for Twitter?');
