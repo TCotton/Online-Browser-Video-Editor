@@ -1,11 +1,11 @@
 const config = {
-  siteTitle: "Covert video for social media",
+  siteTitle: "Covert video to use on social media",
   siteTitleShort: "Video convertor", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "Video transcoding for Twitter, Facebook, LinkedIn", // Alternative site title for SEO.
   siteLogo: "/logos/convert-video.gif", // Logo used for SEO and manifest.
   siteUrl: "https://convertvideo.forsocialmedia.link/", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
-  siteDescription: "Transcode video to use to social media - Twitter, Facebook, LinkedIn", // Website description used for RSS feeds/meta description tag.
+  siteDescription: "Transcode video to use on social media - Twitter, Facebook, LinkedIn", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   siteRssTitle: "Gatsby Advanced Starter RSS feed", // Title of the RSS feed
   siteFBAppID: "1825356251115265", // FB Application ID for using app insights

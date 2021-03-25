@@ -188,6 +188,14 @@ const VideoTag = (props) => {
         };
     }, [state.time]);
 
+    const display = useSelector(displayLoader);
+
+    useEffect(() => {
+        if(display) {
+            dispatch(displayFn(false));
+        }
+    },[display]);
+
     const play = useSelector(selectPlay);
     play.then((result) => {
         if(result) {
