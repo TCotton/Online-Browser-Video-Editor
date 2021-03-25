@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {window} from "browser-monads";
 import {useDispatch} from "react-redux";
 import happyPanda from '../../../static/happy-panda.mp4'
@@ -21,7 +21,8 @@ export const MessageComponent = () => {
 
     const dispatch = useDispatch();
 
-    const onClickFnc = (e) => {
+    const onClickFnc = useCallback((e) => {
+        let timer;
 
         dispatch(displayFn(true));
 
@@ -41,12 +42,17 @@ export const MessageComponent = () => {
             dex.dexieRunVideo(file);
             dex.dexieRun(blob);
 
+            timer = setTimeout(() => {
+                dispatch(displayFn(false));
+            }, 300);
+
         }).catch((error) => {
             throw new Error(error.toString());
         });
 
         e.preventDefault();
-    }
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <section className="message" data-testid="message">
@@ -56,7 +62,8 @@ export const MessageComponent = () => {
             <p>This is a lockdown project by <a href="https://andywalpole.me/blog/" target="_blank"
                                                 rel="noopener noreferrer">Andrew Walpole</a>, built
                 using D3.js, the Web Audio API, IndexedDB and WebAssembly (WASM) on a Gatsby/React/Redux base. <a
-                    href="/" className="demo" onClick={onClickFnc} data-testid='link'>Click here to load a demo video file</a>. <a
+                    href="/" className="demo" onClick={onClickFnc} data-testid='link'>Click here to load a demo video
+                    file</a>. <a
                     href="https://github.com/TCotton/Online-Browser-Video-Editor" target="_blank"
                     rel="noopener noreferrer">This is an alpha release</a>.
             </p>
