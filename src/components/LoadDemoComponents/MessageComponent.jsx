@@ -22,7 +22,6 @@ export const MessageComponent = () => {
     const dispatch = useDispatch();
 
     const onClickFnc = useCallback((e) => {
-        let timer;
 
         dispatch(displayFn(true));
 
@@ -41,10 +40,6 @@ export const MessageComponent = () => {
             }
             dex.dexieRunVideo(file);
             dex.dexieRun(blob);
-
-            timer = setTimeout(() => {
-                dispatch(displayFn(false));
-            }, 300);
 
         }).catch((error) => {
             throw new Error(error.toString());
