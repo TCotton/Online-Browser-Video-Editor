@@ -6,15 +6,15 @@ import {useLiveQuery} from "dexie-react-hooks";
 
 //TODO: make sure file is only for development
 
-
-const dexieRun = (files) => {
-    db.file.clear();
-    db.file.add(files);
-}
-
-const dexieRunVideo = (file) => {
-    dbVF.videofile.clear();
-    dbVF.videofile.add(file);
+export const dex = {
+    dexieRun: (files) => {
+        db.file.clear();
+        db.file.add(files);
+    },
+    dexieRunVideo: (file) => {
+        dbVF.videofile.clear();
+        dbVF.videofile.add(file);
+    }
 }
 
 const FileUpload = () => {
@@ -65,18 +65,18 @@ const FileUpload = () => {
                 }}
                 render={({values, handleSubmit}) => {
                     return (
-                        <Form onSubmit={handleSubmit}>
+                        <Form onSubmit={handleSubmit} data-testid="form">
                             <Logger />
                             <div className="fileStyling">
-                                <Field name="file" id="file" type="file" required accept="video/*" onChange={(event) => {
-                                    dexieRun(event.currentTarget.files[0]);
+                                <Field name="file" id="file" type="file" data-testid="file" required accept="video/*" onChange={(event) => {
+                                    dex.dexieRun(event.currentTarget.files[0]);
                                     const file = {
                                         lastModified: event.currentTarget.files[0].lastModified,
                                         name: event.currentTarget.files[0].name,
                                         size: event.currentTarget.files[0].size,
                                         type: event.currentTarget.files[0].type
                                     }
-                                    dexieRunVideo(file);
+                                    dex.dexieRunVideo(file);
                                 }}/>
                                 <label htmlFor="file">Choose a file</label>
                             </div>

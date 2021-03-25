@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`D3WavelineComponent should match snapshot 1`] = `
+<body>
+  <div>
+    <svg
+      data-testid="svg"
+      height="999"
+      preserveAspectRatio="xMidYMid slice"
+      viewBox="0 0 999 999"
+      width="999"
+    >
+      <g
+        class="area"
+        data-testid="area"
+        transform="translate(0,0)"
+      >
+        <path
+          class="wave"
+          d="M0,0L0,999Z"
+          transform="translate(0,0)"
+        />
+      </g>
+    </svg>
+  </div>
+</body>
+`;

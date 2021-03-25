@@ -1,0 +1,518 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`D3LineTick should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="timeline-ticks"
+    >
+      <svg
+        data-testid="svg"
+        preserveAspectRatio="xMidYMid slice"
+        viewBox="0 0 999 999"
+      >
+        <g
+          class="axis-top"
+          data-testid="axis"
+          fill="none"
+          font-family="sans-serif"
+          font-size="10"
+          text-anchor="middle"
+          transform="translate(0,0)"
+        >
+          <path
+            class="domain"
+            d="M0.5,-6V0.5H999.5V-6"
+            stroke="currentColor"
+          />
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(0.5,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:00
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(41.109756097560975,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:00
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(81.71951219512195,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:00
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(122.32926829268293,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:01
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(162.9390243902439,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:01
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(203.54878048780486,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:02
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(244.15853658536585,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:02
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(284.7682926829268,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:03
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(325.3780487804878,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:03
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(365.9878048780488,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:04
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(406.5975609756097,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:04
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(447.2073170731707,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:05
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(487.8170731707317,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:05
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(528.4268292682926,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:06
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(569.0365853658536,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:06
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(609.6463414634146,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:07
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(650.2560975609756,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:07
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(690.8658536585366,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:08
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(731.4756097560976,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:08
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(772.0853658536586,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:09
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(812.6951219512194,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:09
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(853.3048780487804,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:10
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(893.9146341463414,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:10
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(934.5243902439024,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:11
+            </text>
+          </g>
+          <g
+            class="tick"
+            opacity="1"
+            transform="translate(975.1341463414634,0)"
+          >
+            <line
+              stroke="currentColor"
+              y2="-6"
+            />
+            <text
+              dy="0em"
+              fill="currentColor"
+              style="text-anchor: end; font-size: 1.75ex; font-family: monospace; fill: #ffffff;"
+              transform="translate(10,30) rotate(45)"
+              y="-9"
+            >
+              00:11
+            </text>
+          </g>
+        </g>
+        <g
+          class="waveform"
+          data-testid="waveform"
+        >
+          <path
+            class="svg-line"
+            d="M0,0Z"
+            fill="#ffffff"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+`;

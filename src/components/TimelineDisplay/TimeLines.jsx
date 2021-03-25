@@ -16,7 +16,7 @@ export const TimeLines = () => {
     const timeDisplay = useSelector(time);
 
     return (
-        <section className="bottom">
+        <section className="bottom" data-testid="TimeLines">
             <div className="row-timeline">
                 <div className="controls">
                 </div>

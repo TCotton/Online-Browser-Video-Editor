@@ -41,7 +41,6 @@ export const FileConvertExport = () => {
             if ((ratio * 100.0).toFixed(2) < 99.9) {
                 setStatus(`Complete: ${(ratio * 100.0).toFixed(2)}%`);
             }
-
         }
     });
 
@@ -50,9 +49,12 @@ export const FileConvertExport = () => {
         if (!result) return;
 
         console.info('Loading ffmpeg-core.js');
+
         await ffmpeg.load();
         setStatus('Video transcoding started');
+
         ffmpeg.FS('writeFile', allVideoItems[0].name, await fetchFile(allFileItems[0]));
+
         await ffmpeg.run('-i',
             allVideoItems[0].name,
             "-vcodec",
@@ -82,6 +84,8 @@ export const FileConvertExport = () => {
             "-ac",
             "2",
             `converted-${allVideoItems[0].name}`);
+
+
         setStatus('Video transcoding ended');
         const data = ffmpeg.FS('readFile', `converted-${allVideoItems[0].name}`);
         const href = window.URL.createObjectURL(new Blob([data.buffer], {type: 'video/mp4'}));
@@ -147,26 +151,26 @@ export const FileConvertExport = () => {
 
     return (
         <>
-            <div className="export">
+            <div className="export" data-testid="export">
                 <header>
                     <p className="title">Click below to export</p>
                     <p className="status">{status}</p>
                 </header>
                 <ul className="social">
                     <li>
-                        <button onClick={onClickTwitter}>
+                        <button onClick={onClickTwitter} data-testid="twitter">
                             <img src={"./social/twitter.svg"} alt="click to export for twitter" width="400"
                                  height="400" />
                         </button>
                     </li>
                     <li>
-                        <button onClick={onClickFacebook}>
+                        <button onClick={onClickFacebook} data-testid="facebook">
                             <img src={"./social/facebook.png"} alt="click to export for Facebook" width="250"
                                  height="250"/>
                         </button>
                     </li>
                     <li>
-                        <button onClick={onClickLinkedin}>
+                        <button onClick={onClickLinkedin} data-testid="linkedin">
                             <img src={"./social/linkedin.png"} alt="click to export for Linkedin" width="650"
                                  height="540"/>
                         </button>

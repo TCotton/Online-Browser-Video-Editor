@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeDisplay should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="timeline-display"
+      data-testid="TimeDisplay"
+    >
+      <test-file-stub
+        style="transform: translate(-17px, -230px);"
+      />
+    </div>
+  </div>
+</body>
+`;

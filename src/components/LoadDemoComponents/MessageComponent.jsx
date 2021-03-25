@@ -1,22 +1,29 @@
 import React from 'react';
-import {window} from "browser-monads"
+import {window} from "browser-monads";
+import {useDispatch} from "react-redux";
 import happyPanda from '../../../static/happy-panda.mp4'
 import db from "../indexDB/indexDB";
 import dbVF from "../indexDB/indexDBVideo";
+import {displayFn} from '../slices/loaderSlice'
 
-const dexieRun = (files) => {
-    db.file.clear();
-    db.file.add(files);
-}
-
-const dexieRunVideo = (file) => {
-    dbVF.videofile.clear();
-    dbVF.videofile.add(file);
+export const dex = {
+    dexieRun: (files) => {
+        db.file.clear();
+        db.file.add(files);
+    },
+    dexieRunVideo: (file) => {
+        dbVF.videofile.clear();
+        dbVF.videofile.add(file);
+    }
 }
 
 export const MessageComponent = () => {
 
+    const dispatch = useDispatch();
+
     const onClickFnc = (e) => {
+
+        dispatch(displayFn(true));
 
         window.fetch(happyPanda)
             .then(response => {
@@ -31,8 +38,8 @@ export const MessageComponent = () => {
                 size: blob.size,
                 type: blob.type
             }
-            dexieRunVideo(file);
-            dexieRun(blob);
+            dex.dexieRunVideo(file);
+            dex.dexieRun(blob);
 
         }).catch((error) => {
             throw new Error(error.toString());
@@ -49,7 +56,7 @@ export const MessageComponent = () => {
             <p>This is a lockdown project by <a href="https://andywalpole.me/blog/" target="_blank"
                                                 rel="noopener noreferrer">Andrew Walpole</a>, built
                 using D3.js, the Web Audio API, IndexedDB and WebAssembly (WASM) on a Gatsby/React/Redux base. <a
-                    href="/" className="demo" onClick={onClickFnc}>Click here to load a demo video file</a>. <a
+                    href="/" className="demo" onClick={onClickFnc} data-testid='link'>Click here to load a demo video file</a>. <a
                     href="https://github.com/TCotton/Online-Browser-Video-Editor" target="_blank"
                     rel="noopener noreferrer">This is an alpha release</a>.
             </p>

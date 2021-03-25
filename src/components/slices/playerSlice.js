@@ -36,7 +36,9 @@ export const playerSlice = createSlice({
 
 export const {playFn, stopFn, forwardFn, backwardFn, soundFn, reset} = playerSlice.actions;
 
-export const selectPlay = state => state.player.play;
+export const selectPlay = state => new Promise((resolve) => {
+    resolve(state.player.play);
+});
 
 export const selectMute = state => new Promise((resolve) => {
     resolve(state.player.mute);

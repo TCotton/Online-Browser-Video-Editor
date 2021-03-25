@@ -40,6 +40,7 @@ exports[`FileExport should match snapshot 1`] = `
         <div>
           <div
             class="export"
+            data-testid="export"
           >
             <header>
               <p
@@ -55,7 +56,9 @@ exports[`FileExport should match snapshot 1`] = `
               class="social"
             >
               <li>
-                <button>
+                <button
+                  data-testid="twitter"
+                >
                   <img
                     alt="click to export for twitter"
                     height="400"
@@ -65,7 +68,9 @@ exports[`FileExport should match snapshot 1`] = `
                 </button>
               </li>
               <li>
-                <button>
+                <button
+                  data-testid="facebook"
+                >
                   <img
                     alt="click to export for Facebook"
                     height="250"
@@ -75,7 +80,9 @@ exports[`FileExport should match snapshot 1`] = `
                 </button>
               </li>
               <li>
-                <button>
+                <button
+                  data-testid="linkedin"
+                >
                   <img
                     alt="click to export for Linkedin"
                     height="540"

@@ -24,7 +24,7 @@ export const TimeDisplay = () => {
     },[container, durationDisplay, timeDisplay]);
 
     return (
-        <div ref={container} className="timeline-display">
+        <div ref={container} className="timeline-display" data-testid='TimeDisplay'>
             <Counter style={{ transform: `translate(${translate}px, -230px)` }} />
         </div>
     )

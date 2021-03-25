@@ -2,17 +2,12 @@ import React from 'react';
 import {render} from '@testing-library/react';
 import {FileListComponent} from "../FileListComponent";
 
-xdescribe('FileListComponent', () => {
+jest.mock('dexie-react-hooks', () => ({
+    ...jest.requireActual('dexie-react-hooks'),
+    useLiveQuery: jest.fn()
+}));
 
-    let useSelectorMock;
-
-    beforeEach(() => {
-        useSelectorMock = jest.spyOn(dexieReactHooks, 'useSelector')
-    });
-
-    afterEach(() => {
-        useSelectorMock.mockClear();
-    });
+describe('FileListComponent', () => {
 
     it('should render successfully', () => {
         const {container} = render(<FileListComponent/>);

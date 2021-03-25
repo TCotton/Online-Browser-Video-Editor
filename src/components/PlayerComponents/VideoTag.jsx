@@ -11,14 +11,14 @@ import {index} from '../helperFunctions'
 import {imageFn} from '../slices/imageSlice';
 import {waveformFn} from "../slices/waveformSlice";
 import videoBackground from "../../../static/video-background.png";
+import {displayFn, displayLoader} from "../slices/loaderSlice";
 
 const VideoTag = (props) => {
     const {sources, files} = props;
     const dispatch = useDispatch();
     const [context, setContext] = useState();
-
     const [video, state, controls, ref] = useVideo(
-        <video src={sources[0].src} id="video" poster={videoBackground}/>
+        <video src={sources[0].src} id="video" poster={videoBackground} data-testid="video"/>
     );
 
     useEffect(() => {
@@ -188,23 +188,26 @@ const VideoTag = (props) => {
         };
     }, [state.time]);
 
+    const display = useSelector(displayLoader);
 
-    useMemo(() => {
-        //TODO: what's this for??
-        dispatch(elFn(true))
-    }, [ref]);
-
+    useEffect(() => {
+        if(display) {
+            dispatch(displayFn(false));
+        }
+    },[display]);
 
     const play = useSelector(selectPlay);
-    if (play) {
-        if (context && context.state === 'suspended') {
-            context.resume().then(() => {
-                console.log('Playback resumed successfully');
-            });
+    play.then((result) => {
+        if(result) {
+            if (context && context.state === 'suspended') {
+                context.resume().then(() => {
+                    console.info('Playback resumed successfully');
+                });
+            }
+            controls.play();
         }
-        controls.play();
-    }
-    if (!play) controls.pause();
+        controls.pause();
+    });
 
     const back = useSelector(selectBackward);
     back.then((result) => {

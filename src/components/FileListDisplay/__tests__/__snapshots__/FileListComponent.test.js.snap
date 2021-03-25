@@ -4,8 +4,14 @@ exports[`FileListComponent should match snapshot 1`] = `
 <body>
   <div>
     <div
+      class="filelists"
       data-testid="FileListComponent"
-    />
+    >
+      <section
+        class="file-row"
+        data-testid="FileListComponents"
+      />
+    </div>
   </div>
 </body>
 `;

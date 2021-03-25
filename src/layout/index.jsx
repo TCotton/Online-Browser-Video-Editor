@@ -9,10 +9,12 @@ import ChannelDisplay from "../components/PlayerComponents/ChannelDisplay";
 import {TimeLines} from "../components/TimelineDisplay/TimeLines";
 import {FileListComponent} from "../components/FileListDisplay/FileListComponent";
 import {MessageComponent} from "../components/LoadDemoComponents/MessageComponent";
+import {SpinnerComponent} from "../components/Spinner/SpinnerComponent";
 
 const MainLayout = () => {
     return (
-        <div className="wrapper">
+        <div className="wrapper" data-testid="wrapper">
+            <SpinnerComponent />
             <main>
                 <header>
                     <img src={"./had.svg"} alt=""/>

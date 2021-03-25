@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileUpload should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="app"
+    >
+      <form
+        action="#"
+        data-testid="form"
+      >
+        <div
+          class="fileStyling"
+        >
+          <input
+            accept="video/*"
+            data-testid="file"
+            id="file"
+            name="file"
+            required=""
+            type="file"
+            value=""
+          />
+          <label
+            for="file"
+          >
+            Choose a file
+          </label>
+        </div>
+        <div
+          class="Errors"
+        />
+      </form>
+    </div>
+  </div>
+</body>
+`;

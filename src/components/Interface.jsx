@@ -21,7 +21,7 @@ export default function Interface() {
 
     return (
         <ErrorBoundary>
-            <ul>
+            <ul data-testid="interface">
                 <li>
                     <button>
                         <img src={"./cut.svg"} className="right-cut" alt="right cut"/>
@@ -51,14 +51,12 @@ export default function Interface() {
                     </TooltipReference>
                     <Tooltip {...tooltip5}>Forward</Tooltip>
                 </li>
-
                 <li>
                     <TooltipReference {...tooltip9} as={Button}>
                         <Sound/>
                     </TooltipReference>
                     <Tooltip {...tooltip9}>Mute/Sound</Tooltip>
                 </li>
-
                 <li>
                     <TooltipReference {...tooltip6}>
                         <FileUpload/>
