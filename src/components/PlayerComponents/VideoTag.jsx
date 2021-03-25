@@ -11,6 +11,7 @@ import {index} from '../helperFunctions'
 import {imageFn} from '../slices/imageSlice';
 import {waveformFn} from "../slices/waveformSlice";
 import videoBackground from "../../../static/video-background.png";
+import {displayFn, displayLoader} from "../slices/loaderSlice";
 
 const VideoTag = (props) => {
     const {sources, files} = props;
@@ -187,12 +188,13 @@ const VideoTag = (props) => {
         };
     }, [state.time]);
 
+    const display = useSelector(displayLoader);
 
-    useMemo(() => {
-        //TODO: what's this for??
-        dispatch(elFn(true))
-    }, [ref]);
-
+    useEffect(() => {
+        if(display) {
+            dispatch(displayFn(false));
+        }
+    },[display]);
 
     const play = useSelector(selectPlay);
     play.then((result) => {

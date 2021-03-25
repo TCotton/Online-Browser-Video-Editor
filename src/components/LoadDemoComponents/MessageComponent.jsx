@@ -1,8 +1,10 @@
 import React from 'react';
-import {window} from "browser-monads"
+import {window} from "browser-monads";
+import {useDispatch} from "react-redux";
 import happyPanda from '../../../static/happy-panda.mp4'
 import db from "../indexDB/indexDB";
 import dbVF from "../indexDB/indexDBVideo";
+import {displayFn} from '../slices/loaderSlice'
 
 export const dex = {
     dexieRun: (files) => {
@@ -17,7 +19,11 @@ export const dex = {
 
 export const MessageComponent = () => {
 
+    const dispatch = useDispatch();
+
     const onClickFnc = (e) => {
+
+        dispatch(displayFn(true));
 
         window.fetch(happyPanda)
             .then(response => {

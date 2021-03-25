@@ -10,6 +10,7 @@ import playerReducer from './components/slices/playerSlice';
 import audioReducer from './components/slices/audioSlice';
 import imageReducer from './components/slices/imageSlice';
 import waveformReducer from './components/slices/waveformSlice';
+import loaderReducer from "./components/slices/loaderSlice";
 
 function render(
     ui,
@@ -23,6 +24,7 @@ function render(
             audio: audioReducer,
             images: imageReducer,
             waveform: waveformReducer,
+            loader: loaderReducer,
         }), initialState),
         ...renderOptions
     } = {}
