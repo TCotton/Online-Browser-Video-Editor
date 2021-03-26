@@ -1,17 +1,19 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useVideo} from 'react-use';
 import {useDispatch, useSelector} from "react-redux";
 import {window} from "browser-monads";
 import WaveformData from "waveform-data"
 import PropTypes from 'prop-types';
-import {selectBackward, selectForward, selectMute, selectPlay} from '../slices/playerSlice';
-import {durationFn, elFn, timeFn} from '../slices/videoSlice';
+import {selectBackward, selectForward, selectPlay} from '../slices/playerSlice';
+import {durationFn, timeFn} from '../slices/videoSlice';
 import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
 import {index} from '../helperFunctions'
 import {imageFn} from '../slices/imageSlice';
 import {waveformFn} from "../slices/waveformSlice";
 import videoBackground from "../../../static/video-background.png";
 import {displayFn, displayLoader} from "../slices/loaderSlice";
+import {useControlsMute} from "./hooks/useControlsMute";
+import {useControlsForward} from './hooks/useControlsForward';
 
 const VideoTag = (props) => {
     const {sources, files} = props;
@@ -166,7 +168,6 @@ const VideoTag = (props) => {
         return () => window.cancelAnimationFrame(current);
     }, [ref]);
 
-
     useEffect(() => {
         let isStopped = false;
         if (!isStopped) {
@@ -176,7 +177,6 @@ const VideoTag = (props) => {
             isStopped = true;
         };
     }, [state.duration]);
-
 
     useEffect(() => {
         let isStopped = false;
@@ -189,7 +189,6 @@ const VideoTag = (props) => {
     }, [state.time]);
 
     const display = useSelector(displayLoader);
-
     useEffect(() => {
         if(display) {
             dispatch(displayFn(false));
@@ -214,16 +213,12 @@ const VideoTag = (props) => {
         if (result) controls.seek(state.time - 0.1);
     });
 
-    const forward = useSelector(selectForward);
-    forward.then((result) => {
-        if (result) controls.seek(state.time + 0.1);
-    });
+    const forward = useControlsForward()
+    if (forward) controls.seek(state.time + 0.1);
 
-    const mute = useSelector(selectMute);
-    mute.then((result) => {
-        if (result && !state.muted) controls.mute();
-        if (!result && state.muted) controls.unmute();
-    });
+    const mute = useControlsMute();
+    if (mute && !state.muted) controls.mute();
+    if (!mute && state.muted) controls.unmute();
 
     return (
         <>
