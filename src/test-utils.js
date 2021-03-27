@@ -16,7 +16,6 @@ function render(
     {
         initialState,
         store = createStore(combineReducers({
-            counter: counterReducer,
             files:  filesReducer,
             video: videoReducer,
             player: playerReducer,

@@ -15,8 +15,6 @@ export const TimeDisplay = () => {
         const perSecond = domRect.width / timeDisplay;
         const currentTime = durationDisplay;
 
-        console.log(currentTime, perSecond);
-
         if(window.Number.isFinite(currentTime) && window.Number.isFinite(perSecond)) {
             setTranslate(() => {
                 return (currentTime * perSecond) + (-17);

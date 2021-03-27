@@ -15,6 +15,7 @@ import {useControlsMute} from "./hooks/useControlsMute";
 import {useControlsForward} from './hooks/useControlsForward';
 import {useControlsBackward} from './hooks/useControlsBackward'
 import {useControlsPlay} from "./hooks/useControlsPlay";
+import {useDisplayLoader} from "./hooks/useDisplayLoader";
 
 const VideoTag = (props) => {
     const {sources, files} = props;
@@ -189,12 +190,7 @@ const VideoTag = (props) => {
         };
     }, [state.time]);
 
-    const display = useSelector(displayLoader);
-    useEffect(() => {
-        if (display) {
-            dispatch(displayFn(false));
-        }
-    }, [display]);
+    useDisplayLoader();
 
     const play = useControlsPlay();
     if (play) {
