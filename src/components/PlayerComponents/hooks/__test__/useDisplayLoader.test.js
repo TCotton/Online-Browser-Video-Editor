@@ -10,7 +10,7 @@ const setUp = () => renderHook(() => useDisplayLoader(), {
 
 describe('useDisplayLoader', () => {
 
-    it('should call functions', () => {
+    xit('should call functions', () => {
         const {result} = setUp();
         expect(result.current).toStrictEqual([undefined]);
     });

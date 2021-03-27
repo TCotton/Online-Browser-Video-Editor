@@ -127,7 +127,6 @@ const VideoTag = (props) => {
                 console.info('Playback resumed successfully');
             });
         }
-        console.log(play);
         controls.play();
     }
 
@@ -136,7 +135,6 @@ const VideoTag = (props) => {
         if(result) {
             controls.pause();
         }
-        console.log(result);
     })
 
     const backward = useControlsBackward()
