@@ -4,13 +4,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {window} from "browser-monads";
 import WaveformData from "waveform-data"
 import PropTypes from 'prop-types';
-import {durationFn, timeFn} from '../slices/videoSlice';
 import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
 import {index} from '../helperFunctions'
 import {imageFn} from '../slices/imageSlice';
 import {waveformFn} from "../slices/waveformSlice";
 import videoBackground from "../../../static/video-background.png";
-import {displayFn, displayLoader} from "../slices/loaderSlice";
 import {useControlsMute} from "./hooks/useControlsMute";
 import {useControlsForward} from './hooks/useControlsForward';
 import {useControlsBackward} from './hooks/useControlsBackward'
@@ -18,6 +16,7 @@ import {useControlsPlay} from "./hooks/useControlsPlay";
 import {useDisplayLoader} from "./hooks/useDisplayLoader";
 import {useDispatchTime} from "./hooks/useDispatchTime";
 import {useDispatchDuration} from "./hooks/useDispatchDuration";
+import {useWaveformData} from "./hooks/useWaveformData";
 
 const VideoTag = (props) => {
     const {sources, files} = props;
@@ -68,67 +67,6 @@ const VideoTag = (props) => {
     }, [files]);
 
     useEffect(() => {
-
-        if (files[0]) {
-            const file = files[0];
-            const reader = new FileReader();
-            reader.readAsArrayBuffer(file);
-
-            reader.onload = () => {
-                let audioCtx;
-                if (window.webkitAudioContext) {
-                    audioCtx = new window.webkitAudioContext();
-                } else {
-                    audioCtx = new window.AudioContext();
-                }
-
-                audioCtx.decodeAudioData(reader.result)
-
-                    .then((audioBuffer) => {
-                        const options = {
-                            audio_context: audioCtx,
-                            audio_buffer: audioBuffer,
-                            scale: 128
-                        };
-
-                        return new Promise((resolve, reject) => {
-
-                            WaveformData.createFromAudio(options, (err, waveform) => {
-                                if (err) {
-                                    reject(err);
-                                } else {
-                                    resolve(waveform);
-                                }
-                            });
-                        });
-                    })
-                    .then(waveform => {
-
-                        console.info(`Waveform has ${waveform.channels} channels`);
-                        console.info(`Waveform has length ${waveform.length} points`);
-
-                        const channel = waveform.channel(0);
-
-                        const data = {
-                            min_array: channel.min_array(),
-                            max_array: channel.max_array(),
-                            length: waveform.length,
-                        }
-
-                        dispatch(waveformFn(data));
-                    }).catch((error) => {
-
-                    throw new Error(error);
-                });
-            };
-
-            reader.onerror = () => {
-                throw new Error(reader.error.toString());
-            };
-        }
-    }, [files]);
-
-    useEffect(() => {
         //TODO: refactor into custom hook
         //TODO: move requestAnimationFrame into only component for performance reasons
         let current;
@@ -172,6 +110,7 @@ const VideoTag = (props) => {
         return () => window.cancelAnimationFrame(current);
     }, [ref]);
 
+    useWaveformData(files);
     useDispatchDuration(state.duration);
     useDispatchTime(state.time);
     useDisplayLoader();
