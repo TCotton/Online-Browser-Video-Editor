@@ -7,13 +7,15 @@ import Counter from '../../../static/counter.inline.svg'
 export const TimeDisplay = () => {
     const [translate, setTranslate] = useState(-17);
     const container = useRef();
-    const durationDisplay = useSelector(duration);
-    const timeDisplay = useSelector(time);
+    const durationDisplay = useSelector(time);
+    const timeDisplay = useSelector(duration);
 
     useEffect(() => {
         const domRect = container.current.getBoundingClientRect();
         const perSecond = domRect.width / timeDisplay;
         const currentTime = durationDisplay;
+
+        console.log(currentTime, perSecond);
 
         if(window.Number.isFinite(currentTime) && window.Number.isFinite(perSecond)) {
             setTranslate(() => {
