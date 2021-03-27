@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import {time} from '../slices/videoSlice';
 import {toMinutesAndSeconds} from "../helperFunctions";
 
-const TimeDisplay = () => {
+const DurationDisplay = () => {
     const timeDisplay = useSelector(time);
 
     return (
@@ -11,4 +11,4 @@ const TimeDisplay = () => {
     )
 }
 
-export default TimeDisplay
+export default DurationDisplay

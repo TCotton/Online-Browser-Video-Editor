@@ -7,7 +7,7 @@ export function useDispatchDuration(duration = initialState.video.duration) {
     const dispatch = useDispatch();
 
     const handlers = React.useMemo(() => {
-        dispatch(durationFn(duration))
+        dispatch(durationFn(duration));
     },[duration]);
 
     return handlers;

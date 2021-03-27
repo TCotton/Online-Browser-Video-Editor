@@ -9,47 +9,52 @@ export function useAudioContext(ref) {
 
     const handler = React.useMemo(() => {
 
-        let current;
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        setContext(ctx);
-        const analyser = ctx.createAnalyser();
-        const source = ctx.createMediaElementSource(ref.current);
-        source.connect(analyser);
-        analyser.connect(ctx.destination);
+        if(ref.current !== null && ref.current instanceof HTMLMediaElement) {
+            let current;
 
-        const oscillator = ctx.createOscillator();
-        const channels = oscillator.channelCount;
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            setContext(ctx);
+            const analyser = ctx.createAnalyser();
+            const source = ctx.createMediaElementSource(ref.current);
+            source.connect(analyser);
+            analyser.connect(ctx.destination);
 
-        const splitter = ctx.createChannelSplitter(channels);
-        const lAnalyser = ctx.createAnalyser();
-        const rAnalyser = ctx.createAnalyser();
+            const oscillator = ctx.createOscillator();
+            const channels = oscillator.channelCount;
 
-        source.connect(splitter);
+            const splitter = ctx.createChannelSplitter(channels);
+            const lAnalyser = ctx.createAnalyser();
+            const rAnalyser = ctx.createAnalyser();
 
-        splitter.connect(lAnalyser, 0, 0);
-        splitter.connect(rAnalyser, 1, 0);
+            source.connect(splitter);
 
-        const lArray = new Uint8Array(lAnalyser.frequencyBinCount);
-        const rArray = new Uint8Array(rAnalyser.frequencyBinCount);
+            splitter.connect(lAnalyser, 0, 0);
+            splitter.connect(rAnalyser, 1, 0);
 
-        lAnalyser.getByteFrequencyData(lArray);
-        rAnalyser.getByteFrequencyData(rArray);
+            const lArray = new Uint8Array(lAnalyser.frequencyBinCount);
+            const rArray = new Uint8Array(rAnalyser.frequencyBinCount);
 
-        function requestAnimationFrameFnc() {
-            current = window.requestAnimationFrame(requestAnimationFrameFnc);
             lAnalyser.getByteFrequencyData(lArray);
             rAnalyser.getByteFrequencyData(rArray);
-            const peakFrequencyLeft = Math.max.apply(null, lArray);
-            const peakFrequencyRight = Math.max.apply(null, rArray);
-            if (peakFrequencyLeft > 0) dispatch(peakFrequencyFnLeft(peakFrequencyLeft));
-            if (peakFrequencyRight > 0) dispatch(peakFrequencyFnRight(peakFrequencyRight));
+
+            function requestAnimationFrameFnc() {
+                console.log('here');
+                current = window.requestAnimationFrame(requestAnimationFrameFnc);
+                lAnalyser.getByteFrequencyData(lArray);
+                rAnalyser.getByteFrequencyData(rArray);
+                const peakFrequencyLeft = Math.max.apply(null, lArray);
+                const peakFrequencyRight = Math.max.apply(null, rArray);
+                if (peakFrequencyLeft > 0) dispatch(peakFrequencyFnLeft(peakFrequencyLeft));
+                if (peakFrequencyRight > 0) dispatch(peakFrequencyFnRight(peakFrequencyRight));
+            }
+
+            requestAnimationFrameFnc();
+
         }
 
-        requestAnimationFrameFnc();
+        return () => window.cancelAnimationFrame(ref.current);
 
-        return () => window.cancelAnimationFrame(current);
-
-    }, [ref])
+    }, [ref.current])
 
     return [context, handler];
 

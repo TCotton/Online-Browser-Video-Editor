@@ -46,7 +46,6 @@ export const MessageComponent = () => {
         });
 
         e.preventDefault();
-        return () => clearTimeout(timer);
     }, []);
 
     return (
