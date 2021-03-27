@@ -23,9 +23,6 @@ describe('useControlsMute', () => {
             result = setUp(true);
         });
 
-        console.dir(result.result.current);
-        console.dir(result.result);
-
         await result.waitForValueToChange(() => result.result.current)
 
         expect(result.result.current).toBe(false);

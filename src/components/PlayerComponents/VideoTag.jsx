@@ -16,6 +16,8 @@ import {useControlsForward} from './hooks/useControlsForward';
 import {useControlsBackward} from './hooks/useControlsBackward'
 import {useControlsPlay} from "./hooks/useControlsPlay";
 import {useDisplayLoader} from "./hooks/useDisplayLoader";
+import {useDispatchTime} from "./hooks/useDispatchTime";
+import {useDispatchDuration} from "./hooks/useDispatchDuration";
 
 const VideoTag = (props) => {
     const {sources, files} = props;
@@ -170,26 +172,8 @@ const VideoTag = (props) => {
         return () => window.cancelAnimationFrame(current);
     }, [ref]);
 
-    useEffect(() => {
-        let isStopped = false;
-        if (!isStopped) {
-            dispatch(durationFn(state.duration))
-        }
-        return () => {
-            isStopped = true;
-        };
-    }, [state.duration]);
-
-    useEffect(() => {
-        let isStopped = false;
-        if (!isStopped) {
-            dispatch(timeFn(state.time))
-        }
-        return () => {
-            isStopped = true;
-        };
-    }, [state.time]);
-
+    useDispatchDuration(state.duration);
+    useDispatchTime(state.time);
     useDisplayLoader();
 
     const play = useControlsPlay();

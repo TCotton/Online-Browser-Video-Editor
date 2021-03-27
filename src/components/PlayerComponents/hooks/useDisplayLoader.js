@@ -1,7 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {displayFn, displayLoader} from "../../slices/loaderSlice";
-import {initialState} from "../../slices/model";
 
 export function useDisplayLoader() {
     const dispatch = useDispatch();
