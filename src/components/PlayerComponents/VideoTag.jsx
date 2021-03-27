@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {useVideo} from 'react-use';
 import {useDispatch, useSelector} from "react-redux";
 import {window} from "browser-monads";
-import WaveformData from "waveform-data"
 import PropTypes from 'prop-types';
 import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
 import {index} from '../helperFunctions'
 import {imageFn} from '../slices/imageSlice';
 import {waveformFn} from "../slices/waveformSlice";
+import {selectStop} from '../slices/playerSlice';
 import videoBackground from "../../../static/video-background.png";
 import {useControlsMute} from "./hooks/useControlsMute";
 import {useControlsForward} from './hooks/useControlsForward';
@@ -17,7 +17,6 @@ import {useDisplayLoader} from "./hooks/useDisplayLoader";
 import {useDispatchTime} from "./hooks/useDispatchTime";
 import {useDispatchDuration} from "./hooks/useDispatchDuration";
 import {useWaveformData} from "./hooks/useWaveformData";
-import {useAudioContext} from "./hooks/useAudioContext";
 
 const VideoTag = (props) => {
     const {sources, files} = props;
@@ -128,11 +127,17 @@ const VideoTag = (props) => {
                 console.info('Playback resumed successfully');
             });
         }
+        console.log(play);
         controls.play();
     }
-    if(!play) {
-        controls.pause();
-    }
+
+    const stop = useSelector(selectStop);
+    stop.then((result) => {
+        if(result) {
+            controls.pause();
+        }
+        console.log(result);
+    })
 
     const backward = useControlsBackward()
     if (backward) controls.seek(state.time - 0.1);

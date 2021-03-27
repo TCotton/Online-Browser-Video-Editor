@@ -4,7 +4,7 @@ import {initialState} from './model';
 export const playerSlice = createSlice({
     name: 'player',
     initialState: initialState.player,
-    reducers: {
+    reducers: { //TODO: toggle play/stop state
         playFn: (state, action) => {
             state.play = !!action.payload;
             state.stop = false;
@@ -31,6 +31,10 @@ export const {playFn, stopFn, forwardFn, backwardFn, soundFn, reset} = playerSli
 
 export const selectPlay = state => new Promise((resolve) => {
     resolve(state.player.play);
+});
+
+export const selectStop = state => new Promise((resolve) => {
+    resolve(state.player.stop);
 });
 
 export const selectMute = state => new Promise((resolve) => {
