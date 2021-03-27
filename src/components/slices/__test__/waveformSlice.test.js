@@ -1,4 +1,5 @@
-import waveformReducer, {waveformFn, initialState} from "../waveformSlice";
+import waveformReducer, {waveformFn} from "../waveformSlice";
+import {initialState} from '../model'
 
 describe('waveformSlice', () => {
 
@@ -19,14 +20,13 @@ describe('waveformSlice', () => {
         expect(waveformFn(payload)).toEqual(expectedAction);
     });
 
-    //TODO slice finish reducers
     it('reducer successfully passes data', () => {
 
         const action = {
             type: 'waveform/waveformFn',
             payload: payload.data
         };
-        const newState = waveformReducer(initialState, action);
+        const newState = waveformReducer(initialState.waveform, action);
 
         expect(newState).toEqual({
             data: payload.data

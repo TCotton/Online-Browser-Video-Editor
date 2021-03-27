@@ -1,4 +1,5 @@
-import {add} from "../filesSlice";
+import filesReducer, {add} from "../filesSlice";
+import {initialState} from "../model";
 
 describe('filesSlice', () => {
 
@@ -18,4 +19,22 @@ describe('filesSlice', () => {
         expect(add(payload)).toEqual(expectedAction);
     });
 
+    it('reducer successfully passes data', () => {
+
+        const payload = {
+            file: {
+                lastModified: 12345,
+                name: 'name',
+                size: 999,
+                type: 'type',
+            }
+        }
+
+        const action = {
+            type: 'files/add',
+            payload: payload.file
+        };
+        const newState = filesReducer(initialState.files, action);
+        expect(newState).toEqual(payload);
+    });
 });

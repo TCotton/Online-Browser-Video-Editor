@@ -1,16 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
-
-export const initialState = {
-    data: {
-        min_array: [0],
-        max_array: [0],
-        length: 0,
-    }
-}
+import {initialState} from './model';
 
 export const waveformSlice = createSlice({
     name: 'waveform',
-    initialState,
+    initialState: initialState.waveform,
     reducers: {
         waveformFn: (state, action) => {
             state.data = action.payload;

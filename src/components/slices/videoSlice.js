@@ -1,18 +1,15 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {initialState} from './model';
 
 export const videoSlice = createSlice({
     name: 'video',
-    initialState: {
-        duration: 0,
-        time: 0,
-        el: false
-    },
+    initialState: initialState.video,
     reducers: {
         timeFn: (state, action) => {
-            state.duration = action.payload;
+            state.time = action.payload;
         },
         durationFn: (state, action) => {
-            state.time = action.payload;
+            state.duration = action.payload;
         },
         elFn: (state, action) => {
             state.el = action.payload;

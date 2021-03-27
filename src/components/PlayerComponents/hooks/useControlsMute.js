@@ -1,9 +1,10 @@
 import {useState} from 'react';
 import {useSelector} from "react-redux";
 import {selectMute} from "../../slices/playerSlice";
+import {initialState} from "../../slices/model";
 
-export function useControlsMute(initialState = false) {
-    const [muted, setMuted] = useState(initialState);
+export function useControlsMute(initial = initialState.player.mute) {
+    const [muted, setMuted] = useState(initial);
 
     const mute = useSelector(selectMute);
 

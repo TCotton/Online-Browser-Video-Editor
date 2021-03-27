@@ -1,4 +1,6 @@
-import {displayFn} from "../loaderSlice";
+import loaderReducer, {displayFn} from "../loaderSlice";
+import playerReducer from "../playerSlice";
+import {initialState} from "../model";
 
 describe('loaderSlice', () => {
 
@@ -13,4 +15,16 @@ describe('loaderSlice', () => {
         expect(displayFn(payload)).toEqual(expectedAction);
     });
 
+    it('reducer successfully passes data - display', () => {
+        const payload = {
+            display: true,
+        }
+
+        const action = {
+            type: 'loader/displayFn',
+            payload: payload.display,
+        };
+        const newState = loaderReducer(initialState.loader, action);
+        expect(newState).toEqual(payload);
+    });
 });

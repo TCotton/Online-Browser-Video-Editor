@@ -1,4 +1,5 @@
-import {backwardFn, forwardFn, playFn, soundFn, stopFn} from "../playerSlice";
+import playerReducer, {backwardFn, forwardFn, playFn, soundFn, stopFn} from "../playerSlice";
+import {initialState} from "../model";
 
 describe('imageSlice', () => {
 
@@ -55,5 +56,24 @@ describe('imageSlice', () => {
             payload
         }
         expect(soundFn(payload)).toEqual(expectedAction);
+    });
+
+    it('reducer successfully passes data', () => {
+
+        const payload = {
+            play: true,
+            stop: false,
+            forward: false,
+            backward: false,
+            mute: true,
+        }
+
+        const action = {
+            type: 'player/soundFn',
+            payload
+        };
+        const newState = playerReducer(initialState.player, action);
+
+        expect(newState).toEqual(payload);
     });
 });

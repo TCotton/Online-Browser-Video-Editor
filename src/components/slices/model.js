@@ -30,8 +30,10 @@ export const initialState = {
         el: false,
     },
     waveform: {
-        min_array: [0],
-        max_array: [0],
-        length: 0,
+        data: {
+            min_array: [0],
+            max_array: [0],
+            length: 0,
+        }
     }
 }

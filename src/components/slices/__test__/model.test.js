@@ -64,12 +64,14 @@ describe('initialState', () => {
 
     describe('initialState.waveform', () => {
         it('should return correct types', function () {
-            expect(initialState.waveform.min_array).toStrictEqual([0]);
-            expect(typeof initialState.waveform.min_array).toBe('object');
-            expect(initialState.waveform.max_array).toStrictEqual([0]);
-            expect(typeof initialState.waveform.max_array).toBe('object');
-            expect(initialState.waveform.length).toStrictEqual(0);
-            expect(typeof initialState.waveform.length).toBe('number');
+            expect(typeof initialState.waveform.data).toBe('object');
+            expect(initialState.waveform.data.min_array).toStrictEqual([0]);
+            expect(initialState.waveform.data.min_array).toStrictEqual([0]);
+            expect(typeof initialState.waveform.data.min_array).toBe('object');
+            expect(initialState.waveform.data.max_array).toStrictEqual([0]);
+            expect(typeof initialState.waveform.data.max_array).toBe('object');
+            expect(initialState.waveform.data.length).toStrictEqual(0);
+            expect(typeof initialState.waveform.data.length).toBe('number');
         });
     })
 });

@@ -1,4 +1,5 @@
-import {peakFrequencyFnLeft, peakFrequencyFnRight} from "../audioSlice";
+import audioReducer, {peakFrequencyFnLeft, peakFrequencyFnRight} from "../audioSlice";
+import {initialState} from "../model";
 
 describe('audioSlice', () => {
 
@@ -20,4 +21,31 @@ describe('audioSlice', () => {
         expect(peakFrequencyFnRight(999)).toEqual(expectedAction);
     });
 
+    it('reducer successfully passes data - peakFrequencyLeft', () => {
+
+        const payload = {
+            peakFrequencyLeft: 12345,
+        }
+
+        const action = {
+            type: 'audio/peakFrequencyFnLeft',
+            payload: payload.peakFrequencyLeft
+        };
+        const newState = audioReducer(initialState.audio, action);
+        expect(newState).toEqual({...payload, peakFrequencyRight: 0});
+    });
+
+    it('reducer successfully passes data - peakFrequencyRight', () => {
+
+        const payload = {
+            peakFrequencyRight: 12345
+        }
+
+        const action = {
+            type: 'audio/peakFrequencyFnRight',
+            payload: payload.peakFrequencyRight
+        };
+        const newState = audioReducer(initialState.audio, action);
+        expect(newState).toEqual({...payload, peakFrequencyLeft: 0});
+    });
 });

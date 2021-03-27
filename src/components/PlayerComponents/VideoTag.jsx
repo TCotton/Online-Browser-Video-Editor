@@ -205,6 +205,9 @@ const VideoTag = (props) => {
         }
         controls.play();
     }
+    if(!play) {
+        controls.pause();
+    }
 
     const backward = useControlsBackward()
     if (backward) controls.seek(state.time - 0.1);

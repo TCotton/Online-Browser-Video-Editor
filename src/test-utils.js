@@ -3,7 +3,6 @@ import { render as rtlRender } from '@testing-library/react'
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 
-import counterReducer from './components/slices/counterSlice';
 import filesReducer from './components/slices/filesSlice';
 import videoReducer from './components/slices/videoSlice';
 import playerReducer from './components/slices/playerSlice';

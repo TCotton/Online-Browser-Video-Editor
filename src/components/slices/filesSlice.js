@@ -1,15 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import {initialState} from './model';
 
 export const filesSlice = createSlice({
     name: 'files',
-    initialState: {
-        file: {
-            lastModified: null,
-            name: null,
-            size: null,
-            type: null
-        }
-    },
+    initialState: initialState.files,
     reducers: {
         add: (state, action) => {
             state.file = action.payload;

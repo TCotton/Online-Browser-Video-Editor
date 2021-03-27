@@ -1,16 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
-
-const initialState = {
-    play: true,
-    stop: false,
-    forward: false,
-    backward: false,
-    mute: false,
-}
+import {initialState} from './model';
 
 export const playerSlice = createSlice({
     name: 'player',
-    initialState,
+    initialState: initialState.player,
     reducers: {
         playFn: (state, action) => {
             state.play = !!action.payload;

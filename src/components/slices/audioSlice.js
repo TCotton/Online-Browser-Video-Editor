@@ -1,11 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {initialState} from './model';
 
 export const audioSlice = createSlice({
     name: 'audio',
-    initialState: {
-        peakFrequencyLeft: 0,
-        peakFrequencyRight: 0,
-    },
+    initialState: initialState.audio,
     reducers: {
         peakFrequencyFnLeft: (state, action) => {
             state.peakFrequencyLeft = action.payload;

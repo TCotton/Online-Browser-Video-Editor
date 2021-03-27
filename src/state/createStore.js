@@ -1,6 +1,5 @@
 import {configureStore, createImmutableStateInvariantMiddleware, createSerializableStateInvariantMiddleware} from '@reduxjs/toolkit';
 import logger from 'redux-logger'
-import counterReducer from '../components/slices/counterSlice';
 import filesReducer from '../components/slices/filesSlice';
 import videoReducer from '../components/slices/videoSlice';
 import playerReducer from '../components/slices/playerSlice';
@@ -19,7 +18,6 @@ const serializableStateInvariantMiddleware = createSerializableStateInvariantMid
 
 export default configureStore({
     reducer: {
-        counter: counterReducer,
         files:  filesReducer,
         video: videoReducer,
         player: playerReducer,

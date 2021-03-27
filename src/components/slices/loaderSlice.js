@@ -1,12 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
-
-const initialState = {
-    display: false
-}
+import {initialState} from './model';
 
 export const loaderSlice = createSlice({
     name: 'loader',
-    initialState,
+    initialState: initialState.loader,
     reducers: {
         displayFn: (state, action) => {
             state.display = action.payload;
