@@ -22,6 +22,18 @@ describe('FileUpload', () => {
         expect(baseElement).toMatchSnapshot();
     });
 
+    it('should have an id and matching label', function () {
+        const {container} = render(<FileUpload />);
+        expect(container.querySelector("[id=\"file\"]")).not.toBeNull();
+        expect(container.querySelector("[for=\"file\"]")).not.toBeNull();
+    });
+
+    it('should have an empty error field', function () {
+        const {container} = render(<FileUpload />);
+        expect(container.querySelector("[class=\"Errors\"]")).not.toBeNull();
+        expect(container.querySelector("[class=\"Errors\"]").textContent).toBe('');
+    });
+
     it('should submit correctly',  async () => {
         const video = new File(['(⌐□_□)'], 'video.mp4', { type: 'video/mp4' })
         const {container} = render(<FileUpload />);

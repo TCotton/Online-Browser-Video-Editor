@@ -14,3 +14,4 @@ All file uploads, video editing and transcoding is done in the browser
 
 [![devDependencies Status](https://status.david-dm.org/gh/TCotton/Online-Browser-Video-Editor.svg?type=dev)](https://david-dm.org/TCotton/Online-Browser-Video-Editor?type=dev)
 
+[![codecov](https://codecov.io/gh/TCotton/Online-Browser-Video-Editor/branch/master/graph/badge.svg?token=27XUSXN6B3)](https://codecov.io/gh/TCotton/Online-Browser-Video-Editor)

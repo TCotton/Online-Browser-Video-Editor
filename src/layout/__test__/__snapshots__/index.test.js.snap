@@ -151,7 +151,8 @@ exports[`MainLayout should match snapshot 1`] = `
                     src="./admin.svg"
                   />
                   <time
-                    data-testid="time"
+                    class="duration"
+                    data-testid="duration"
                   >
                     0:00.00
                   </time>
@@ -163,8 +164,7 @@ exports[`MainLayout should match snapshot 1`] = `
                   </span>
                     
                   <time
-                    class="duration"
-                    data-testid="duration"
+                    data-testid="time"
                   >
                     0:00.00
                   </time>

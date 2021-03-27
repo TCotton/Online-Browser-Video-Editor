@@ -51,6 +51,7 @@ const FileUpload = () => {
                 }}
                 validate={values => {
                     const errors = {};
+                    console.dir(values);
                     if (!values.file) {
                         errors.file = '';
                     } else if (!(/\.(mp4|wav|mov|webm|ogg|avi|mpg|mpeg|m4v)$/i).test(values.file)) {
@@ -66,7 +67,6 @@ const FileUpload = () => {
                 render={({values, handleSubmit}) => {
                     return (
                         <Form onSubmit={handleSubmit} data-testid="form">
-                            <Logger />
                             <div className="fileStyling">
                                 <Field name="file" id="file" type="file" data-testid="file" required accept="video/*" onChange={(event) => {
                                     dex.dexieRun(event.currentTarget.files[0]);

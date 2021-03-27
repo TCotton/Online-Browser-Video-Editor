@@ -48,8 +48,9 @@ const MainLayout = () => {
                                 <div className="admin-icon">
                                     <img src={"./admin.svg"} alt="admin" className="admin"/>
                                     <ErrorBoundary>
-                                        <TimeDisplay/>&nbsp;&nbsp;<span className='break'>|</span>&nbsp;&nbsp;
                                         <DurationDisplay/>
+                                        &nbsp;&nbsp;<span className='break'>|</span>&nbsp;&nbsp;
+                                        <TimeDisplay/>
                                     </ErrorBoundary>
                                 </div>
                             </div>
