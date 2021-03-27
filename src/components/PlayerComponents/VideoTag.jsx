@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {window} from "browser-monads";
 import WaveformData from "waveform-data"
 import PropTypes from 'prop-types';
-import {selectBackward, selectForward, selectPlay} from '../slices/playerSlice';
 import {durationFn, timeFn} from '../slices/videoSlice';
 import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
 import {index} from '../helperFunctions'
@@ -14,6 +13,8 @@ import videoBackground from "../../../static/video-background.png";
 import {displayFn, displayLoader} from "../slices/loaderSlice";
 import {useControlsMute} from "./hooks/useControlsMute";
 import {useControlsForward} from './hooks/useControlsForward';
+import {useControlsBackward} from './hooks/useControlsBackward'
+import {useControlsPlay} from "./hooks/useControlsPlay";
 
 const VideoTag = (props) => {
     const {sources, files} = props;
@@ -36,11 +37,11 @@ const VideoTag = (props) => {
 
             let i = 0;
             const result = [];
-            newRef.addEventListener('loadeddata',  () => {
+            newRef.addEventListener('loadeddata', () => {
                 newRef.currentTime = i;
             });
 
-            newRef.addEventListener('seeked',  () => {
+            newRef.addEventListener('seeked', () => {
 
                 // now video has seeked and current frames will show
                 // at the time as we expect
@@ -190,28 +191,23 @@ const VideoTag = (props) => {
 
     const display = useSelector(displayLoader);
     useEffect(() => {
-        if(display) {
+        if (display) {
             dispatch(displayFn(false));
         }
-    },[display]);
+    }, [display]);
 
-    const play = useSelector(selectPlay);
-    play.then((result) => {
-        if(result) {
-            if (context && context.state === 'suspended') {
-                context.resume().then(() => {
-                    console.info('Playback resumed successfully');
-                });
-            }
-            controls.play();
+    const play = useControlsPlay();
+    if (play) {
+        if (context && context.state === 'suspended') {
+            context.resume().then(() => {
+                console.info('Playback resumed successfully');
+            });
         }
-        controls.pause();
-    });
+        controls.play();
+    }
 
-    const back = useSelector(selectBackward);
-    back.then((result) => {
-        if (result) controls.seek(state.time - 0.1);
-    });
+    const backward = useControlsBackward()
+    if (backward) controls.seek(state.time - 0.1);
 
     const forward = useControlsForward()
     if (forward) controls.seek(state.time + 0.1);
@@ -238,6 +234,6 @@ VideoTag.propTypes = {
         src: PropTypes.string,
         type: PropTypes.string
     })).isRequired
- };
+};
 
 export default VideoTag;
