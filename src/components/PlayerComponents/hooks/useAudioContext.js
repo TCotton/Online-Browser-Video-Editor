@@ -44,8 +44,8 @@ export function useAudioContext(ref) {
                 rAnalyser.getByteFrequencyData(rArray);
                 const peakFrequencyLeft = Math.max.apply(null, lArray);
                 const peakFrequencyRight = Math.max.apply(null, rArray);
-                if (peakFrequencyLeft > 0) dispatch(peakFrequencyFnLeft(peakFrequencyLeft));
-                if (peakFrequencyRight > 0) dispatch(peakFrequencyFnRight(peakFrequencyRight));
+                dispatch(peakFrequencyFnLeft(peakFrequencyLeft));
+                dispatch(peakFrequencyFnRight(peakFrequencyRight));
             }
 
             requestAnimationFrameFnc();
