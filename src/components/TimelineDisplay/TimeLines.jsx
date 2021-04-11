@@ -7,13 +7,13 @@ import {ImageFramesComponent} from "./ImageFramesComponent";
 import {D3WavelineComponent} from "./D3WavelineComponent";
 import {TimeDisplay} from "./TimeDisplay";
 import {D3LineTick} from './D3LineTick';
-import {time} from "../slices/videoSlice";
+import {duration} from "../slices/videoSlice";
 
 export const TimeLines = () => {
 
     const iArr = useSelector(imgArray);
     const waveForm = useSelector(data);
-    const timeDisplay = useSelector(time);
+    const timeDisplay = useSelector(duration);
 
     return (
         <section className="bottom" data-testid="TimeLines">

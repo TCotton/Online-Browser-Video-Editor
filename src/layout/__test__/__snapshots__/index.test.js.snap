@@ -470,7 +470,7 @@ exports[`MainLayout should match snapshot 1`] = `
       hidden=""
       id="tooltip3"
       role="tooltip"
-      style="display: none; position: fixed; left: 0px; top: 0px; pointer-events: none;"
+      style="display: none; position: fixed; left: 100%; top: 100%; pointer-events: none;"
     >
       Backward
     </div>
@@ -482,7 +482,7 @@ exports[`MainLayout should match snapshot 1`] = `
       hidden=""
       id="tooltip8"
       role="tooltip"
-      style="display: none; position: fixed; left: 0px; top: 0px; pointer-events: none;"
+      style="display: none; position: fixed; left: 100%; top: 100%; pointer-events: none;"
     >
       Stop
     </div>
@@ -494,7 +494,7 @@ exports[`MainLayout should match snapshot 1`] = `
       hidden=""
       id="tooltip4"
       role="tooltip"
-      style="display: none; position: fixed; left: 0px; top: 0px; pointer-events: none;"
+      style="display: none; position: fixed; left: 100%; top: 100%; pointer-events: none;"
     >
       Play
     </div>
@@ -506,7 +506,7 @@ exports[`MainLayout should match snapshot 1`] = `
       hidden=""
       id="tooltip5"
       role="tooltip"
-      style="display: none; position: fixed; left: 0px; top: 0px; pointer-events: none;"
+      style="display: none; position: fixed; left: 100%; top: 100%; pointer-events: none;"
     >
       Forward
     </div>
@@ -518,7 +518,7 @@ exports[`MainLayout should match snapshot 1`] = `
       hidden=""
       id="tooltip9"
       role="tooltip"
-      style="display: none; position: fixed; left: 0px; top: 0px; pointer-events: none;"
+      style="display: none; position: fixed; left: 100%; top: 100%; pointer-events: none;"
     >
       Mute/Sound
     </div>
@@ -530,7 +530,7 @@ exports[`MainLayout should match snapshot 1`] = `
       hidden=""
       id="tooltip6"
       role="tooltip"
-      style="display: none; position: fixed; left: 0px; top: 0px; pointer-events: none;"
+      style="display: none; position: fixed; left: 100%; top: 100%; pointer-events: none;"
     >
       Upload
     </div>
@@ -622,7 +622,7 @@ exports[`MainLayout should match snapshot 1`] = `
       hidden=""
       id="tooltip7"
       role="tooltip"
-      style="display: none; position: fixed; left: 0px; top: 0px; pointer-events: none;"
+      style="display: none; position: fixed; left: 100%; top: 100%; pointer-events: none;"
     >
       Export
     </div>
