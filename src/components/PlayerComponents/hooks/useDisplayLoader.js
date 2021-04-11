@@ -7,6 +7,7 @@ export function useDisplayLoader() {
     const dispatch = useDispatch();
     const display = useSelector(displayLoader);
 
+    //TODO change the dependency. This is too quick
     const handlers = React.useMemo(() => {
         const sT = window.setTimeout(() => {
             dispatch(displayFn(false));
@@ -15,6 +16,7 @@ export function useDisplayLoader() {
             window.clearTimeout(sT);
         }
     }, [display]);
+
 
     return [handlers]
 }

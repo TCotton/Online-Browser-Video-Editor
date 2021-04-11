@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import {peakFrequencyFnLeft, peakFrequencyFnRight} from '../slices/audioSlice';
 import {index} from '../helperFunctions'
 import {imageFn} from '../slices/imageSlice';
-import {waveformFn} from "../slices/waveformSlice";
 import {selectStop} from '../slices/playerSlice';
 import videoBackground from "../../../static/video-background.png";
 import {useControlsMute} from "./hooks/useControlsMute";
