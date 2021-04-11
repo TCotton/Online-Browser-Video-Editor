@@ -1,9 +1,7 @@
 const urljoin = require("url-join");
 const path = require("path");
 const config = require("./data/SiteConfig");
-// eslint-disable-next-line import/no-extraneous-dependencies
 const autoprefixer = require('autoprefixer');
-// eslint-disable-next-line import/no-extraneous-dependencies
 const postcssAspectRatio = require('postcss-aspect-ratio');
 
 // Make sure that pathPrefix is not empty
@@ -30,12 +28,14 @@ module.exports = {
         DEV_SSR: true,
         FAST_REFRESH: true,
         FAST_DEV: true,
+        PARALLEL_SOURCING: true,
     },
     plugins: [
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-sass",
         "gatsby-plugin-lodash",
         "gatsby-plugin-ramda",
+        "gatsby-plugin-eslint",
         {
             resolve: `gatsby-plugin-react-svg`,
             options: {

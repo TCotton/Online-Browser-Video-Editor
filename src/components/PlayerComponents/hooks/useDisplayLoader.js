@@ -15,7 +15,7 @@ export function useDisplayLoader() {
         return () => {
             window.clearTimeout(sT);
         }
-    }, [display]);
+    }, [display, dispatch]);
 
 
     return [handlers]

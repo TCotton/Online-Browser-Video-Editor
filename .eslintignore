@@ -2,3 +2,5 @@ public
 static
 .cache
 content
+src/test-utils.js
+__test__/
