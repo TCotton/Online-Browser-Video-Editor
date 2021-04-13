@@ -76,14 +76,18 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
+    "@testing-library/cypress": "^7.0.5",
     "@testing-library/react": "^11.2.5",
     "@testing-library/react-hooks": "^5.1.0",
     "@types/d3": "^6.3.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
     "autoprefixer": "^10.2.5",
+    "axe-core": "^4.1.4",
     "babel-jest": "^26.6.3",
     "babel-preset-gatsby": "^1.0.0",
     "cli-glob": "^0.1.0",
+    "cypress": "^7.1.0",
+    "cypress-axe": "^0.12.2",
     "eslint": "^7.24.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.15.0",
@@ -109,6 +113,7 @@
     "react-test-renderer": "^17.0.1",
     "remark-cli": "^9.0.0",
     "remark-preset-lint-recommended": "^5.0.0",
+    "start-server-and-test": "^1.12.1",
     "stylelint": "^13.8.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
@@ -138,7 +143,10 @@
     "serveW": "gatsby --verbose develop -p 5000",
     "devW": "node $NODE_DEBUG_OPTION ./node_modules/.bin/gatsby develop -p 5000",
     "test": "NODE_OPTIONS=--max_old_space_size=4096 jest --runInBand",
-    "coverage": "jest --coverage --watchAll=false"
+    "coverage": "jest --coverage --watchAll=false",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "me": "cypress run --record --key dae36266-ec6f-41b3-a088-af11a90a2cf5"
   },
   "remarkConfig": {
     "plugins": [
