@@ -12,6 +12,7 @@ module.exports = {
     extends: [
         "prettier",
         "prettier/react",
+        "prettier-standard",
         "plugin:react/recommended",
         "plugin:react-hooks/recommended",
     ],
