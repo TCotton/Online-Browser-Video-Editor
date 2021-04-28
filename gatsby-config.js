@@ -36,6 +36,7 @@ module.exports = {
         "gatsby-plugin-lodash",
         "gatsby-plugin-ramda",
         "gatsby-plugin-eslint",
+        "gatsby-plugin-ramda",
         {
             resolve: `gatsby-plugin-react-svg`,
             options: {
