@@ -1,7 +1,7 @@
-import Dexie from "dexie";
+import Dexie from 'dexie'
 
-const dbW =  new Dexie('wave');
+const dbW = new Dexie('wave')
 dbW.version(1).stores({
-    wave: '++'
-});
-export default dbW;
+  wave: '++'
+})
+export default dbW

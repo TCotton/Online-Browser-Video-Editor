@@ -46,8 +46,8 @@ jspm_packages
 
 # Yarn Integrity file
 .yarn-integrity
+*__mocks__*
 
-.husky/
 # Build Files
 public/
 .cache/

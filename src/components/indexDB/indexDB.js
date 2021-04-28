@@ -1,7 +1,7 @@
-import Dexie from "dexie";
+import Dexie from 'dexie'
 
-const db =  new Dexie('video');
+const db = new Dexie('video')
 db.version(1).stores({
-    file: '++'
-});
-export default db;
+  file: '++'
+})
+export default db

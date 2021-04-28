@@ -1,9 +1,9 @@
 /* eslint "no-console": "off" */
 
-const path = require("path");
-const _ = require("lodash");
-const moment = require("moment");
-const siteConfig = require("./data/SiteConfig");
+const path = require('path')
+const _ = require('lodash')
+//const moment = require("moment");
+const siteConfig = require('./data/SiteConfig')
 
 /*exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -41,14 +41,13 @@ const siteConfig = require("./data/SiteConfig");
 
 exports.createPages = async () => {
   //{ graphql, actions }
- /* const { createPage } = actions;
+  /* const { createPage } = actions;
   const postPage = path.resolve("src/templates/post.jsx");
   const tagPage = path.resolve("src/templates/tag.jsx");
   const categoryPage = path.resolve("src/templates/category.jsx");
   const listingPage = path.resolve("./src/templates/listing.jsx");
   const landingPage = path.resolve("./src/templates/landing.jsx");*/
-
- /* // Get a full list of markdown posts
+  /* // Get a full list of markdown posts
   const markdownQueryResult = await graphql(`
     {
       allMarkdownRemark {
@@ -172,4 +171,4 @@ exports.createPages = async () => {
       context: { category },
     });
   });*/
-};
+}

@@ -1,92 +1,100 @@
-import React, {useEffect, useRef} from "react";
-import {scaleBand, scaleLinear, select} from "d3";
-import PropTypes from 'prop-types';
+import React, { useEffect, useRef } from 'react'
+import { scaleBand, scaleLinear, select } from 'd3'
+import PropTypes from 'prop-types'
 
 const D3BarChart = props => {
-    const {data, width, height, padding, colour, setClass} = props;
+  const { data, width, height, padding, colour, setClass } = props
 
-    const ref = useRef()
+  const ref = useRef()
 
-    useEffect(() => {
-        if (data > 0) {
-            setClass();
-        }
-        const svgElement = select(ref.current);
-        const result = [{h: data, c: colour}];
+  useEffect(() => {
+    if (data > 0) {
+      setClass()
+    }
+    const svgElement = select(ref.current)
+    const result = [{ h: data, c: colour }]
 
-        const x = scaleBand().range([0, width]).domain(result.map(d => d.c)).padding(padding);
-        const y = scaleLinear().range([height, 0]).domain([1, 255]);
+    const x = scaleBand()
+      .range([0, width])
+      .domain(result.map(d => d.c))
+      .padding(padding)
+    const y = scaleLinear()
+      .range([height, 0])
+      .domain([1, 255])
 
-        const svg = svgElement.selectAll('.rects').selectAll("rect").data(result);
+    const svg = svgElement
+      .selectAll('.rects')
+      .selectAll('rect')
+      .data(result)
 
-        svg.join(
-            enter => {
-                enter.append('rect')
-                    .attr('width', x.bandwidth)
-                    .attr("height", d => {
-                        if (d && d.h) {
-                            return height - y(d.h);
-                        }
-                        return 0;
-                    })
-                    .attr('y', (d) => {
-                        if (d && d.h) {
-                            return y(d.h);
-                        }
-                        return 0;
-                    })
-                    .attr('fill', d => {
-                        if (d && d.c) {
-                            return d.c;
-                        }
-                        return null;
-                    })
-                    .attr('class', 'rect');
-            },
-            update => {
-                update
-                    .attr('width', x.bandwidth)
-                    .attr('y', (d) => {
-                        if (d && d.h) {
-                            return y(d.h);
-                        }
-                        return 0;
-                    })
-                    .attr("height", d => {
-                        if (d && d.h) {
-                            return height - y(d.h);
-                        }
-                        return 0;
-                    })
-            },
-            destroy => {
-                destroy.exit().remove();
+    svg.join(
+      enter => {
+        enter
+          .append('rect')
+          .attr('width', x.bandwidth)
+          .attr('height', d => {
+            if (d && d.h) {
+              return height - y(d.h)
             }
-        )
+            return 0
+          })
+          .attr('y', d => {
+            if (d && d.h) {
+              return y(d.h)
+            }
+            return 0
+          })
+          .attr('fill', d => {
+            if (d && d.c) {
+              return d.c
+            }
+            return null
+          })
+          .attr('class', 'rect')
+      },
+      update => {
+        update
+          .attr('width', x.bandwidth)
+          .attr('y', d => {
+            if (d && d.h) {
+              return y(d.h)
+            }
+            return 0
+          })
+          .attr('height', d => {
+            if (d && d.h) {
+              return height - y(d.h)
+            }
+            return 0
+          })
+      },
+      destroy => {
+        destroy.exit().remove()
+      }
+    )
+  }, [data])
 
-    }, [data])
+  return (
+    <svg
+      height={`100%`}
+      width={`100%`}
+      viewBox={`0 0 ${width} ${height}`}
+      preserveAspectRatio='none'
+      ref={ref}
+      data-testid='svg'
+    >
+      <g className='rects' transform='translate(0,0)' data-testid='rects' />
+    </svg>
+  )
+}
 
-    return (
-        <svg
-            height={`100%`}
-            width={`100%`}
-            viewBox={`0 0 ${width} ${height}`}
-            preserveAspectRatio="none"
-            ref={ref}
-            data-testid="svg"
-        >
-            <g className="rects" transform="translate(0,0)" data-testid="rects"/>
-        </svg>
-    );
-};
-
-export default D3BarChart;
+export default D3BarChart
 
 D3BarChart.propTypes = {
-    setClass: PropTypes.func.isRequired,
-    colour: PropTypes.string.isRequired,
-    padding: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-    data: PropTypes.number.isRequired,
-};
+  setClass: PropTypes.func.isRequired,
+  colour: PropTypes.string.isRequired,
+  padding: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired,
+  data: PropTypes.number.isRequired
+}

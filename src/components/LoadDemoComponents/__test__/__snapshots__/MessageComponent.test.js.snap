@@ -11,7 +11,8 @@ exports[`MessageComponent should match snapshot 1`] = `
         Upload and transcode video files for use on social media.
       </p>
       <p>
-        This is a lockdown project by 
+        This is a lockdown project by
+         
         <a
           href="https://andywalpole.me/blog/"
           rel="noopener noreferrer"
@@ -19,7 +20,8 @@ exports[`MessageComponent should match snapshot 1`] = `
         >
           Andrew Walpole
         </a>
-        , built using D3.js, the Web Audio API, IndexedDB and WebAssembly (WASM) on a Gatsby/React/Redux base. 
+        , built using D3.js, the Web Audio API, IndexedDB and WebAssembly (WASM) on a Gatsby/React/Redux base.
+         
         <a
           class="demo"
           data-testid="link"
@@ -27,7 +29,8 @@ exports[`MessageComponent should match snapshot 1`] = `
         >
           Click here to load a demo video file
         </a>
-        . 
+        .
+         
         <a
           href="https://github.com/TCotton/Online-Browser-Video-Editor"
           rel="noopener noreferrer"

@@ -1,2 +1,2 @@
-require('jest-fetch-mock').enableMocks();
-fetchMock.dontMock();
+require('jest-fetch-mock').enableMocks()
+fetchMock.dontMock()

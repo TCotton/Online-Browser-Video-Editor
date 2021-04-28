@@ -1,6 +1,6 @@
-import { setConfig } from 'react-hot-loader';
+import { setConfig } from 'react-hot-loader'
 
 setConfig({
-    pureSFC: true,
-    pureRender: true,
+  pureSFC: true,
+  pureRender: true
 })

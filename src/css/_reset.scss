@@ -328,7 +328,7 @@ pre {
  */
 
 q {
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: '\201C''\201D''\2018''\2019';
 }
 /**
  * Address inconsistent and variable font size in all browsers.
@@ -444,7 +444,7 @@ textarea {
   /* 1 */
   margin: 0;
   /* 2 */
-  border-radius: 0
+  border-radius: 0;
 }
 /**
  * Address inconsistent `text-transform` inheritance for `button` and `select`.
@@ -466,9 +466,9 @@ select {
  */
 
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+html input[type='button'],
+input[type='reset'],
+input[type='submit'] {
   /* 2 */
   -webkit-appearance: button;
   /* 3 */
@@ -487,7 +487,7 @@ html input[disabled] {
  * 2. Correct the outline style in Safari.
  */
 
-[type="search"] {
+[type='search'] {
   appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -498,8 +498,8 @@ html input[disabled] {
  * on OS X.
  */
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 /**
@@ -507,9 +507,9 @@ input[type="search"]::-webkit-search-decoration {
  */
 
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -518,9 +518,9 @@ button::-moz-focus-inner,
  */
 
 button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 /**
@@ -611,7 +611,7 @@ template {
  * Change the cursor on busy elements (opinionated).
  */
 
-[aria-busy="true"] {
+[aria-busy='true'] {
   cursor: progress;
 }
 /*
@@ -652,12 +652,12 @@ textarea,
  * Change the display on visually hidden accessible elements (opinionated).
  */
 
-[hidden][aria-hidden="false"] {
+[hidden][aria-hidden='false'] {
   clip: rect(0, 0, 0, 0);
   display: inherit;
   position: absolute;
 }
-[hidden][aria-hidden="false"]:focus {
+[hidden][aria-hidden='false']:focus {
   clip: auto;
 }
 /* disable / enable fort kerning and in all modern browers from ie9 upwards */
@@ -683,14 +683,14 @@ caption {
   /* just left it in the headers. Was making font less legible elsewhere */
   text-rendering: optimizeLegibility;
   font-kerning: normal;
-  font-feature-settings: "liga", "kern";
+  font-feature-settings: 'liga', 'kern';
 }
 
 /* slight character and word gap of retina devices to make the text more legible */
 @media (min-resolution: 320dpi),
-not all,
-(min-resolution: 2dppx),
-(min-resolution: 192dpi) {
+  not all,
+  (min-resolution: 2dppx),
+  (min-resolution: 192dpi) {
   p,
   li {
     letter-spacing: 0.01rem;
@@ -705,8 +705,8 @@ not all,
   box-sizing: border-box;
 }
 
-input[type="submit"],
-input[type="button"],
+input[type='submit'],
+input[type='button'],
 select,
 a {
   cursor: pointer;
@@ -723,23 +723,23 @@ textarea {
  * decrement button to change from `default` to `text`.
  */
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 /* Remove Search Box Buttons in WebKit: http://davidwalsh.name/remove-search-box-buttons-webkit */
 
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
   display: none;
 }
 /* remove default webkit form field appearance */
 
-input[type="text"],
-input[type="email"],
-input[type="url"],
+input[type='text'],
+input[type='email'],
+input[type='url'],
 textarea {
   appearance: none;
   border-radius: 0;
@@ -752,7 +752,6 @@ img {
   vertical-align: middle;
   border: 0;
 }
-
 
 /*
  * Remove the text shadow on text selections (opinionated).

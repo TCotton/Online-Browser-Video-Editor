@@ -1,35 +1,32 @@
-import waveformReducer, {waveformFn} from "../waveformSlice";
-import {initialState} from '../model'
+import waveformReducer, { waveformFn } from '../waveformSlice'
+import { initialState } from '../model'
 
 describe('waveformSlice', () => {
-
-    const payload = {
-        data: {
-            min_array: [1, 2, 3],
-            max_array: [1, 2, 3],
-            length: 123456,
-        }
+  const payload = {
+    data: {
+      min_array: [1, 2, 3],
+      max_array: [1, 2, 3],
+      length: 123456
     }
+  }
 
-    it('should create an action to a iArray state', () => {
+  it('should create an action to a iArray state', () => {
+    const expectedAction = {
+      type: 'waveform/waveformFn',
+      payload
+    }
+    expect(waveformFn(payload)).toEqual(expectedAction)
+  })
 
-        const expectedAction = {
-            type: 'waveform/waveformFn',
-            payload
-        }
-        expect(waveformFn(payload)).toEqual(expectedAction);
-    });
+  it('reducer successfully passes data', () => {
+    const action = {
+      type: 'waveform/waveformFn',
+      payload: payload.data
+    }
+    const newState = waveformReducer(initialState.waveform, action)
 
-    it('reducer successfully passes data', () => {
-
-        const action = {
-            type: 'waveform/waveformFn',
-            payload: payload.data
-        };
-        const newState = waveformReducer(initialState.waveform, action);
-
-        expect(newState).toEqual({
-            data: payload.data
-        });
-    });
-});
+    expect(newState).toEqual({
+      data: payload.data
+    })
+  })
+})

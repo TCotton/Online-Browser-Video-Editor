@@ -6,7 +6,7 @@
 @font-face {
   font-family: 'wevlimedium';
   src: url('wevli_medium-webfont.woff2') format('woff2'),
-  url('wevli_medium-webfont.woff') format('woff');
+    url('wevli_medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @font-face {
   font-family: 'wevlimedium_italic';
   src: url('wevli_medium_italic-webfont.woff2') format('woff2'),
-  url('wevli_medium_italic-webfont.woff') format('woff');
+    url('wevli_medium_italic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -22,7 +22,7 @@
 @font-face {
   font-family: 'wevlibold_italic';
   src: url('wevli_bold_italic-webfont.woff2') format('woff2'),
-  url('wevli_bold_italic-webfont.woff') format('woff');
+    url('wevli_bold_italic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -30,7 +30,7 @@
 @font-face {
   font-family: 'wevlibold';
   src: url('wevli_bold-webfont.woff2') format('woff2'),
-  url('wevli_bold-webfont.woff') format('woff');
+    url('wevli_bold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -49,7 +49,7 @@ body {
 html {
   font-size: #{$baseFontSize};
   overflow-x: hidden;
-  background: url("../../static/background.svg") no-repeat center center fixed;
+  background: url('../../static/background.svg') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -123,13 +123,13 @@ main {
           bottom: 0;
 
           a.demo {
-            color: #e0b838
+            color: #e0b838;
           }
         }
 
         .message p {
           @include font-calculator($baseFontFamily, 14px);
-          color: lighten(#20E0BB, 20%);
+          color: lighten(#20e0bb, 20%);
 
           &:last-of-type {
             margin-bottom: 0;
@@ -140,7 +140,7 @@ main {
       .filelists {
         margin-top: var(--marginx7);
         border-top: none;
-        border-bottom: 2px solid #5D6572;
+        border-bottom: 2px solid #5d6572;
 
         .file-row {
           display: grid;
@@ -148,22 +148,22 @@ main {
           grid-auto-flow: column dense;
           align-content: space-evenly;
           &:not(:empty) {
-            border-top: 1px solid #5D6572;
+            border-top: 1px solid #5d6572;
           }
 
           p {
             @include font-calculator($baseFontFamily, 16px, 0);
-            color: #20E0BB;
+            color: #20e0bb;
             word-break: break-all;
           }
 
-          div[class*="column"] {
+          div[class*='column'] {
             display: grid;
             place-items: center;
             padding: var(--margin) 5px;
 
             &:not(:first-of-type) {
-              border-left: 2px solid #5D6572;
+              border-left: 2px solid #5d6572;
             }
           }
 
@@ -249,7 +249,7 @@ main {
             background: none;
           }
 
-          input[type="file"] {
+          input[type='file'] {
             width: 0.1px;
             height: 0.1px;
             opacity: 0;
@@ -258,8 +258,8 @@ main {
             z-index: -1;
           }
 
-          input[type="file"] + label {
-            background: url("../../static/import.svg") no-repeat top center;
+          input[type='file'] + label {
+            background: url('../../static/import.svg') no-repeat top center;
             width: 3rem;
             aspect-ratio: 8 / 6;
             color: rgba(255, 255, 255, 0);
@@ -286,7 +286,16 @@ main {
             }
           }
 
-          .left-cut, .right-cut, .left-frame, .play, .right-frame, .upload, .export, .stop, .forward, .backward {
+          .left-cut,
+          .right-cut,
+          .left-frame,
+          .play,
+          .right-frame,
+          .upload,
+          .export,
+          .stop,
+          .forward,
+          .backward {
             width: 3rem;
             aspect-ratio: 8 / 6;
             transition: all 0.3s;
@@ -401,14 +410,12 @@ main {
 
             .axis-top {
               text {
-
               }
               .tick {
                 &:first-of-type {
                   transform: translate(2px, 0);
                 }
                 &:last-of-type {
-
                 }
               }
               > path {
@@ -440,7 +447,7 @@ main {
   }
 }
 
-div[role="tooltip"] {
+div[role='tooltip'] {
   background: #e0b838;
   color: #161719;
   @include font-calculator($baseFontFamily, 13px, 0);
@@ -460,7 +467,7 @@ video {
 }
 
 .path {
-  stroke: #B8B8B8;
+  stroke: #b8b8b8;
 }
 .lds-dual-ring {
   display: inline-block;
@@ -473,7 +480,7 @@ video {
   transform: translate(-50%, -50%) translateZ(1px);
 }
 .lds-dual-ring:after {
-  content: " ";
+  content: ' ';
   display: block;
   width: 120px;
   height: 120px;
@@ -491,7 +498,6 @@ video {
     transform: rotate(360deg);
   }
 }
-
 
 .lds-circle {
   display: inline-block;
@@ -512,7 +518,8 @@ video {
   animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 @keyframes lds-circle {
-  0%, 100% {
+  0%,
+  100% {
     animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
   }
   0% {
@@ -527,7 +534,6 @@ video {
   }
 }
 
-
 .spinner {
   position: absolute;
   top: 50%;
@@ -540,7 +546,11 @@ video {
   height: 11em;
   border-radius: 50%;
   background: #ffffff;
-  background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(
+    to right,
+    #ffffff 10%,
+    rgba(255, 255, 255, 0) 42%
+  );
   animation: load3 1.4s infinite linear;
   z-index: 100;
 }

@@ -1,14 +1,14 @@
-import React from "react";
-import Layout from "../layout";
-import SEO from "../components/SEO/SEO";
+import React from 'react'
+import Layout from '../layout'
+import SEO from '../components/SEO/SEO'
 
-function Index() {
-    return (
-        <>
-            <SEO />
-            <Layout />
-        </>
-    );
+function Index () {
+  return (
+    <>
+      <SEO />
+      <Layout />
+    </>
+  )
 }
 
-export default Index;
+export default Index
